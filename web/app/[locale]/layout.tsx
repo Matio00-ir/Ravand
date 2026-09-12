@@ -4,10 +4,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { manrope, vazirmatn } from "@/lib/fonts";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { organizationJsonLd, websiteJsonLd } from "@/lib/structured-data";
 import "../globals.css";
+
+/**
+ * Root layout: document, fonts, locale direction, i18n provider.
+ * Chrome lives in the route-group layouts — (marketing) has the site
+ * masthead and footer, (app) has the product shell.
+ */
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,11 +34,7 @@ export async function generateMetadata({
     description: t("description"),
     alternates: {
       canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
-      languages: {
-        fa: "/",
-        en: "/en",
-        "x-default": "/",
-      },
+      languages: { fa: "/", en: "/en", "x-default": "/" },
     },
     openGraph: {
       type: "website",
@@ -50,9 +49,7 @@ export async function generateMetadata({
       title: `${t("name")} — ${t("tagline")}`,
       description: t("description"),
     },
-    icons: {
-      icon: "/favicon.ico",
-    },
+    icons: { icon: "/favicon.ico" },
   };
 }
 
@@ -69,36 +66,14 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
 
-  const dir = locale === "fa" ? "rtl" : "ltr";
-
   return (
     <html
       lang={locale}
-      dir={dir}
+      dir={locale === "fa" ? "rtl" : "ltr"}
       className={`${manrope.variable} ${vazirmatn.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd(locale)) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd(locale)) }}
-        />
-        <NextIntlClientProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-sm)] focus:bg-black focus:px-4 focus:py-2 focus:text-offwhite"
-          >
-            Skip to content
-          </a>
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
+      <body className="min-h-full antialiased">
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

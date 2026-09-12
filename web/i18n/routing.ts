@@ -28,6 +28,11 @@ export const routing = defineRouting({
     "/company/about": { fa: "/درباره-ما", en: "/company/about" },
     "/company/contact": { fa: "/تماس-با-ما", en: "/company/contact" },
     "/demo": { fa: "/درخواست-دمو", en: "/demo" },
+    // Product area. Same slug in both locales, and noindex everywhere —
+    // it is an application surface, not a public page.
+    "/dashboard": "/dashboard",
+    "/dashboard/finance": "/dashboard/finance",
+    "/dashboard/sales": "/dashboard/sales",
     // Reserved for Phase 2/3 content roadmap (see docs/REPORT.md) —
     // deep-linking individual product/industry pages once real content exists.
     "/products/erp": { fa: "/محصولات/erp", en: "/products/erp" },

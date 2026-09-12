@@ -614,5 +614,507 @@
         "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report)."
       }
     }
+  },
+  "dash": {
+    "nav": {
+      "aria": "Modules",
+      "open": "Open menu",
+      "close": "Close menu",
+      "soon": "Soon",
+      "overview": "Overview",
+      "finance": "Finance",
+      "sales": "Sales",
+      "crm": "Customers",
+      "inventory": "Inventory",
+      "workflow": "Workflow",
+      "hr": "People",
+      "analytics": "Analytics",
+      "erp": "Resources"
+    },
+    "workspace": {
+      "label": "Workspace",
+      "name": "RAVAND demo"
+    },
+    "user": {
+      "name": "Demo user",
+      "role": "System admin",
+      "initials": "DU"
+    },
+    "search": "Search",
+    "backToSite": "Back to site",
+    "sampleNote": "All figures in this environment are sample data and only illustrate the structure of the system.",
+    "overview": {
+      "title": "Overview",
+      "meta": "September 2026 · live",
+      "stats": [
+        {
+          "label": "Net revenue",
+          "value": "1,248",
+          "unit": "M Toman",
+          "delta": "+12.5% vs August",
+          "trend": "up"
+        },
+        {
+          "label": "Open orders",
+          "value": "186",
+          "unit": "orders",
+          "delta": "+8 this week",
+          "trend": "up"
+        },
+        {
+          "label": "Stock turnover",
+          "value": "4.2",
+          "unit": "× per month",
+          "delta": "+0.3",
+          "trend": "up"
+        },
+        {
+          "label": "On-time delivery",
+          "value": "96",
+          "unit": "percent",
+          "delta": "−0.4% vs August",
+          "trend": "down"
+        }
+      ],
+      "revenue": {
+        "title": "Revenue trend",
+        "meta": "Last 12 months",
+        "series": "Current period",
+        "compare": "Previous period",
+        "months": [
+          "Jan",
+          "Apr",
+          "Jul",
+          "Oct"
+        ]
+      },
+      "composition": {
+        "title": "Revenue composition",
+        "meta": "September 2026",
+        "center": "1248",
+        "centerLabel": "Million",
+        "segments": [
+          {
+            "label": "Sales",
+            "value": 32
+          },
+          {
+            "label": "Operations",
+            "value": 24
+          },
+          {
+            "label": "Marketing",
+            "value": 18
+          },
+          {
+            "label": "Finance",
+            "value": 14
+          },
+          {
+            "label": "Other",
+            "value": 12
+          }
+        ]
+      },
+      "documents": {
+        "title": "Recent documents",
+        "meta": "Last 5",
+        "action": "View all",
+        "columns": [
+          "Document",
+          "Type",
+          "Amount",
+          "Status"
+        ],
+        "status": {
+          "paid": "Settled",
+          "pending": "Pending",
+          "processing": "Processing",
+          "overdue": "Overdue"
+        },
+        "rows": [
+          {
+            "ref": "INV-2481",
+            "account": "Sample account 04",
+            "type": "Sales invoice",
+            "amount": "84,200,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PO-1043",
+            "account": "Sample account 11",
+            "type": "Purchase order",
+            "amount": "31,500,000",
+            "status": "pending"
+          },
+          {
+            "ref": "INV-2480",
+            "account": "Sample account 07",
+            "type": "Sales invoice",
+            "amount": "126,900,000",
+            "status": "paid"
+          },
+          {
+            "ref": "GRN-0918",
+            "account": "Sample account 22",
+            "type": "Goods receipt",
+            "amount": "58,400,000",
+            "status": "processing"
+          },
+          {
+            "ref": "INV-2477",
+            "account": "Sample account 09",
+            "type": "Sales invoice",
+            "amount": "42,100,000",
+            "status": "overdue"
+          }
+        ]
+      },
+      "approvals": {
+        "title": "Awaiting approval",
+        "meta": "4 items",
+        "items": [
+          {
+            "title": "Purchase order PO-1044",
+            "meta": "Procurement · 2 hours ago",
+            "tone": "warning",
+            "state": "Waiting on you"
+          },
+          {
+            "title": "Leave request — Sample account 17",
+            "meta": "People · yesterday",
+            "tone": "info",
+            "state": "In progress"
+          },
+          {
+            "title": "Discount on INV-2479",
+            "meta": "Sales · yesterday",
+            "tone": "warning",
+            "state": "Waiting on you"
+          },
+          {
+            "title": "Transfer between warehouse 2 and 5",
+            "meta": "Inventory · 3 days ago",
+            "tone": "neutral",
+            "state": "Draft"
+          }
+        ]
+      }
+    },
+    "finance": {
+      "title": "Finance",
+      "meta": "FY 2026 · September",
+      "stats": [
+        {
+          "label": "Cash balance",
+          "value": "864",
+          "unit": "M Toman",
+          "delta": "+4.1%",
+          "trend": "up"
+        },
+        {
+          "label": "Receivables",
+          "value": "412",
+          "unit": "M Toman",
+          "delta": "28 open documents",
+          "trend": "flat"
+        },
+        {
+          "label": "Payables",
+          "value": "237",
+          "unit": "M Toman",
+          "delta": "11 open documents",
+          "trend": "flat"
+        },
+        {
+          "label": "Gross margin",
+          "value": "34.6",
+          "unit": "percent",
+          "delta": "+1.2 pts",
+          "trend": "up"
+        }
+      ],
+      "cashflow": {
+        "title": "Cash flow",
+        "meta": "Net inflow, 12 months",
+        "labels": [
+          "J",
+          "F",
+          "M",
+          "A",
+          "M",
+          "J",
+          "J",
+          "A",
+          "S",
+          "O",
+          "N",
+          "D"
+        ],
+        "data": [
+          38,
+          42,
+          40,
+          51,
+          47,
+          55,
+          52,
+          61,
+          58,
+          66,
+          63,
+          74
+        ]
+      },
+      "aging": {
+        "title": "Receivables ageing",
+        "meta": "By bucket",
+        "buckets": [
+          {
+            "label": "Current",
+            "value": 46,
+            "caption": "190M"
+          },
+          {
+            "label": "1–30 days",
+            "value": 28,
+            "caption": "115M"
+          },
+          {
+            "label": "31–60 days",
+            "value": 15,
+            "caption": "62M"
+          },
+          {
+            "label": "61–90 days",
+            "value": 7,
+            "caption": "29M"
+          },
+          {
+            "label": "Over 90 days",
+            "value": 4,
+            "caption": "16M"
+          }
+        ]
+      },
+      "ledger": {
+        "title": "General ledger",
+        "meta": "Latest entries",
+        "action": "Full report",
+        "columns": [
+          "Date",
+          "Description",
+          "Account",
+          "Debit",
+          "Credit",
+          "Status"
+        ],
+        "status": {
+          "posted": "Posted",
+          "draft": "Draft",
+          "review": "In review"
+        },
+        "rows": [
+          {
+            "date": "2026-09-12",
+            "desc": "Goods sold — Sample account 04",
+            "account": "1103 · Trade receivable",
+            "debit": "84,200,000",
+            "credit": "—",
+            "status": "posted"
+          },
+          {
+            "date": "2026-09-11",
+            "desc": "Payment received — bank",
+            "account": "1012 · Bank",
+            "debit": "126,900,000",
+            "credit": "—",
+            "status": "posted"
+          },
+          {
+            "date": "2026-09-10",
+            "desc": "Raw material purchase",
+            "account": "2101 · Trade payable",
+            "debit": "—",
+            "credit": "31,500,000",
+            "status": "review"
+          },
+          {
+            "date": "2026-09-09",
+            "desc": "Freight expense",
+            "account": "6204 · Distribution cost",
+            "debit": "7,800,000",
+            "credit": "—",
+            "status": "posted"
+          },
+          {
+            "date": "2026-09-08",
+            "desc": "Stock adjustment, warehouse 2",
+            "account": "1201 · Inventory",
+            "debit": "—",
+            "credit": "4,200,000",
+            "status": "draft"
+          }
+        ]
+      }
+    },
+    "sales": {
+      "title": "Sales",
+      "meta": "September 2026 · all channels",
+      "stats": [
+        {
+          "label": "Sales this month",
+          "value": "538",
+          "unit": "M Toman",
+          "delta": "+9.4%",
+          "trend": "up"
+        },
+        {
+          "label": "Orders placed",
+          "value": "241",
+          "unit": "orders",
+          "delta": "+17",
+          "trend": "up"
+        },
+        {
+          "label": "Average order value",
+          "value": "2.2",
+          "unit": "M Toman",
+          "delta": "−1.8% vs August",
+          "trend": "down"
+        },
+        {
+          "label": "Conversion rate",
+          "value": "23.5",
+          "unit": "percent",
+          "delta": "+2.1 pts",
+          "trend": "up"
+        }
+      ],
+      "funnel": {
+        "title": "Sales funnel",
+        "meta": "Last 90 days",
+        "stages": [
+          {
+            "label": "Leads",
+            "value": 820,
+            "caption": "100%"
+          },
+          {
+            "label": "First contact",
+            "value": 512,
+            "caption": "62%"
+          },
+          {
+            "label": "Proposal sent",
+            "value": 318,
+            "caption": "39%"
+          },
+          {
+            "label": "Negotiation",
+            "value": 214,
+            "caption": "26%"
+          },
+          {
+            "label": "Closed",
+            "value": 193,
+            "caption": "23.5%"
+          }
+        ]
+      },
+      "top": {
+        "title": "Top sellers",
+        "meta": "By value",
+        "items": [
+          {
+            "label": "ERP deployment package",
+            "value": 42,
+            "caption": "226M"
+          },
+          {
+            "label": "Finance module",
+            "value": 27,
+            "caption": "145M"
+          },
+          {
+            "label": "Inventory module",
+            "value": 18,
+            "caption": "97M"
+          },
+          {
+            "label": "Annual support",
+            "value": 9,
+            "caption": "48M"
+          },
+          {
+            "label": "Team training",
+            "value": 4,
+            "caption": "22M"
+          }
+        ]
+      },
+      "orders": {
+        "title": "Recent orders",
+        "meta": "Last 6",
+        "action": "View all",
+        "columns": [
+          "Order",
+          "Customer",
+          "Channel",
+          "Amount",
+          "Status"
+        ],
+        "status": {
+          "confirmed": "Confirmed",
+          "packing": "Packing",
+          "shipped": "Shipped",
+          "hold": "On hold"
+        },
+        "rows": [
+          {
+            "ref": "SO-4821",
+            "account": "Sample account 04",
+            "channel": "Direct",
+            "amount": "84,200,000",
+            "status": "confirmed"
+          },
+          {
+            "ref": "SO-4820",
+            "account": "Sample account 19",
+            "channel": "Reseller",
+            "amount": "32,600,000",
+            "status": "packing"
+          },
+          {
+            "ref": "SO-4819",
+            "account": "Sample account 07",
+            "channel": "Direct",
+            "amount": "126,900,000",
+            "status": "shipped"
+          },
+          {
+            "ref": "SO-4818",
+            "account": "Sample account 31",
+            "channel": "Online",
+            "amount": "11,400,000",
+            "status": "shipped"
+          },
+          {
+            "ref": "SO-4817",
+            "account": "Sample account 22",
+            "channel": "Reseller",
+            "amount": "58,400,000",
+            "status": "hold"
+          },
+          {
+            "ref": "SO-4816",
+            "account": "Sample account 09",
+            "channel": "Direct",
+            "amount": "42,100,000",
+            "status": "confirmed"
+          }
+        ]
+      }
+    }
   }
 }
