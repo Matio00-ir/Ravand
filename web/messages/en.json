@@ -15,7 +15,8 @@
     "contact": "Contact",
     "demo": "Request Demo",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "demoEnv": "Demo"
   },
   "common": {
     "requestDemo": "Request Demo",
@@ -29,7 +30,7 @@
     "title": "Business, in flow.",
     "description": "RAVAND designs and builds business management systems — finance, customers, sales, inventory, and workflows — as one system, built and configured around how your organization actually works.",
     "ctaPrimary": "Request Demo",
-    "ctaSecondary": "See the product",
+    "ctaSecondary": "Open the demo",
     "note": "14 days of free access to the demo environment",
     "eyebrow": "Business management systems"
   },
@@ -197,7 +198,9 @@
         ]
       }
     ],
-    "note": "In a custom build, this same structure is designed from scratch around the company's own process — not only selected from ready modules."
+    "note": "In a custom build, this same structure is designed from scratch around the company's own process — not only selected from ready modules.",
+    "enter": "Open the demo environment",
+    "enterMeta": "Open this same system with sample data."
   },
   "industries": {
     "index": "04",
@@ -515,7 +518,8 @@
         "items": [
           "About RAVAND",
           "Contact",
-          "Request Demo"
+          "Request Demo",
+          "Demo environment"
         ]
       }
     },
@@ -611,7 +615,10 @@
         "phone": "Phone number",
         "interest": "Area of interest",
         "submit": "Start free demo",
-        "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report)."
+        "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report).",
+        "openTitle": "The demo environment is ready",
+        "openBody": "This form is not wired to a delivery service yet, but the demo environment is available now — you can explore the system with sample data.",
+        "openCta": "Enter the demo environment"
       }
     }
   },

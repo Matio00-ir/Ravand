@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
+import { Link } from "@/i18n/navigation";
 
 const fieldClass =
   "w-full rounded-[var(--radius-sm)] border border-hair-strong bg-raised px-3.5 py-3 text-[15px] text-ink transition-colors duration-[var(--t-base)] focus:border-ink focus:outline-none";
@@ -21,9 +22,14 @@ export function DemoForm() {
 
   if (submitted) {
     return (
-      <div className="border-t border-ink pt-6">
-        <p className="t-h4 text-ink">✓</p>
-        <p className="t-small mt-2 max-w-md text-ink-muted">{t("note")}</p>
+      <div className="border-t border-ink pt-8">
+        <h2 className="t-h3 text-ink">{t("openTitle")}</h2>
+        <p className="t-body mt-4 max-w-lg text-ink-muted">{t("openBody")}</p>
+        <div className="mt-8">
+          <Link href="/dashboard" className="btn btn--dark">
+            {t("openCta")}
+          </Link>
+        </div>
       </div>
     );
   }

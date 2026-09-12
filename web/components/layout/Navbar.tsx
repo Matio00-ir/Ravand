@@ -52,6 +52,12 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
+          <Link
+            href="/dashboard"
+            className="text-[13.5px] font-medium text-silver transition-colors duration-[var(--t-base)] hover:text-offwhite"
+          >
+            {t("demoEnv")}
+          </Link>
           <LanguageSwitcher />
           <Link href="/demo" className="btn btn--sm btn--light">
             {t("demo")}
@@ -92,6 +98,13 @@ export function Navbar() {
               {t(link.key)}
             </Link>
           ))}
+          <Link
+            href="/dashboard"
+            onClick={() => setOpen(false)}
+            className="border-b border-line-dark py-4 text-[15px] text-silver"
+          >
+            {t("demoEnv")}
+          </Link>
           <div className="flex items-center justify-between gap-4 py-5">
             <LanguageSwitcher />
             <Link

@@ -125,6 +125,15 @@ export function DashboardShell({
         <div className="min-h-0 flex-1 overflow-y-auto pb-4">{nav}</div>
 
         <div className="shrink-0 border-t border-line-dark p-4">
+          <Link
+            href="/"
+            className="mb-4 flex items-center gap-2 text-[12.5px] text-steel transition-colors duration-[var(--t-base)] hover:text-silver"
+          >
+            <svg viewBox="0 0 12 12" className="h-3 w-3 shrink-0 rtl:-scale-x-100" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path d="M7.5 2L3.5 6l4 4" strokeLinecap="square" />
+            </svg>
+            {t("backToSite")}
+          </Link>
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[var(--radius-xs)] border border-line-dark bg-white/[0.05] text-[11px] font-bold text-silver">
               {t("user.initials")}
@@ -189,7 +198,13 @@ export function DashboardShell({
         >
           <div className="py-3">{nav}</div>
           <div className="flex items-center justify-between border-t border-line-dark px-5 py-4">
-            <span className="text-[12.5px] text-steel">{t("workspace.name")}</span>
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="text-[12.5px] text-steel hover:text-silver"
+            >
+              {t("backToSite")}
+            </Link>
             <LanguageSwitcher />
           </div>
         </div>

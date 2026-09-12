@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
+import { Link } from "@/i18n/navigation";
 import { Dashboard } from "@/components/product/Dashboard";
 import { type ModuleKey } from "@/components/system/ModuleIcon";
 import { cn } from "@/lib/utils";
@@ -62,7 +63,12 @@ export function ProductZone() {
           <Dashboard modules={current.modules} active={current.modules[0]} />
         </div>
 
-        <p className="t-small mt-6 max-w-2xl text-steel">{t("note")}</p>
+        <div className="mt-8 flex flex-col gap-4 border-t border-line-dark pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="t-small max-w-2xl text-steel">{t("note")}</p>
+          <Link href="/dashboard" className="btn btn--sm btn--ghost-dark shrink-0">
+            {t("enter")}
+          </Link>
+        </div>
       </div>
     </Zone>
   );

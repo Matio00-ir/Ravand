@@ -7,7 +7,7 @@ const columnLinks: Record<string, readonly string[]> = {
   products: ["/products", "/products", "/products", "/products", "/products", "/products"],
   solutions: ["/solutions", "/solutions", "/solutions"],
   industries: ["/industries", "/industries", "/industries", "/industries", "/industries", "/industries"],
-  company: ["/company/about", "/company/contact", "/demo"],
+  company: ["/company/about", "/company/contact", "/demo", "/dashboard"],
 };
 
 export function Footer() {

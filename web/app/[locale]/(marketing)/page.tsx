@@ -15,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "site" });
-  return { title: `${t("name")} — ${t("tagline")}`, description: t("description") };
+  // `absolute` so the root layout's "%s — RAVAND" template does not append
+  // a second RAVAND to the home page title.
+  return {
+    title: { absolute: `${t("name")} — ${t("tagline")}` },
+    description: t("description"),
+  };
 }
 
 export default async function HomePage({
