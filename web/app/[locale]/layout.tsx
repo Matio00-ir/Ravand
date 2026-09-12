@@ -42,13 +42,24 @@ export async function generateMetadata({
       description: t("description"),
       locale: locale === "fa" ? "fa_IR" : "en_US",
       url: locale === routing.defaultLocale ? "/" : `/${locale}`,
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: "RAVAND | روند — business management systems",
+        },
+      ],
     },
+    // No `icons` here on purpose: an explicit value overrides the
+    // app/icon.svg + app/apple-icon.png + app/favicon.ico file
+    // conventions, which is where the real marks live.
     twitter: {
       card: "summary_large_image",
       title: `${t("name")} — ${t("tagline")}`,
       description: t("description"),
+      images: ["/og.png"],
     },
-    icons: { icon: "/favicon.ico" },
   };
 }
 
