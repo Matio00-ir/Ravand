@@ -1,0 +1,461 @@
+@import "tailwindcss";
+
+/* ============================================================
+   RAVAND Design System v3
+   Calibrated against the brand artwork in /photo and the restraint
+   and rhythm of the reference site: generous section spacing, one
+   statement per zone, complete product panels, and an ORDERED
+   background grid — never scattered lines.
+   ============================================================ */
+
+:root {
+  --black: #0b0d10;
+  --graphite: #15191f;
+  --carbon: #252a31;
+  --steel: #69727d;
+  --silver: #b7bec7;
+  --offwhite: #f7f8fa;
+  --white: #ffffff;
+  --accent: #71859e;
+  --accent-strong: #55677d;
+
+  --success: #2e7d32;
+  --warning: #f59e08;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  --page: #f7f8fa;
+  --raised: #ffffff;
+  --deep: #0b0d10;
+  --deep-raised: #12161c;
+  --deep-panel: #171c23;
+
+  --line: rgba(11, 13, 16, 0.09);
+  --line-strong: rgba(11, 13, 16, 0.16);
+  --line-dark: rgba(255, 255, 255, 0.08);
+  --line-dark-strong: rgba(255, 255, 255, 0.14);
+
+  --ink: #0b0d10;
+  --ink-muted: #69727d;
+  --ink-inverse: #f7f8fa;
+  --ink-inverse-muted: #98a0aa;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+
+  --ease-flow: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-fast: 150ms;
+  --t-base: 200ms;
+  --t-slow: 250ms;
+
+  --shell: 1240px;
+  --gutter: 20px;
+
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-vazirmatn: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 40px;
+  }
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-raised: var(--raised);
+  --color-deep: var(--deep);
+  --color-deep-raised: var(--deep-raised);
+  --color-deep-panel: var(--deep-panel);
+
+  --color-black: var(--black);
+  --color-graphite: var(--graphite);
+  --color-carbon: var(--carbon);
+  --color-steel: var(--steel);
+  --color-silver: var(--silver);
+  --color-offwhite: var(--offwhite);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-line-dark: var(--line-dark);
+  --color-line-dark-strong: var(--line-dark-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-ink-inverse-muted: var(--ink-inverse-muted);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --font-sans: var(--font-manrope);
+  --font-fa: var(--font-vazirmatn);
+}
+
+/* ---------------- base ---------------- */
+
+*,
+*::before,
+*::after {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[lang="fa"] body {
+  font-family: var(--font-fa);
+}
+
+::selection {
+  background: var(--black);
+  color: var(--offwhite);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------- shell and rhythm ---------------- */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.zone {
+  padding-block: 80px;
+}
+
+@media (min-width: 768px) {
+  .zone {
+    padding-block: 112px;
+  }
+}
+
+/* ---------------- ordered background grid ----------------
+   One even square grid: identical cell size everywhere, aligned to a
+   single origin, at very low opacity. This is the only background
+   line treatment in the system — nothing is placed by eye. */
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: center top;
+}
+
+.grid-bg--dark {
+  color: #ffffff;
+  opacity: 0.04;
+}
+
+.grid-bg--light {
+  color: #0b0d10;
+  opacity: 0.05;
+}
+
+.grid-bg--fade {
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 35%,
+    #000 30%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 35%,
+    #000 30%,
+    transparent 100%
+  );
+}
+
+/* ---------------- typography ----------------
+   Latin runs heavy and tight (Manrope 800). Persian keeps a looser
+   line-height and zero tracking, which Vazirmatn requires. */
+
+.t-display {
+  font-size: clamp(2.75rem, 6.4vw, 4.75rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.t-h2 {
+  font-size: clamp(2rem, 3.6vw, 2.875rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.032em;
+}
+
+.t-h3 {
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.t-h4 {
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.t-lead {
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.t-body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.t-small {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+html[lang="fa"] .t-display {
+  letter-spacing: 0;
+  line-height: 1.28;
+  font-weight: 700;
+}
+
+html[lang="fa"] .t-h2 {
+  letter-spacing: 0;
+  line-height: 1.32;
+  font-weight: 700;
+}
+
+html[lang="fa"] .t-h3,
+html[lang="fa"] .t-h4 {
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+html[lang="fa"] .t-lead {
+  line-height: 1.85;
+}
+
+html[lang="fa"] .t-body {
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+html[lang="fa"] .t-small {
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+.t-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+html[lang="fa"] .t-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.t-index {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+}
+
+html[lang="fa"] .t-index {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.t-code {
+  font-family: var(--font-manrope);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.t-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------- controls ---------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+  padding: 13px 24px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background-color var(--t-base) var(--ease-flow),
+    border-color var(--t-base) var(--ease-flow),
+    color var(--t-base) var(--ease-flow);
+}
+
+html[lang="fa"] .btn {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.btn--sm {
+  padding: 9px 16px;
+  font-size: 0.6875rem;
+}
+
+html[lang="fa"] .btn--sm {
+  font-size: 0.8125rem;
+}
+
+.btn--light {
+  background: var(--offwhite);
+  color: var(--black);
+}
+.btn--light:hover {
+  background: var(--white);
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--offwhite);
+}
+.btn--dark:hover {
+  background: var(--graphite);
+}
+
+.btn--ghost-dark {
+  border: 1px solid var(--line-dark-strong);
+  color: var(--silver);
+}
+.btn--ghost-dark:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--offwhite);
+}
+
+.btn--ghost-light {
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+.btn--ghost-light:hover {
+  border-color: var(--black);
+}
+
+/* ---------------- panels ---------------- */
+
+.panel {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--raised);
+}
+
+.panel--dark {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line-dark);
+  background: var(--deep-raised);
+}
+
+/* ---------------- motion ---------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 700ms var(--ease-flow),
+    transform 700ms var(--ease-flow);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0.5;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
