@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { getPathname } from "@/i18n/navigation";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ravand.example";
+import { SITE_URL } from "@/lib/site";
 
 // Public, indexable routes only (see /docs/REPORT.md §Indexing).
 const routes = [

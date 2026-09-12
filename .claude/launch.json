@@ -4,9 +4,9 @@
     {
       "name": "ravand-web",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "web",
-      "port": 3000
+      "runtimeArgs": ["--prefix", "web", "run", "dev"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

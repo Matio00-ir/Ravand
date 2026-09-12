@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { manrope, vazirmatn } from "@/lib/fonts";
+import { SITE_ORIGIN } from "@/lib/site";
 import "../globals.css";
 
 /**
@@ -23,10 +24,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "site" });
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ravand.example";
-
   return {
-    metadataBase: new URL(base),
+    metadataBase: SITE_ORIGIN,
     title: {
       default: `${t("name")} — ${t("tagline")}`,
       template: `%s — RAVAND`,

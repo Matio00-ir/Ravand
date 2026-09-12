@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ravand.example";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * Organization entity — kept consistent across every page that emits it.
