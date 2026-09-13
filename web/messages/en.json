@@ -13,13 +13,13 @@
     "company": "Company",
     "about": "About",
     "contact": "Contact",
-    "demo": "Request Demo",
+    "demo": "Build my RAVAND",
     "menu": "Menu",
     "close": "Close",
     "demoEnv": "Demo"
   },
   "common": {
-    "requestDemo": "Request Demo",
+    "requestDemo": "Build my RAVAND",
     "seeProduct": "See the product",
     "learnMore": "More",
     "contactUs": "Contact us",
@@ -29,7 +29,7 @@
   "hero": {
     "title": "Business, in flow.",
     "description": "RAVAND designs and builds business management systems — finance, customers, sales, inventory, and workflows — as one system, built and configured around how your organization actually works.",
-    "ctaPrimary": "Request Demo",
+    "ctaPrimary": "Build my RAVAND",
     "ctaSecondary": "Open the demo",
     "note": "14 days of free access to the demo environment",
     "eyebrow": "Business management systems"
@@ -342,7 +342,7 @@
   "closing": {
     "title": "See the system in the demo environment",
     "description": "14 days of access with sample data, so you can judge the system in practice before any decision.",
-    "ctaPrimary": "Request Demo",
+    "ctaPrimary": "Build my RAVAND",
     "ctaSecondary": "Talk to the team",
     "note": "No credit card. No commitment."
   },
@@ -518,7 +518,7 @@
         "items": [
           "About RAVAND",
           "Contact",
-          "Request Demo",
+          "Build my RAVAND",
           "Demo environment"
         ]
       }
@@ -603,9 +603,9 @@
       }
     },
     "demo": {
-      "eyebrow": "Request Demo",
-      "title": "14 days of free access to RAVAND",
-      "description": "Fill in the form below and your demo account will be prepared.",
+      "eyebrow": "Build my RAVAND",
+      "title": "Build your own system, right here",
+      "description": "Pick a business model, your modules, and your workflow, and see your own dedicated version of RAVAND — then get in touch with our team.",
       "form": {
         "name": "Full name",
         "company": "Company name",
@@ -620,6 +620,46 @@
         "openBody": "This form is not wired to a delivery service yet, but the demo environment is available now — you can explore the system with sample data.",
         "openCta": "Enter the demo environment"
       }
+    }
+  },
+  "builder": {
+    "steps": ["Business type", "Modules", "Workflow", "Summary", "Contact"],
+    "back": "Back",
+    "next": "Continue",
+    "finish": "Get this configuration",
+    "businessType": {
+      "title": "What kind of business is this?",
+      "lead": "Pick the model closest to yours; a starting set of modules and a workflow are prepared from it — you can change either afterwards."
+    },
+    "modules": {
+      "title": "Lay out your system's modules",
+      "lead": "Click any module to turn it on or off; the dashboard beside it updates live."
+    },
+    "workflow": {
+      "title": "Lay out how your business works",
+      "lead": "Add, remove, or rename stages — this same structure becomes your day-to-day workflow in the real system.",
+      "addStage": "Add stage",
+      "stagePlaceholder": "Stage name",
+      "removeStage": "Remove this stage"
+    },
+    "summary": {
+      "title": "This is your RAVAND",
+      "lead": "The configuration you've built so far.",
+      "businessTypeLabel": "Business model",
+      "modulesLabel": "Modules",
+      "workflowLabel": "Workflow",
+      "usersLabel": "Expected users"
+    },
+    "contact": {
+      "title": "Want this system for your business?",
+      "lead": "Bring up this same configuration when you talk to our team.",
+      "recapNote": "Mention the configuration above when you talk to sales — this form doesn't send it automatically yet."
+    },
+    "workflowPresets": {
+      "manufacturing": ["Customer order", "Sales review", "Production planning", "Raw material sourcing", "Quality control", "Delivery & invoice"],
+      "trading": ["Customer request", "Stock check", "Purchase order", "Manager approval", "Delivery & invoice"],
+      "services": ["Customer request", "Review & estimate", "Team assignment", "Service delivery", "Approval & invoice"],
+      "retail": ["Sale recorded", "Stock check", "Invoice issued", "Loyalty program"]
     }
   },
   "dash": {
