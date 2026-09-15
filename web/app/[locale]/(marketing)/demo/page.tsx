@@ -5,6 +5,8 @@ import { DemoForm } from "@/components/sections/DemoForm";
 import { Zone } from "@/components/system/Zone";
 import { Shell } from "@/components/system/Shell";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { getPathname } from "@/i18n/navigation";
+import { localizedAlternates } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -16,7 +18,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: locale === "fa" ? "/demo" : "/en/demo" },
+    alternates: localizedAlternates("/demo", locale),
   };
 }
 
@@ -30,8 +32,8 @@ export default async function DemoPage({
   const t = await getTranslations({ locale, namespace: "pages.demo" });
 
   const jsonLd = breadcrumbJsonLd([
-    { name: "RAVAND", url: "/" },
-    { name: t("title"), url: "/demo" },
+    { name: "RAVAND", url: getPathname({ href: "/", locale }) },
+    { name: t("title"), url: getPathname({ href: "/demo", locale }) },
   ]);
 
   return (

@@ -6,7 +6,14 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 const columnLinks: Record<string, readonly string[]> = {
   products: ["/products", "/products", "/products", "/products", "/products", "/products"],
   solutions: ["/solutions", "/solutions", "/solutions"],
-  industries: ["/industries", "/industries", "/industries", "/industries", "/industries", "/industries"],
+  industries: [
+    "/industries/manufacturing",
+    "/industries/trading",
+    "/industries/retail",
+    "/industries/services",
+    "/industries/fitness",
+    "/industries/healthcare",
+  ],
   company: ["/company/about", "/company/contact", "/demo", "/dashboard"],
 };
 
@@ -56,10 +63,10 @@ export function Footer() {
             © {year} RAVAND · {t("rights")}
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/" className="t-small text-steel hover:text-silver">
+            <Link href="/privacy" className="t-small text-steel hover:text-silver">
               {t("legal.privacy")}
             </Link>
-            <Link href="/" className="t-small text-steel hover:text-silver">
+            <Link href="/terms" className="t-small text-steel hover:text-silver">
               {t("legal.terms")}
             </Link>
             <LanguageSwitcher />

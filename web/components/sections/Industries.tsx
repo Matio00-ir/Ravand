@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
+import { Link } from "@/i18n/navigation";
+import type { Pathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 type Industry = {
   id: string;
@@ -11,6 +14,18 @@ type Industry = {
   description: string;
   focus: string;
   modules: string[];
+};
+
+// Every id in `industries.items` (messages/*.json) has a dedicated page —
+// mapped explicitly rather than built as a template string, so an unknown
+// id can't silently produce a broken link.
+const DETAIL_HREF: Record<string, Pathname> = {
+  manufacturing: "/industries/manufacturing",
+  trading: "/industries/trading",
+  retail: "/industries/retail",
+  services: "/industries/services",
+  fitness: "/industries/fitness",
+  healthcare: "/industries/healthcare",
 };
 
 /**
@@ -22,6 +37,7 @@ export function Industries() {
   const items = t.raw("items") as Industry[];
   const [activeId, setActiveId] = useState(items[0].id);
   const active = items.find((i) => i.id === activeId) ?? items[0];
+  const tc = useTranslations("common");
 
   return (
     <Zone tone="light" id="industries">
@@ -37,7 +53,10 @@ export function Industries() {
                   <button
                     key={item.id}
                     type="button"
-                    onClick={() => setActiveId(item.id)}
+                    onClick={() => {
+                      setActiveId(item.id);
+                      track("industry_select", { industry: item.id });
+                    }}
                     aria-pressed={on}
                     className={cn(
                       "shrink-0 whitespace-nowrap rounded-[var(--radius-sm)] border px-4 py-3 text-start text-[14px] transition-colors duration-[var(--t-base)] lg:w-full lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-b lg:border-line lg:px-0 lg:py-4",
@@ -88,6 +107,15 @@ export function Industries() {
                   </dd>
                 </div>
               </dl>
+
+              {DETAIL_HREF[active.id] ? (
+                <Link
+                  href={DETAIL_HREF[active.id]}
+                  className="t-small mt-8 inline-flex items-center gap-1.5 text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-[var(--t-base)] hover:decoration-ink"
+                >
+                  {tc("learnMore")}
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
