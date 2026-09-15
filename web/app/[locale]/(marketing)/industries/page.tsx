@@ -5,6 +5,8 @@ import { Industries } from "@/components/sections/Industries";
 import { ProductZone } from "@/components/sections/ProductZone";
 import { Closing } from "@/components/sections/Closing";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { getPathname } from "@/i18n/navigation";
+import { localizedAlternates } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -16,7 +18,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: locale === "fa" ? "/industries" : "/en/industries" },
+    alternates: localizedAlternates("/industries", locale),
   };
 }
 
@@ -30,8 +32,8 @@ export default async function IndustriesPage({
   const t = await getTranslations({ locale, namespace: "pages.industries" });
 
   const jsonLd = breadcrumbJsonLd([
-    { name: "RAVAND", url: "/" },
-    { name: t("title"), url: "/industries" },
+    { name: "RAVAND", url: getPathname({ href: "/", locale }) },
+    { name: t("title"), url: getPathname({ href: "/industries", locale }) },
   ]);
 
   return (

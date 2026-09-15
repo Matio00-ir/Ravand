@@ -5,6 +5,8 @@ import { Platform } from "@/components/sections/Platform";
 import { ProductZone } from "@/components/sections/ProductZone";
 import { Closing } from "@/components/sections/Closing";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { getPathname } from "@/i18n/navigation";
+import { localizedAlternates } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -16,7 +18,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: locale === "fa" ? "/products" : "/en/products" },
+    alternates: localizedAlternates("/products", locale),
   };
 }
 
@@ -30,8 +32,8 @@ export default async function ProductsPage({
   const t = await getTranslations({ locale, namespace: "pages.products" });
 
   const jsonLd = breadcrumbJsonLd([
-    { name: "RAVAND", url: "/" },
-    { name: t("title"), url: "/products" },
+    { name: "RAVAND", url: getPathname({ href: "/", locale }) },
+    { name: t("title"), url: getPathname({ href: "/products", locale }) },
   ]);
 
   return (

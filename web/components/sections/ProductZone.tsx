@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
 import { Link } from "@/i18n/navigation";
 import { Dashboard } from "@/components/product/Dashboard";
 import { type ModuleKey } from "@/components/system/ModuleIcon";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 type Preset = { id: string; name: string; modules: ModuleKey[] };
 
@@ -21,6 +22,7 @@ export function ProductZone() {
 
   const [presetId, setPresetId] = useState(presets[0].id);
   const current = presets.find((p) => p.id === presetId) ?? presets[0];
+  const startedTracking = useRef(false);
 
   return (
     <Zone tone="deep" grid id="product">
@@ -41,7 +43,14 @@ export function ProductZone() {
               <button
                 key={preset.id}
                 type="button"
-                onClick={() => setPresetId(preset.id)}
+                onClick={() => {
+                  setPresetId(preset.id);
+                  if (!startedTracking.current) {
+                    startedTracking.current = true;
+                    track("builder_start", { preset: preset.id });
+                  }
+                  track("module_select", { preset: preset.id });
+                }}
                 aria-pressed={on}
                 className={cn(
                   "rounded-[var(--radius-sm)] border px-4 py-2 text-[13px] font-medium transition-colors duration-[var(--t-base)]",
@@ -65,7 +74,11 @@ export function ProductZone() {
 
         <div className="mt-8 flex flex-col gap-4 border-t border-line-dark pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="t-small max-w-2xl text-steel">{t("note")}</p>
-          <Link href="/dashboard" className="btn btn--sm btn--ghost-dark shrink-0">
+          <Link
+            href="/dashboard"
+            onClick={() => track("builder_completion", { preset: current.id })}
+            className="btn btn--sm btn--ghost-dark shrink-0"
+          >
             {t("enter")}
           </Link>
         </div>
