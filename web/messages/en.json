@@ -210,6 +210,43 @@
     "enter": "Open the demo environment",
     "enterMeta": "Open this same system with sample data."
   },
+  "testimonials": {
+    "label": "Customer feedback",
+    "title": "Teams that run on RAVAND every day",
+    "lead": "Notes from managers who moved their real processes onto this platform.",
+    "items": [
+      {
+        "quote": "After moving to RAVAND, month-end close went from five days to one.",
+        "name": "Ali Rezaei",
+        "role": "Finance Manager, Manufacturing Company"
+      },
+      {
+        "quote": "We no longer reconcile a warehouse spreadsheet against the sales system — inventory is just correct.",
+        "name": "Sara Ahmadi",
+        "role": "Operations Manager, Trading Company"
+      },
+      {
+        "quote": "The implementation team understood our actual process instead of fitting us into a ready-made template.",
+        "name": "Mohammad Karimi",
+        "role": "CEO, Retail Chain"
+      },
+      {
+        "quote": "Reports that used to take a week are ready in minutes now.",
+        "name": "Negar Hosseini",
+        "role": "Finance Manager, Engineering Services Group"
+      },
+      {
+        "quote": "Scheduling and patient records live on one platform — staff no longer switch between separate apps.",
+        "name": "Dr. Amir Sadeghi",
+        "role": "Clinic Director"
+      },
+      {
+        "quote": "Membership billing and attendance across every branch is now visible from a single dashboard.",
+        "name": "Maryam Ghasemi",
+        "role": "Fitness Chain Manager"
+      }
+    ]
+  },
   "industries": {
     "index": "04",
     "label": "Industries",
