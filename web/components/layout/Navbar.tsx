@@ -6,6 +6,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 const links = [
   { href: "/", key: "home" },
@@ -54,12 +55,17 @@ export function Navbar() {
         <div className="hidden items-center gap-5 lg:flex">
           <Link
             href="/dashboard"
+            onClick={() => track("cta_click", { cta: "demo_env" })}
             className="text-[13.5px] font-medium text-silver transition-colors duration-[var(--t-base)] hover:text-offwhite"
           >
             {t("demoEnv")}
           </Link>
           <LanguageSwitcher />
-          <Link href="/demo" className="btn btn--sm btn--light">
+          <Link
+            href="/demo"
+            onClick={() => track("demo_open", { cta: "nav" })}
+            className="btn btn--sm btn--light"
+          >
             {t("demo")}
           </Link>
         </div>
@@ -100,7 +106,10 @@ export function Navbar() {
           ))}
           <Link
             href="/dashboard"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              setOpen(false);
+              track("cta_click", { cta: "demo_env" });
+            }}
             className="border-b border-line-dark py-4 text-[15px] text-silver"
           >
             {t("demoEnv")}
@@ -109,7 +118,10 @@ export function Navbar() {
             <LanguageSwitcher />
             <Link
               href="/demo"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                track("demo_open", { cta: "nav_mobile" });
+              }}
               className="btn btn--sm btn--light"
             >
               {t("demo")}

@@ -24,7 +24,15 @@
     "learnMore": "More",
     "contactUs": "Contact us",
     "back": "Back to home",
-    "notFoundTitle": "This page doesn't exist"
+    "notFoundTitle": "This page doesn't exist",
+    "formErrors": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "phone": "Enter a valid phone number.",
+      "tooLong": "This is too long.",
+      "invalid": "This value isn't valid.",
+      "generic": "Please fix the fields marked below."
+    }
   },
   "hero": {
     "title": "Business, in flow.",
@@ -339,6 +347,41 @@
       }
     ]
   },
+  "trust": {
+    "label": "About RAVAND",
+    "title": "Before you get in touch",
+    "lead": "The questions an enterprise team usually asks before talking to a software vendor.",
+    "entries": [
+      {
+        "question": "What is RAVAND?",
+        "answer": "RAVAND is a modular business management system covering finance, sales, customers (CRM), inventory, workflow, and analytics. Each module is built independently and configured around how the business actually works, rather than a prebuilt template the business has to adapt to."
+      },
+      {
+        "question": "Who is it for?",
+        "answer": "Businesses with real, growing processes — from a small team to a multi-branch company — across industries like manufacturing, trading, retail, services, and operations-heavy organizations like gyms and clinics. The Industries pages show the module set typically relevant to each."
+      },
+      {
+        "question": "How is RAVAND different from off-the-shelf ERPs?",
+        "answer": "Off-the-shelf ERPs usually impose a fixed structure on the business. RAVAND works the other way: modules are configured around your actual process, and only the parts you need are active — with no forced dependency between modules."
+      },
+      {
+        "question": "How extensible and customizable is it?",
+        "answer": "Because every module is built independently, adding or changing one doesn't require rebuilding the whole system. Customization targets your business's real process and fields, not a cosmetic layer over a generic product."
+      },
+      {
+        "question": "What about security and data ownership?",
+        "answer": "Operational data for any deployment belongs to that business. This site's demo environment exists only to show the system's structure and runs on sample data — no real customer data is in it. The technical security architecture (authentication, access control, backups) is scoped and documented with each customer during requirements."
+      },
+      {
+        "question": "How do support and development work?",
+        "answer": "The same team that builds the system also develops and supports it — no separate sales layer in between. Changes and new requests are coordinated directly with that technical team."
+      },
+      {
+        "question": "How is the system deployed?",
+        "answer": "Deployment is planned around each business's processes and infrastructure; it starts with a conversation, via the demo request form or the contact form."
+      }
+    ]
+  },
   "closing": {
     "title": "See the system in the demo environment",
     "description": "14 days of access with sample data, so you can judge the system in practice before any decision.",
@@ -620,6 +663,124 @@
         "openBody": "This form is not wired to a delivery service yet, but the demo environment is available now — you can explore the system with sample data.",
         "openCta": "Enter the demo environment"
       }
+    },
+    "privacy": {
+      "eyebrow": "Privacy",
+      "title": "Privacy Policy",
+      "lead": "This explains exactly what data RAVAND collects today, why, and what happens to it — no claims beyond what the system actually does.",
+      "updated": "Last updated: 2026-09-15",
+      "sections": [
+        {
+          "title": "What data is collected",
+          "body": "The only data this site collects is what you type into the Contact form or the Demo request form: name, company name, email, phone number (optional), and your message or area of interest. There is no sign-up or login anywhere on the site, and nothing beyond these fields is requested."
+        },
+        {
+          "title": "Why it's collected",
+          "body": "Solely to respond to your request — follow up on your message, or prepare demo access. It is not used for marketing lists or sold to anyone."
+        },
+        {
+          "title": "Where it's stored",
+          "body": "These forms are not yet connected to any delivery service, CRM, or external database. Submissions are validated on the server but are not currently stored anywhere or sent to a third party. This section will be updated the moment a real delivery service is connected, to describe exactly what changes."
+        },
+        {
+          "title": "Third-party services & analytics",
+          "body": "No third-party analytics, tracking, or advertising service is active on this site today. The code includes a scaffold for event tracking, but it sends no data anywhere until it's wired to a specific, named provider."
+        },
+        {
+          "title": "Cookies",
+          "body": "This site sets exactly one, strictly necessary cookie: NEXT_LOCALE, which remembers your chosen language (Persian/English) for future visits. No tracking, advertising, or analytics cookie is set."
+        },
+        {
+          "title": "Retention & deletion requests",
+          "body": "Since no data is currently stored, long-term retention doesn't apply. If you've sent RAVAND a message and have a question about it, use the Contact form — no separate privacy-request email address is published yet."
+        },
+        {
+          "title": "Changes to this policy",
+          "body": "This page will be updated whenever what's described here actually changes — for example, once a form is connected to a real delivery service, or analytics is switched on."
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Terms",
+      "title": "Terms of Use",
+      "lead": "Using this site means accepting the terms below. This is a professional structure, not a substitute for legal advice.",
+      "updated": "Last updated: 2026-09-15",
+      "disclaimer": "This document is not a substitute for legal advice. For specific contractual or legal requirements, consult a qualified lawyer.",
+      "sections": [
+        {
+          "title": "Acceptance of terms",
+          "body": "By visiting or using this site, you accept these terms. If you don't agree with any part of them, please don't use the site."
+        },
+        {
+          "title": "The demo environment",
+          "body": "The \"demo environment\" is a demonstration only: every figure, order, invoice, and KPI shown there is sample data and is not tied to any real customer or business. It exists solely to show the system's structure and capabilities."
+        },
+        {
+          "title": "Acceptable use",
+          "body": "The site may only be used for lawful purposes. Attempting unauthorized access, disrupting the site's operation, or abusing the forms (including automated or bulk submissions) is prohibited."
+        },
+        {
+          "title": "Intellectual property",
+          "body": "The name, marks, and content of this site belong to RAVAND unless stated otherwise. Copying or commercial use without written permission is not allowed."
+        },
+        {
+          "title": "Disclaimer & limitation of liability",
+          "body": "This site and the demo environment are provided \"as is\", without express or implied warranty as to accuracy or continuous availability. To the extent permitted by law, RAVAND accepts no liability for damages arising from use of the site."
+        },
+        {
+          "title": "Changes",
+          "body": "These terms may be updated over time; the current version is always available at this address."
+        },
+        {
+          "title": "Contact",
+          "body": "For any question about these terms, use the Contact form."
+        }
+      ]
+    },
+    "industriesDetail": {
+      "labels": {
+        "problem": "The core problem",
+        "processes": "Processes it manages",
+        "solution": "RAVAND's solution",
+        "modules": "Relevant modules",
+        "advantage": "System advantage"
+      },
+      "manufacturing": {
+        "problem": "In most factories, raw-material consumption, production stages, and finished-goods inventory live in separate files or disconnected systems — the real unit cost of a product shows up late, if at all.",
+        "processes": ["Production order and stage planning", "Raw-material consumption and waste", "Unit cost calculation", "Finished-goods transfer to inventory"],
+        "solution": "RAVAND records material consumption, production stages, and unit cost on one shared data flow — at the moment the work happens, not in a separate document afterward.",
+        "advantage": "Each product's unit cost stays current without a separate manual calculation."
+      },
+      "trading": {
+        "problem": "In trading, shipment status, supplier settlement, and per-deal margin are usually tracked in separate tools (spreadsheets, ledgers, a standalone inventory system), and reconciling them takes time.",
+        "processes": ["Recording purchases and imports", "Managing multiple warehouses", "Supplier settlement", "Wholesale sales and margin calculation"],
+        "solution": "RAVAND keeps purchasing, inventory, and sales in one system so shipment status and per-deal margin stay traceable, not just visible at period-end.",
+        "advantage": "Pricing and the next purchase decision are made on live data, not last week's report."
+      },
+      "retail": {
+        "problem": "Across a branch network, per-branch stock and customer behavior are usually seen separately; pricing and loyalty programs get decided without one unified view of sales.",
+        "processes": ["Point-of-sale in each branch", "Live inventory updates", "Pricing and discounts", "Customer loyalty program"],
+        "solution": "RAVAND shows branch sales, inventory, and customer behavior in one view, so pricing and restocking decisions run on real data.",
+        "advantage": "Each branch's stock is visible live, not from an end-of-day report."
+      },
+      "services": {
+        "problem": "In service businesses, it's often unclear exactly how much time a project took, what it cost, and when it's billable — because that information is scattered across separate tools (a calendar, a spreadsheet, a messaging app).",
+        "processes": ["Contract and project setup", "Logging team time against a project", "Project cost and profitability", "Issuing invoices"],
+        "solution": "RAVAND records contracts, team time, and billing on one path, so a project's cost and profitability are always known.",
+        "advantage": "Invoices are issued from actual logged time, not an estimate."
+      },
+      "fitness": {
+        "problem": "Managing members, renewals, and recurring payments at a gym is usually scattered; it's unclear which member is near the end of their membership or which payment is overdue.",
+        "processes": ["Sign-up and membership management", "Class booking and attendance", "Recurring payments and renewals", "Tracking the gym's finances"],
+        "solution": "RAVAND records each member's membership, attendance, and payments in the same system that manages the gym's finances.",
+        "advantage": "Every member's renewal and payment status is always visible, without manual follow-up."
+      },
+      "healthcare": {
+        "problem": "At clinics, scheduling, patient records, and insurance settlement are often handled in separate systems; coordinating clinical staff and administration takes extra time.",
+        "processes": ["Scheduling and calendar management", "Patient record-keeping", "Issuing invoices", "Insurance settlement"],
+        "solution": "RAVAND keeps scheduling, patient records, and insurance settlement on shared data, so clinical staff and administration stay coordinated.",
+        "advantage": "Each patient's insurance settlement status is visible in the same system, without separate follow-up."
+      }
     }
   },
   "builder": {
@@ -689,6 +850,7 @@
     },
     "search": "Search",
     "backToSite": "Back to site",
+    "banner": "RAVAND demo environment — the data shown here is sample data, used to demonstrate the system's structure and capabilities.",
     "sampleNote": "All figures in this environment are sample data and only illustrate the structure of the system.",
     "overview": {
       "title": "Overview",

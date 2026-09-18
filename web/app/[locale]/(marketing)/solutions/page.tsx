@@ -6,6 +6,8 @@ import { ProductZone } from "@/components/sections/ProductZone";
 import { Process } from "@/components/sections/Process";
 import { Closing } from "@/components/sections/Closing";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { getPathname } from "@/i18n/navigation";
+import { localizedAlternates } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -17,7 +19,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: locale === "fa" ? "/solutions" : "/en/solutions" },
+    alternates: localizedAlternates("/solutions", locale),
   };
 }
 
@@ -31,8 +33,8 @@ export default async function SolutionsPage({
   const t = await getTranslations({ locale, namespace: "pages.solutions" });
 
   const jsonLd = breadcrumbJsonLd([
-    { name: "RAVAND", url: "/" },
-    { name: t("title"), url: "/solutions" },
+    { name: "RAVAND", url: getPathname({ href: "/", locale }) },
+    { name: t("title"), url: getPathname({ href: "/solutions", locale }) },
   ]);
 
   return (

@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 const labels: Record<string, string> = { fa: "فا", en: "EN" };
 
@@ -32,13 +33,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           <button
             type="button"
             aria-current={loc === locale ? "true" : undefined}
-            onClick={() =>
+            onClick={() => {
+              if (loc !== locale) track("locale_switch", { to: loc });
               router.replace(
                 // @ts-expect-error -- pathname is typed per-route; it is valid for both locales
                 { pathname, params },
                 { locale: loc }
-              )
-            }
+              );
+            }}
             className={cn(
               "t-label transition-colors duration-[var(--t-base)]",
               loc === locale ? "text-offwhite" : "text-steel hover:text-silver"

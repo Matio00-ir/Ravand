@@ -5,6 +5,8 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { Zone } from "@/components/system/Zone";
 import { Shell } from "@/components/system/Shell";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
+import { getPathname } from "@/i18n/navigation";
+import { localizedAlternates } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -16,7 +18,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: locale === "fa" ? "/company/contact" : "/en/company/contact" },
+    alternates: localizedAlternates("/company/contact", locale),
   };
 }
 
@@ -30,8 +32,8 @@ export default async function ContactPage({
   const t = await getTranslations({ locale, namespace: "pages.contact" });
 
   const jsonLd = breadcrumbJsonLd([
-    { name: "RAVAND", url: "/" },
-    { name: t("title"), url: "/company/contact" },
+    { name: "RAVAND", url: getPathname({ href: "/", locale }) },
+    { name: t("title"), url: getPathname({ href: "/company/contact", locale }) },
   ]);
 
   return (

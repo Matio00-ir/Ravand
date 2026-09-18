@@ -19,6 +19,14 @@ export const routing = defineRouting({
       en: "/en",
     },
   },
+  // Hardens next-intl's own locale-preference cookie (its only cookie).
+  // Defaults to `{ name: "NEXT_LOCALE", sameSite: "lax" }` already; this
+  // makes `secure` explicit for production while staying usable over
+  // plain http in local dev.
+  localeCookie: {
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+  },
   pathnames: {
     "/": "/",
     // Built now — real hub pages, each with unique, substantive content.
@@ -28,6 +36,8 @@ export const routing = defineRouting({
     "/company/about": { fa: "/درباره-ما", en: "/company/about" },
     "/company/contact": { fa: "/تماس-با-ما", en: "/company/contact" },
     "/demo": { fa: "/درخواست-دمو", en: "/demo" },
+    "/privacy": { fa: "/حریم-خصوصی", en: "/privacy" },
+    "/terms": { fa: "/شرایط-استفاده", en: "/terms" },
     // Product area. Same slug in both locales, and noindex everywhere —
     // it is an application surface, not a public page.
     "/dashboard": "/dashboard",

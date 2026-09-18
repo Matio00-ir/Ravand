@@ -149,6 +149,13 @@ export function DashboardShell({
       {/* content column */}
       <div className="lg:ps-[236px]">
         <header className="sticky top-0 z-30 border-b border-line-dark bg-deep/95 backdrop-blur-md">
+          {/* Demo-environment notice — shared by every /dashboard page so
+              it's never possible to mistake the sample data for a real
+              customer's. Existing tokens only; the row below (title, nav
+              toggle, search, language switcher) is untouched. */}
+          <div className="border-b border-line-dark bg-black/40 px-5 py-1.5 md:px-8">
+            <p className="t-small text-steel">{t("banner")}</p>
+          </div>
           <div className="flex h-16 items-center gap-4 px-5 md:px-8">
             <button
               type="button"
