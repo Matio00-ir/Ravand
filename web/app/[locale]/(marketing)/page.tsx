@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { Platform } from "@/components/sections/Platform";
 import { ProductZone } from "@/components/sections/ProductZone";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Industries } from "@/components/sections/Industries";
 import { Process } from "@/components/sections/Process";
 import { Closing } from "@/components/sections/Closing";
@@ -50,6 +51,7 @@ export default async function HomePage({
       <Hero />
       <Platform />
       <ProductZone />
+      <Testimonials />
       <Industries />
       <Process />
       <Closing />
