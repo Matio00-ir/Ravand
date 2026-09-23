@@ -1,15 +1,33 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import NextLink from "next/link";
 import { Logo, LogoMark } from "@/components/ui/Logo";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
-import type { Pathname } from "@/i18n/routing";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { cn } from "@/lib/utils";
 
-type NavItem = { key: ModuleKey | "overview"; href: Pathname; live: boolean };
+type NavItem = { key: ModuleKey | "overview"; path: string; live: boolean };
+
+/**
+ * The default rail: the generic internal preview at /dashboard. A
+ * per-customer demo (see app/[locale]/(app)/demo/[token]) passes its own
+ * `nav`/`basePath` to show only the modules that customer picked, plus
+ * the production module — everything else about the shell (banner,
+ * workspace card, chrome) stays this same component, just parameterized.
+ */
+const DEFAULT_NAV: NavItem[] = [
+  { key: "overview", path: "", live: true },
+  { key: "finance", path: "/finance", live: true },
+  { key: "sales", path: "/sales", live: true },
+  { key: "crm", path: "", live: false },
+  { key: "inventory", path: "", live: false },
+  { key: "workflow", path: "", live: false },
+  { key: "hr", path: "", live: false },
+  { key: "analytics", path: "", live: false },
+];
 
 /**
  * The product shell: a fixed rail of modules, a working top bar, and the
@@ -20,36 +38,49 @@ type NavItem = { key: ModuleKey | "overview"; href: Pathname; live: boolean };
  * than hidden — the system is visibly complete, and nothing here pretends
  * to be a working screen that isn't built.
  */
-const NAV: NavItem[] = [
-  { key: "overview", href: "/dashboard", live: true },
-  { key: "finance", href: "/dashboard/finance", live: true },
-  { key: "sales", href: "/dashboard/sales", live: true },
-  { key: "crm", href: "/dashboard", live: false },
-  { key: "inventory", href: "/dashboard", live: false },
-  { key: "workflow", href: "/dashboard", live: false },
-  { key: "hr", href: "/dashboard", live: false },
-  { key: "analytics", href: "/dashboard", live: false },
-];
-
 export function DashboardShell({
   children,
   title,
   meta,
   actions,
+  basePath = "/dashboard",
+  nav: navOverride,
+  banner,
+  workspaceName,
+  userName,
+  userRole,
+  userInitials,
 }: {
   children: ReactNode;
   title: string;
   meta?: string;
   actions?: ReactNode;
+  /** Root path every nav item's href is built from. */
+  basePath?: string;
+  /** Replaces the default 8-module rail — used by the per-customer demo. */
+  nav?: NavItem[];
+  banner?: ReactNode;
+  workspaceName?: string;
+  userName?: string;
+  userRole?: string;
+  userInitials?: string;
 }) {
   const t = useTranslations("dash");
+  const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const items = navOverride ?? DEFAULT_NAV;
+  // basePath is a runtime-composed path (may embed a demo token), not a
+  // literal registered in next-intl's typed `pathnames` map — so this
+  // builds and locale-prefixes it by hand instead of using the typed
+  // `Link`/`getPathname` helpers, which only accept known static routes.
+  const localePrefix = locale === "en" ? "/en" : "";
 
   const nav = (
     <nav className="flex flex-col gap-0.5 px-2" aria-label={t("nav.aria")}>
-      {NAV.map((item) => {
-        const active = item.live && pathname === item.href;
+      {items.map((item) => {
+        const unprefixedHref = `${basePath}${item.path}`;
+        const active = item.live && pathname === unprefixedHref;
         const label = t(`nav.${item.key}`);
 
         if (!item.live) {
@@ -71,9 +102,9 @@ export function DashboardShell({
         }
 
         return (
-          <Link
+          <NextLink
             key={item.key}
-            href={item.href}
+            href={`${localePrefix}${unprefixedHref}`}
             onClick={() => setOpen(false)}
             aria-current={active ? "page" : undefined}
             className={cn(
@@ -99,7 +130,7 @@ export function DashboardShell({
               />
             )}
             <span className="truncate">{label}</span>
-          </Link>
+          </NextLink>
         );
       })}
     </nav>
@@ -118,7 +149,7 @@ export function DashboardShell({
         <div className="px-5 py-4">
           <p className="t-label text-steel">{t("workspace.label")}</p>
           <p className="mt-1.5 truncate text-[13.5px] font-semibold text-offwhite">
-            {t("workspace.name")}
+            {workspaceName ?? t("workspace.name")}
           </p>
         </div>
 
@@ -136,11 +167,11 @@ export function DashboardShell({
           </Link>
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-[var(--radius-xs)] border border-line-dark bg-white/[0.05] text-[11px] font-bold text-silver">
-              {t("user.initials")}
+              {userInitials ?? t("user.initials")}
             </span>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[12.5px] text-offwhite">{t("user.name")}</p>
-              <p className="truncate text-[11.5px] text-steel">{t("user.role")}</p>
+              <p className="truncate text-[12.5px] text-offwhite">{userName ?? t("user.name")}</p>
+              <p className="truncate text-[11.5px] text-steel">{userRole ?? t("user.role")}</p>
             </div>
           </div>
         </div>
@@ -154,7 +185,7 @@ export function DashboardShell({
               customer's. Existing tokens only; the row below (title, nav
               toggle, search, language switcher) is untouched. */}
           <div className="border-b border-line-dark bg-black/40 px-5 py-1.5 md:px-8">
-            <p className="t-small text-steel">{t("banner")}</p>
+            <p className="t-small text-steel">{banner ?? t("banner")}</p>
           </div>
           <div className="flex h-16 items-center gap-4 px-5 md:px-8">
             <button

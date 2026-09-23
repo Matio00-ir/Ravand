@@ -43,6 +43,16 @@ export const routing = defineRouting({
     "/dashboard": "/dashboard",
     "/dashboard/finance": "/dashboard/finance",
     "/dashboard/sales": "/dashboard/sales",
+    // Note: /demo/[token] and its sub-routes are deliberately NOT
+    // registered here. next-intl's typed `pathnames` map turns any
+    // dynamic (`[token]`) entry into a `{pathname, params}`-only href
+    // shape everywhere in the app, which broke every other plain-string
+    // `Link`/`getPathname` call site. Those routes don't need a
+    // translated slug or typed navigation (nothing links to them with
+    // next-intl's `Link` — the redirect after lead creation and the
+    // Shell's tenant nav both build the path as a plain string), and
+    // next-intl's locale prefixing (fa unprefixed, en under /en) applies
+    // to every route under app/[locale]/... regardless of this map.
     // Reserved for Phase 2/3 content roadmap (see docs/REPORT.md) —
     // deep-linking individual product/industry pages once real content exists.
     "/products/erp": { fa: "/محصولات/erp", en: "/products/erp" },

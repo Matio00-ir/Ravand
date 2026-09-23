@@ -21,7 +21,14 @@ export type AnalyticsEvent =
   | "contact_submit"
   | "industry_select"
   | "module_select"
-  | "locale_switch";
+  | "locale_switch"
+  | "hero_cta_click"
+  | "business_selected"
+  | "modules_selected"
+  | "workflow_configured"
+  | "demo_completed"
+  | "lead_submitted"
+  | "contact_clicked";
 
 type AnalyticsProps = Record<string, string | number | boolean>;
 

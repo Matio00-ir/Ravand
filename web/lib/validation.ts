@@ -15,6 +15,29 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // numbers).
 const PHONE_RE = /^[0-9+()\-.\s]{6,20}$/;
 
+/**
+ * Iranian mobile numbers only — the demo builder is Iran-focused and asks
+ * for a mobile number instead of email, so this is deliberately stricter
+ * than PHONE_RE above (which stays as-is for the general contact form).
+ * Accepts the common ways people type a mobile number (spaces/dashes,
+ * leading 0098/+98, or the bare 9-first form with the leading 0 dropped)
+ * and normalizes all of them to the canonical `09XXXXXXXXX` (11 digits).
+ */
+export function normalizeIranMobile(value: FormDataEntryValue | null): string | null {
+  if (typeof value !== "string") return null;
+  const digits = value.trim().replace(/[\s\-().]/g, "");
+  let national: string | null = null;
+
+  if (/^09\d{9}$/.test(digits)) national = digits;
+  else if (/^989\d{9}$/.test(digits)) national = `0${digits.slice(2)}`;
+  else if (/^\+989\d{9}$/.test(digits)) national = `0${digits.slice(3)}`;
+  else if (/^009989\d{8}$/.test(digits)) national = null; // malformed, falls through
+  else if (/^00989\d{9}$/.test(digits)) national = `0${digits.slice(4)}`;
+  else if (/^9\d{9}$/.test(digits)) national = `0${digits}`;
+
+  return national;
+}
+
 /** Collapses internal whitespace runs and trims the ends. */
 function normalize(value: FormDataEntryValue | null): string {
   if (typeof value !== "string") return "";
@@ -26,7 +49,7 @@ export type FieldErrors = Record<string, string>;
 type Rule = {
   required?: boolean;
   maxLength: number;
-  kind?: "email" | "phone";
+  kind?: "email" | "phone" | "iranMobile";
   oneOf?: readonly string[];
 };
 
@@ -63,6 +86,14 @@ export function validateFields(
     if (rule.kind === "phone" && !PHONE_RE.test(value)) {
       errors[field] = "phone";
       continue;
+    }
+    if (rule.kind === "iranMobile") {
+      const canonical = normalizeIranMobile(value);
+      if (!canonical) {
+        errors[field] = "phone";
+        continue;
+      }
+      values[field] = canonical;
     }
     if (rule.oneOf && !rule.oneOf.includes(value)) {
       errors[field] = "invalid";
@@ -111,12 +142,16 @@ export const contactSchema: Record<string, Rule> = {
   message: { required: true, maxLength: 2000 },
 };
 
-export const demoSchema: Record<string, Rule> = {
+/**
+ * The RAVAND builder's final step: just enough to create and notify the
+ * team about a private demo. No email (Iran-focused, mobile-first — see
+ * normalizeIranMobile above); business type/modules/workflow/user count
+ * come from the builder's own state, validated separately in the action
+ * against the known preset/module vocabulary (they're structured data,
+ * not free text, so the Rule shape here doesn't fit them).
+ */
+export const demoLeadSchema: Record<string, Rule> = {
   name: { required: true, maxLength: 100 },
   company: { required: true, maxLength: 150 },
-  role: { maxLength: 100 },
-  teamSize: { maxLength: 10, oneOf: ["1-10", "11-50", "51-200", "200+"] },
-  email: { required: true, maxLength: 254, kind: "email" },
-  phone: { maxLength: 30, kind: "phone" },
-  interest: { maxLength: 300 },
+  mobile: { required: true, maxLength: 20, kind: "iranMobile" },
 };

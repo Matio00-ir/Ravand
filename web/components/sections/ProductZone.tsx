@@ -75,8 +75,8 @@ export function ProductZone() {
         <div className="mt-8 flex flex-col gap-4 border-t border-line-dark pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="t-small max-w-2xl text-steel">{t("note")}</p>
           <Link
-            href="/dashboard"
-            onClick={() => track("builder_completion", { preset: current.id })}
+            href="/demo"
+            onClick={() => track("demo_open", { cta: "product_zone", preset: current.id })}
             className="btn btn--sm btn--ghost-dark shrink-0"
           >
             {t("enter")}

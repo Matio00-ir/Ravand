@@ -3,7 +3,10 @@ import { SITE_URL } from "@/lib/site";
 /**
  * Organization entity — kept consistent across every page that emits it.
  * `sameAs` is intentionally empty until real official profiles exist
- * (see brand rule: no fabricated partnerships/profiles).
+ * (see brand rule: no fabricated partnerships/profiles). No `logo` field
+ * either: schema.org expects that to resolve to a real image file, and
+ * `public/` has no logo.png — an unresolved `logo` is a structured-data
+ * error, not a harmless placeholder. Add it back once the asset exists.
  */
 export function organizationJsonLd(locale: string) {
   return {
@@ -13,11 +16,10 @@ export function organizationJsonLd(locale: string) {
     name: "RAVAND",
     alternateName: "روند",
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
     description:
       locale === "fa"
-        ? "روند سیستم‌های مدیریتی، مالی، مشتریان، فروش و موجودی را برای کسب‌وکارها طراحی و توسعه می‌دهد."
-        : "RAVAND designs and builds management systems for finance, customers, sales, and inventory for businesses.",
+        ? "روند یک پلتفرم مدیریت کسب‌وکار است: ماژول‌های مالی، مشتریان، فروش و موجودی که متناسب با هر کسب‌وکار پیکربندی می‌شوند."
+        : "RAVAND is a business management platform: finance, customers, sales, and inventory modules configured around each business.",
     sameAs: [],
   };
 }

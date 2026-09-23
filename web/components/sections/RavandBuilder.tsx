@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Zone } from "@/components/system/Zone";
 import { Dashboard, ALL_MODULES } from "@/components/product/Dashboard";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
-import { DemoForm } from "@/components/sections/DemoForm";
+import { DemoLeadForm } from "@/components/sections/DemoLeadForm";
+import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Preset = { id: string; name: string; modules: ModuleKey[] };
@@ -41,6 +42,7 @@ export function RavandBuilder() {
   const [activeModules, setActiveModules] = useState<ModuleKey[]>([]);
   const [stages, setStages] = useState<Stage[]>([]);
   const [users, setUsers] = useState(8);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const current = presets.find((p) => p.id === presetId) ?? null;
   const activeNav = activeModules.includes("erp") ? "erp" : activeModules[0];
@@ -48,6 +50,11 @@ export function RavandBuilder() {
   function goTo(next: number) {
     setStep(next);
     setMaxStep((m) => Math.max(m, next));
+    // Each step renders at a different height, so without this the user
+    // can land far down the page staring at empty space above the fold —
+    // the container's scrollMarginTop (inline style below) clears the
+    // sticky navbar when scrollIntoView aligns to its top edge.
+    containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function selectPreset(preset: Preset) {
@@ -59,6 +66,7 @@ export function RavandBuilder() {
         name,
       }))
     );
+    track("business_selected", { businessType: preset.id });
     goTo(1);
   }
 
@@ -88,7 +96,7 @@ export function RavandBuilder() {
 
   return (
     <Zone tone="light">
-      <div className="shell zone">
+      <div ref={containerRef} className="shell zone" style={{ scrollMarginTop: "5rem" }}>
         {/* stepper */}
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-3 border-b border-line pb-8">
           {stepLabels.map((label, i) => {
@@ -193,7 +201,10 @@ export function RavandBuilder() {
 
             <StepNav
               onBack={() => goTo(0)}
-              onNext={() => goTo(2)}
+              onNext={() => {
+                track("modules_selected", { count: activeModules.length });
+                goTo(2);
+              }}
               backLabel={t("back")}
               nextLabel={t("next")}
             />
@@ -243,7 +254,10 @@ export function RavandBuilder() {
 
             <StepNav
               onBack={() => goTo(1)}
-              onNext={() => goTo(3)}
+              onNext={() => {
+                track("workflow_configured", { stages: stages.length });
+                goTo(3);
+              }}
               backLabel={t("back")}
               nextLabel={t("next")}
             />
@@ -296,7 +310,10 @@ export function RavandBuilder() {
 
             <StepNav
               onBack={() => goTo(2)}
-              onNext={() => goTo(4)}
+              onNext={() => {
+                track("demo_completed", { businessType: current.id });
+                goTo(4);
+              }}
               backLabel={t("back")}
               nextLabel={t("finish")}
             />
@@ -318,7 +335,12 @@ export function RavandBuilder() {
             </div>
 
             <div className="mt-8">
-              <DemoForm />
+              <DemoLeadForm
+                businessType={current.id}
+                modules={activeModules}
+                workflow={stages.map((s) => s.name)}
+                userCount={users}
+              />
             </div>
 
             <button

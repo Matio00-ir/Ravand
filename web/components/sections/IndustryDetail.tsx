@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
 import { Reveal } from "@/components/system/Reveal";
+import { ProductionCostCalculator } from "@/components/product/ProductionCostCalculator";
 
 type Industry = { id: string; name: string; description: string; focus: string; modules: string[] };
 type Detail = { problem: string; processes: string[]; solution: string; advantage: string };
@@ -74,6 +75,20 @@ export function IndustryDetail({ id }: { id: string }) {
           ))}
         </ol>
       </div>
+
+      {id === "manufacturing" ? <ManufacturingCostSection /> : null}
     </Zone>
+  );
+}
+
+function ManufacturingCostSection() {
+  const t = useTranslations("production");
+  return (
+    <div className="shell zone border-t border-line pt-16 md:pt-20">
+      <SectionHead label={t("eyebrow")} title={t("title")} lead={t("lead")} />
+      <Reveal className="mt-12">
+        <ProductionCostCalculator />
+      </Reveal>
+    </div>
   );
 }

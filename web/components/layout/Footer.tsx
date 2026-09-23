@@ -14,7 +14,7 @@ const columnLinks: Record<string, readonly string[]> = {
     "/industries/fitness",
     "/industries/healthcare",
   ],
-  company: ["/company/about", "/company/contact", "/demo", "/dashboard"],
+  company: ["/company/about", "/company/contact", "/demo"],
 };
 
 export function Footer() {

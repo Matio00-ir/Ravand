@@ -228,7 +228,7 @@ images.
 | Item | Why |
 |---|---|
 | **Dashboard visual redesign** (the real product) | Now genuinely unblocked: `Dashboard.tsx` *is* the target design system for it — tokens, density, nav, tables, charts, and status are all specified and running. Recommended next task. |
-| Backend for the two forms | No fake success state; they show an honest "not connected yet". A form service or CRM webhook is enough for launch — no database needed. |
+| Backend for the Contact form | Still an honest "not connected yet" — no fake success state. The Demo Builder's form **is** now connected (Postgres + SMS/email notification, see §14); Contact only needs a form service or CRM webhook, no database. |
 | Individual product/industry pages | Reserved in `i18n/routing.ts`. They need genuinely distinct content, not templated variants. |
 | CMS / blog / `/resources` | No content to manage yet; MDX in-repo will cover Phase 3 volume. |
 | Analytics | No provider chosen — flagging rather than guessing a vendor. |
@@ -299,4 +299,51 @@ images.
 ## 13. Running it
 
 See [`web/README.md`](../web/README.md). `npm run build` and `npm run lint`
-both pass clean as of this report; all 19 routes prerender.
+both pass clean as of this report. Most routes still prerender statically;
+`/demo/[token]` and its sub-routes are server-rendered on demand (see §14
+— they read from Postgres per request and can't be known at build time).
+
+---
+
+## 14. Demo Builder backend: real leads, real private demos
+
+The `/demo` builder (`RavandBuilder.tsx`, recovered from an earlier branch
+where it had been accidentally dropped) used to end with a form that
+honestly said "not connected yet." It now is:
+
+- **Persistence**: `lib/db.ts` (a small shared `pg` pool, `DATABASE_URL`
+  env var, idempotent `CREATE TABLE IF NOT EXISTS` bootstrap — no separate
+  migration tool for one table) and `lib/demo-leads.ts` (the query layer)
+  store every submission in a `demo_leads` table: name, company, mobile,
+  business type, user count, modules, workflow, and a bearer access token.
+- **No email** — the builder's final step asks for name, company, and an
+  Iranian mobile number only (`lib/validation.ts#normalizeIranMobile`),
+  per the brief's Iran-first requirement.
+- **Private demo URLs**: `/demo/[token]` — a 256-bit random token
+  (`lib/demo-token.ts`), only its SHA-256 hash stored, never the plaintext.
+  `app/[locale]/(app)/demo/[token]/layout.tsx` resolves and gates every
+  request server-side (not found / expired / disabled all render the same
+  generic "not valid" screen, so a guess can't distinguish them). A trial
+  length is configurable via `DEMO_TRIAL_DAYS` (default 14).
+- **Tenant-scoped dashboard**: `lib/tenant-nav.ts` builds each customer's
+  own nav rail from the modules they actually picked; `DashboardShell`
+  (`components/dashboard/Shell.tsx`) was generalized with optional
+  `basePath`/`nav`/`banner`/`workspaceName` props so the existing
+  Overview/Finance/Sales screens are reused as-is rather than rebuilt.
+- **Production cost calculator**: a genuinely interactive calculator
+  (`components/product/ProductionCostCalculator.tsx`) — raw materials +
+  packaging + labor + overhead + tax → unit/total cost → margin → selling
+  price — is the one deep new module (manufacturing-only), rather than
+  five shallow ones. It's also mounted, clearly labeled as an example, on
+  the public manufacturing industry page.
+- **Notifications**: `lib/notifications.ts` — SMS first (Kavenegar's plain
+  REST API, provider name kept swappable via `SMS_PROVIDER`), SMTP email
+  as fallback only if SMS wasn't configured or failed. Both are optional;
+  a demo is created either way, and the outcome is recorded on the lead
+  row rather than surfaced to the customer.
+- **What's deliberately not there**: rate limiting beyond the existing
+  honeypot + submit-timing check and mobile-based dedup (resubmitting the
+  same mobile rotates the existing demo's token instead of creating a
+  duplicate row); no admin UI for browsing leads (direct SQL/DB console
+  for now). Both are reasonable follow-ups, not silent gaps — see the
+  chat-session implementation report for the full list.
