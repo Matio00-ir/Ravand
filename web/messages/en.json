@@ -3,7 +3,7 @@
     "name": "RAVAND",
     "nameFa": "روند",
     "tagline": "Business, in flow.",
-    "description": "RAVAND builds business management systems — finance, customers, sales, inventory, and workflows — as one system, built and configured around how your organization actually works."
+    "description": "RAVAND is a business management platform — finance, customers, sales, inventory, and workflows, as configurable modules on one system."
   },
   "nav": {
     "home": "Home",
@@ -13,13 +13,12 @@
     "company": "Company",
     "about": "About",
     "contact": "Contact",
-    "demo": "Request Demo",
+    "demo": "Build my RAVAND",
     "menu": "Menu",
-    "close": "Close",
-    "demoEnv": "Demo"
+    "close": "Close"
   },
   "common": {
-    "requestDemo": "Request Demo",
+    "requestDemo": "Build my RAVAND",
     "seeProduct": "See the product",
     "learnMore": "More",
     "contactUs": "Contact us",
@@ -36,9 +35,9 @@
   },
   "hero": {
     "title": "Business, in flow.",
-    "description": "RAVAND designs and builds business management systems — finance, customers, sales, inventory, and workflows — as one system, built and configured around how your organization actually works.",
-    "ctaPrimary": "Request Demo",
-    "ctaSecondary": "Open the demo",
+    "description": "RAVAND is a business management platform: finance, customers, sales, inventory, and workflows, as configurable modules on one system.",
+    "ctaPrimary": "Build my RAVAND",
+    "ctaSecondary": "See the product",
     "note": "14 days of free access to the demo environment",
     "eyebrow": "Business management systems"
   },
@@ -206,44 +205,46 @@
         ]
       }
     ],
-    "note": "In a custom build, this same structure is designed from scratch around the company's own process — not only selected from ready modules.",
-    "enter": "Open the demo environment",
-    "enterMeta": "Open this same system with sample data."
+    "note": "A real configuration follows the same logic: you turn on only the modules you need and tune the workflows to your own work.",
+    "enter": "Build my RAVAND with this setup",
+    "enterMeta": "These choices carry over automatically into Build my RAVAND."
   },
-  "testimonials": {
-    "label": "Customer feedback",
-    "title": "Teams that run on RAVAND every day",
-    "lead": "Notes from managers who moved their real processes onto this platform.",
+  "whatYouGet": {
+    "label": "Exactly what you get",
+    "title": "What do you actually get with RAVAND?",
+    "lead": "No ambiguity: this is what's in your private environment from day one.",
     "items": [
       {
-        "quote": "After moving to RAVAND, month-end close went from five days to one.",
-        "name": "Ali Rezaei",
-        "role": "Finance Manager, Manufacturing Company"
+        "title": "A private business environment",
+        "description": "A separate instance of RAVAND, just for your organization — not a shared public demo."
       },
       {
-        "quote": "We no longer reconcile a warehouse spreadsheet against the sales system — inventory is just correct.",
-        "name": "Sara Ahmadi",
-        "role": "Operations Manager, Trading Company"
+        "title": "The modules you need",
+        "description": "Only the modules you choose are active; the rest of the system stays out of the way."
       },
       {
-        "quote": "The implementation team understood our actual process instead of fitting us into a ready-made template.",
-        "name": "Mohammad Karimi",
-        "role": "CEO, Retail Chain"
+        "title": "Roles and access levels",
+        "description": "Each user only reaches the parts their role requires."
       },
       {
-        "quote": "Reports that used to take a week are ready in minutes now.",
-        "name": "Negar Hosseini",
-        "role": "Finance Manager, Engineering Services Group"
+        "title": "Configurable processes",
+        "description": "You lay out each workflow to match how your organization actually works."
       },
       {
-        "quote": "Scheduling and patient records live on one platform — staff no longer switch between separate apps.",
-        "name": "Dr. Amir Sadeghi",
-        "role": "Clinic Director"
+        "title": "Operational dashboards",
+        "description": "Overview, finance, and sales — on shared data, not scattered reports."
       },
       {
-        "quote": "Membership billing and attendance across every branch is now visible from a single dashboard.",
-        "name": "Maryam Ghasemi",
-        "role": "Fitness Chain Manager"
+        "title": "Reports",
+        "description": "A reviewable output of every area's performance, any time."
+      },
+      {
+        "title": "Onboarding and setup",
+        "description": "Data migration and team training before you start working on the real system."
+      },
+      {
+        "title": "Support",
+        "description": "Direct contact with the same team that configured your system."
       }
     ]
   },
@@ -332,38 +333,38 @@
   "process": {
     "index": "05",
     "label": "Process",
-    "title": "From understanding the business to launch",
-    "lead": "A defined path, with a reviewable output at every stage.",
+    "title": "From configuration to daily use",
+    "lead": "A defined path, with a reviewable output at every stage — the same path you walk through in Build my RAVAND.",
     "outputLabel": "Output",
     "steps": [
       {
         "index": "01",
-        "title": "Understand",
-        "description": "Processes, teams, existing data, and business goals are mapped.",
-        "output": "Process map"
+        "title": "Choose a business model",
+        "description": "The closest model to your business, to suggest a starting set of modules and workflow.",
+        "output": "Base configuration"
       },
       {
         "index": "02",
-        "title": "Design",
-        "description": "System architecture, required modules, and data structure are designed.",
-        "output": "System architecture"
+        "title": "Choose your modules",
+        "description": "You turn on only the modules you need; the rest of the system stays out of the way.",
+        "output": "Module map"
       },
       {
         "index": "03",
-        "title": "Configure",
-        "description": "Rules, roles, access levels, and workflows are set up.",
-        "output": "Working environment"
+        "title": "Set up processes and access",
+        "description": "Workflow steps, roles, and access levels are tuned to how your organization works.",
+        "output": "Private environment"
       },
       {
         "index": "04",
-        "title": "Build",
-        "description": "Custom components are built and connected to existing tools.",
-        "output": "Custom modules"
+        "title": "Prepare data and training",
+        "description": "Existing data is migrated and your team is trained before working on the real system.",
+        "output": "Team ready"
       },
       {
         "index": "05",
-        "title": "Launch",
-        "description": "Data migration, team training, and first real use.",
+        "title": "Start using RAVAND",
+        "description": "Your business runs on the same environment you configured.",
         "output": "Live system"
       }
     ]
@@ -422,7 +423,7 @@
   "closing": {
     "title": "See the system in the demo environment",
     "description": "14 days of access with sample data, so you can judge the system in practice before any decision.",
-    "ctaPrimary": "Request Demo",
+    "ctaPrimary": "Build my RAVAND",
     "ctaSecondary": "Talk to the team",
     "note": "No credit card. No commitment."
   },
@@ -561,7 +562,7 @@
     "sampleNote": "Figures shown are sample data."
   },
   "footer": {
-    "description": "RAVAND designs business management systems from the ground up, around how each organization actually operates.",
+    "description": "RAVAND is a business management platform; its modules are configured around how each organization actually operates.",
     "columns": {
       "products": {
         "title": "Products",
@@ -578,8 +579,8 @@
         "title": "Solutions",
         "items": [
           "Ready systems",
-          "Custom systems",
-          "Configurable systems"
+          "Configurable systems",
+          "Extended configuration"
         ]
       },
       "industries": {
@@ -598,7 +599,7 @@
         "items": [
           "About RAVAND",
           "Contact",
-          "Request Demo",
+          "Build my RAVAND",
           "Demo environment"
         ]
       }
@@ -620,7 +621,7 @@
       "eyebrow": "Solutions",
       "title": "Three routes to a working system",
       "description": "Depending on the size of the organization, the budget, and how unusual the processes are, one of these routes is chosen.",
-      "intro": "Some businesses need a ready system quickly; others need one built from scratch for them. RAVAND offers both, and the configurable middle ground between them.",
+      "intro": "Some businesses only need a handful of ready modules; others need deeper tuning around their own processes. RAVAND offers all three levels on one platform.",
       "tiers": [
         {
           "code": "R—01",
@@ -629,7 +630,7 @@
           "points": [
             "Fast deployment",
             "Predictable cost",
-            "Upgrade path to custom"
+            "Upgrade path to extended configuration"
           ]
         },
         {
@@ -644,12 +645,12 @@
         },
         {
           "code": "R—03",
-          "name": "Custom systems",
-          "description": "When the process doesn't fit common patterns, the system is built from the ground up around it.",
+          "name": "Extended configuration",
+          "description": "For complex or unusual processes, modules and workflows are tuned down to the field and business-rule level, on the same platform.",
           "points": [
-            "Designed from zero",
-            "Matches the real process",
-            "Extensible long-term"
+            "Deep process tuning",
+            "Matches your business rules",
+            "Still on the RAVAND platform"
           ]
         }
       ]
@@ -662,10 +663,10 @@
     "about": {
       "eyebrow": "About RAVAND",
       "title": "What is RAVAND?",
-      "lead": "RAVAND is a software company that designs and builds management systems and digital infrastructure for businesses.",
+      "lead": "RAVAND is a business management platform: operational modules, workflows, roles, and dashboards that are configured around your business.",
       "body": [
-        "RAVAND's current focus is on resource planning, customer management, finance, inventory, sales, and workflow systems. But RAVAND isn't only an ERP company — the long-term goal is building systems for every type of business, from factories and trading companies to fitness clubs, hypermarkets, and clinics.",
-        "What sets RAVAND apart is how the system gets built. Instead of forcing a business into a predefined template, the system is designed or configured around that business's real process — whether through ready modules or a fully custom build."
+        "RAVAND's current focus is on resource planning, customer management, finance, inventory, sales, and workflow modules. But RAVAND isn't only an ERP platform — the long-term goal is covering every type of business, from factories and trading companies to fitness clubs, hypermarkets, and clinics.",
+        "What sets RAVAND apart is how the system gets configured. Instead of forcing a business into a fixed template, modules and workflows are tuned around that business's real process — only the parts you need are active, with no rewrite of the whole system."
       ]
     },
     "contact": {
@@ -683,22 +684,14 @@
       }
     },
     "demo": {
-      "eyebrow": "Request Demo",
-      "title": "14 days of free access to RAVAND",
-      "description": "Fill in the form below and your demo account will be prepared.",
+      "eyebrow": "Build my RAVAND",
+      "title": "Build your own system, right here",
+      "description": "Pick a business model, your modules, and your workflow, and see your own dedicated version of RAVAND — then get in touch with our team.",
       "form": {
         "name": "Full name",
         "company": "Company name",
-        "role": "Role",
-        "teamSize": "Team size",
-        "email": "Work email",
-        "phone": "Phone number",
-        "interest": "Area of interest",
-        "submit": "Start free demo",
-        "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report).",
-        "openTitle": "The demo environment is ready",
-        "openBody": "This form is not wired to a delivery service yet, but the demo environment is available now — you can explore the system with sample data.",
-        "openCta": "Enter the demo environment"
+        "mobile": "Mobile number",
+        "submit": "Create my private environment"
       }
     },
     "privacy": {
@@ -709,15 +702,15 @@
       "sections": [
         {
           "title": "What data is collected",
-          "body": "The only data this site collects is what you type into the Contact form or the Demo request form: name, company name, email, phone number (optional), and your message or area of interest. There is no sign-up or login anywhere on the site, and nothing beyond these fields is requested."
+          "body": "The only data this site collects is what you type into the Contact form or the Build my RAVAND form: name, company name, mobile number (in place of email), and, on the Contact form, your message. There is no sign-up or login anywhere on the site, and nothing beyond these fields is requested."
         },
         {
           "title": "Why it's collected",
-          "body": "Solely to respond to your request — follow up on your message, or prepare demo access. It is not used for marketing lists or sold to anyone."
+          "body": "To create your private demo environment, respond to your request, and notify the RAVAND team. It is not used for marketing lists or sold to anyone."
         },
         {
           "title": "Where it's stored",
-          "body": "These forms are not yet connected to any delivery service, CRM, or external database. Submissions are validated on the server but are not currently stored anywhere or sent to a third party. This section will be updated the moment a real delivery service is connected, to describe exactly what changes."
+          "body": "Build my RAVAND submissions (name, company, mobile number, business model, and chosen configuration) are stored in RAVAND's database so your private demo can be created and stay available for the trial period. The access link to that environment is a random token; only its hash is stored, never the token itself. After the trial ends, your request record (not access to the environment) is kept by the RAVAND team for follow-up."
         },
         {
           "title": "Third-party services & analytics",
@@ -729,7 +722,7 @@
         },
         {
           "title": "Retention & deletion requests",
-          "body": "Since no data is currently stored, long-term retention doesn't apply. If you've sent RAVAND a message and have a question about it, use the Contact form — no separate privacy-request email address is published yet."
+          "body": "Your demo request stays on file with the RAVAND team as a contact record after the trial ends, but access to the demo environment itself is disabled. To request deletion or ask a question about it, use the Contact form."
         },
         {
           "title": "Changes to this policy",
@@ -750,7 +743,7 @@
         },
         {
           "title": "The demo environment",
-          "body": "The \"demo environment\" is a demonstration only: every figure, order, invoice, and KPI shown there is sample data and is not tied to any real customer or business. It exists solely to show the system's structure and capabilities."
+          "body": "The demo environment — both the public version and the private one created after you complete Build my RAVAND — is a demonstration only: every figure, order, invoice, and KPI shown there is sample data and is not tied to any real customer or business. The private version is reachable only with that business's own access link, for the length of the trial period, and is disabled once it ends."
         },
         {
           "title": "Acceptable use",
@@ -820,6 +813,92 @@
       }
     }
   },
+  "builder": {
+    "steps": ["Business type", "Modules", "Workflow", "Summary", "Contact"],
+    "back": "Back",
+    "next": "Continue",
+    "finish": "Get this configuration",
+    "businessType": {
+      "title": "What kind of business is this?",
+      "lead": "Pick the model closest to yours; a starting set of modules and a workflow are prepared from it — you can change either afterwards."
+    },
+    "modules": {
+      "title": "Lay out your system's modules",
+      "lead": "Click any module to turn it on or off; the dashboard beside it updates live."
+    },
+    "workflow": {
+      "title": "Lay out how your business works",
+      "lead": "Add, remove, or rename stages — this same structure becomes your day-to-day workflow in the real system.",
+      "addStage": "Add stage",
+      "stagePlaceholder": "Stage name",
+      "removeStage": "Remove this stage"
+    },
+    "summary": {
+      "title": "This is your RAVAND",
+      "lead": "The configuration you've built so far.",
+      "businessTypeLabel": "Business model",
+      "modulesLabel": "Modules",
+      "workflowLabel": "Workflow",
+      "usersLabel": "Expected users"
+    },
+    "contact": {
+      "title": "Build your private environment",
+      "lead": "Enter your contact details so RAVAND can build your private environment with this exact configuration.",
+      "recapNote": "This configuration is submitted with your details to the RAVAND team, and your private environment is created right away."
+    },
+    "workflowPresets": {
+      "manufacturing": ["Customer order", "Sales review", "Production planning", "Raw material sourcing", "Quality control", "Delivery & invoice"],
+      "trading": ["Customer request", "Stock check", "Purchase order", "Manager approval", "Delivery & invoice"],
+      "services": ["Customer request", "Review & estimate", "Team assignment", "Service delivery", "Approval & invoice"],
+      "retail": ["Sale recorded", "Stock check", "Invoice issued", "Loyalty program"]
+    }
+  },
+  "demoEnv": {
+    "ready": {
+      "eyebrow": "Your private environment",
+      "title": "{company}'s private RAVAND is ready",
+      "lead": "This environment is set up exactly the way you configured it — not a generic public demo.",
+      "trialLabel": "Trial period",
+      "daysLeft": "{days} days left",
+      "expiresOn": "until {date}",
+      "modulesLabel": "Active modules",
+      "workflowLabel": "Your workflow",
+      "usersLabel": "Users",
+      "enterCta": "Enter the dashboard"
+    },
+    "banner": "This is {company}'s private environment — {days} days left in the trial.",
+    "expired": {
+      "eyebrow": "Trial period ended",
+      "title": "Access to this demo has expired",
+      "body": "Your free access period has ended. To keep using RAVAND or activate the real system, get in touch with our team.",
+      "cta": "Talk to the RAVAND team"
+    },
+    "invalid": {
+      "title": "This link isn't valid",
+      "body": "This demo address wasn't found or has been disabled. Build your RAVAND again to get a working link.",
+      "cta": "Build my RAVAND"
+    }
+  },
+  "production": {
+    "eyebrow": "Example calculation",
+    "title": "Production cost, all the way to a proforma",
+    "lead": "A real example: enter your production quantity and costs to calculate the unit cost, selling price, and margin.",
+    "example": "This is a sample calculation — change the numbers to see the result update.",
+    "quantity": "Production quantity (kg)",
+    "rawMaterial": "Raw materials (Toman/kg)",
+    "packaging": "Packaging (Toman/kg)",
+    "labor": "Labor (Toman/kg)",
+    "overhead": "Overhead (Toman/kg)",
+    "tax": "Tax (%)",
+    "margin": "Margin (%)",
+    "resultTitle": "Proforma",
+    "unitCost": "Cost per kg",
+    "totalCost": "Total production cost",
+    "unitPrice": "Suggested price per kg",
+    "totalPrice": "Total selling price",
+    "profit": "Gross profit",
+    "toman": "Toman"
+  },
   "dash": {
     "nav": {
       "aria": "Modules",
@@ -834,7 +913,8 @@
       "workflow": "Workflow",
       "hr": "People",
       "analytics": "Analytics",
-      "erp": "Resources"
+      "erp": "Resources",
+      "production": "Production"
     },
     "workspace": {
       "label": "Workspace",

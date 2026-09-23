@@ -15,7 +15,8 @@ export type ModuleKey =
   | "sales"
   | "workflow"
   | "hr"
-  | "analytics";
+  | "analytics"
+  | "production";
 
 const paths: Record<ModuleKey, React.ReactNode> = {
   // Layered planes — the brand's own structural motif.
@@ -81,6 +82,16 @@ const paths: Record<ModuleKey, React.ReactNode> = {
       <path d="M10 17.5V4" />
       <path d="M16.5 17.5V8" />
       <path d="M2.5 17.5h15" />
+    </>
+  ),
+  // Several inputs converging into one output — cost aggregation.
+  production: (
+    <>
+      <path d="M3 3h4v4H3z" />
+      <path d="M8 3h4v4H8z" />
+      <path d="M13 3h4v4h-4z" />
+      <path d="M5 7v2.5M10 7v2.5M15 7v2.5" />
+      <path d="M3 13h14v4.5H3z" />
     </>
   ),
 };

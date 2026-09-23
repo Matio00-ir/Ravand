@@ -35,7 +35,7 @@ export function Hero() {
               <Link href="/demo" className="btn btn--light">
                 {t("ctaPrimary")}
               </Link>
-              <Link href="/dashboard" className="btn btn--ghost-dark">
+              <Link href="/products" className="btn btn--ghost-dark">
                 {t("ctaSecondary")}
               </Link>
             </div>
