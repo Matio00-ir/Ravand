@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { DashboardShell } from "@/components/dashboard/Shell";
+import { DemoShell } from "@/components/dashboard/DemoShell";
 import { OverviewContent } from "@/components/dashboard/OverviewContent";
 import { Panel } from "@/components/dashboard/ui";
 import { ModuleIcon } from "@/components/system/ModuleIcon";
 import { getLeadByToken, daysRemaining } from "@/lib/demo-leads";
-import { buildTenantNav } from "@/lib/tenant-nav";
 import { formatDate, formatNumber } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -28,19 +27,9 @@ export default async function DemoTokenPage({
   const o = await getTranslations({ locale, namespace: "dash.overview" });
 
   const days = daysRemaining(lead);
-  const nav = buildTenantNav(lead);
 
   return (
-    <DashboardShell
-      title={o("title")}
-      meta={o("meta")}
-      basePath={`/demo/${token}`}
-      nav={nav}
-      banner={t("banner", { company: lead.company, days: formatNumber(days, locale) })}
-      workspaceName={lead.company}
-      userName={lead.name}
-      userRole={lead.company}
-    >
+    <DemoShell lead={lead} token={token} locale={locale} title={o("title")} meta={o("meta")}>
       <div className="min-w-0 space-y-6">
         <Panel>
           <p className="t-label text-steel">{t("ready.eyebrow")}</p>
@@ -88,6 +77,6 @@ export default async function DemoTokenPage({
 
         <OverviewContent locale={locale} />
       </div>
-    </DashboardShell>
+    </DemoShell>
   );
 }

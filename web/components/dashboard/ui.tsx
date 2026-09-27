@@ -284,3 +284,24 @@ export function ShareBar({
     </li>
   );
 }
+
+/** A hairline-divided list of items, each with a status — tasks, approvals, events. */
+export function ActivityList({
+  items,
+}: {
+  items: { title: string; meta: string; tone: StatusTone; state: string }[];
+}) {
+  return (
+    <ul className="border-t border-line-dark">
+      {items.map((item) => (
+        <li key={item.title} className="border-b border-line-dark px-5 py-4 last:border-b-0">
+          <p className="truncate text-[13px] text-offwhite">{item.title}</p>
+          <p className="t-small mt-1 text-steel">{item.meta}</p>
+          <div className="mt-2.5">
+            <Status tone={item.tone}>{item.state}</Status>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}

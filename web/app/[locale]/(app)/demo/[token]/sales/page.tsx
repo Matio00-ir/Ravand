@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { DashboardShell } from "@/components/dashboard/Shell";
+import { DemoShell } from "@/components/dashboard/DemoShell";
 import { SalesContent } from "@/components/dashboard/SalesContent";
-import { getLeadByToken, daysRemaining } from "@/lib/demo-leads";
-import { buildTenantNav } from "@/lib/tenant-nav";
-import { formatNumber } from "@/lib/format";
+import { getLeadByToken } from "@/lib/demo-leads";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false, nocache: true },
@@ -21,21 +19,11 @@ export default async function DemoTokenSalesPage({
   const lead = await getLeadByToken(token);
   if (!lead) return null;
 
-  const t = await getTranslations({ locale, namespace: "demoEnv" });
   const s = await getTranslations({ locale, namespace: "dash.sales" });
 
   return (
-    <DashboardShell
-      title={s("title")}
-      meta={s("meta")}
-      basePath={`/demo/${token}`}
-      nav={buildTenantNav(lead)}
-      banner={t("banner", { company: lead.company, days: formatNumber(daysRemaining(lead), locale) })}
-      workspaceName={lead.company}
-      userName={lead.name}
-      userRole={lead.company}
-    >
+    <DemoShell lead={lead} token={token} locale={locale} title={s("title")} meta={s("meta")}>
       <SalesContent locale={locale} />
-    </DashboardShell>
+    </DemoShell>
   );
 }
