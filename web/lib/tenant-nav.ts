@@ -6,8 +6,8 @@ export type TenantNavItem = { key: ModuleKey | "overview"; path: string; live: b
 /**
  * Builds this tenant's own nav rail from what they actually picked in the
  * builder: modules they didn't select are left out entirely (per item 14
- * of the brief — "the dashboard should reflect those modules"), modules
- * they picked but aren't built yet show up as "soon" instead of live, and
+ * of the brief — "the dashboard should reflect those modules"), every
+ * module they picked links to its own screen, and
  * Production is the one deep, real module — surfaced for manufacturing
  * regardless of the module toggles, since it's the flagship use case
  * rather than a checkbox item.
@@ -22,9 +22,9 @@ export function buildTenantNav(lead: DemoLead): TenantNavItem[] {
     items.push({ key: "production", path: "/production", live: true });
   }
 
-  const soonCandidates: ModuleKey[] = ["crm", "inventory", "workflow", "hr", "analytics"];
-  for (const key of soonCandidates) {
-    if (has(key)) items.push({ key, path: "", live: false });
+  const moduleScreens: ModuleKey[] = ["crm", "inventory", "workflow", "hr", "analytics"];
+  for (const key of moduleScreens) {
+    if (has(key)) items.push({ key, path: `/${key}`, live: true });
   }
 
   return items;

@@ -525,35 +525,35 @@
       "rows": [
         {
           "ref": "INV-2481",
-          "account": "Sample account 04",
+          "account": "Arya Trading Co.",
           "type": "Sales invoice",
           "amount": "84,200,000",
           "status": "paid"
         },
         {
           "ref": "PO-1043",
-          "account": "Sample account 11",
+          "account": "Negin Steel",
           "type": "Purchase order",
           "amount": "31,500,000",
           "status": "pending"
         },
         {
           "ref": "INV-2480",
-          "account": "Sample account 07",
+          "account": "Pars Plast Industries",
           "type": "Sales invoice",
           "amount": "126,900,000",
           "status": "paid"
         },
         {
           "ref": "GRN-0918",
-          "account": "Sample account 22",
+          "account": "Sepehr Logistics",
           "type": "Goods receipt",
           "amount": "58,400,000",
           "status": "processing"
         },
         {
           "ref": "INV-2477",
-          "account": "Sample account 09",
+          "account": "Alborz Distribution",
           "type": "Sales invoice",
           "amount": "42,100,000",
           "status": "overdue"
@@ -778,44 +778,80 @@
       },
       "manufacturing": {
         "problem": "In most factories, raw-material consumption, production stages, and finished-goods inventory live in separate files or disconnected systems — the real unit cost of a product shows up late, if at all.",
-        "processes": ["Production order and stage planning", "Raw-material consumption and waste", "Unit cost calculation", "Finished-goods transfer to inventory"],
+        "processes": [
+          "Production order and stage planning",
+          "Raw-material consumption and waste",
+          "Unit cost calculation",
+          "Finished-goods transfer to inventory"
+        ],
         "solution": "RAVAND records material consumption, production stages, and unit cost on one shared data flow — at the moment the work happens, not in a separate document afterward.",
         "advantage": "Each product's unit cost stays current without a separate manual calculation."
       },
       "trading": {
         "problem": "In trading, shipment status, supplier settlement, and per-deal margin are usually tracked in separate tools (spreadsheets, ledgers, a standalone inventory system), and reconciling them takes time.",
-        "processes": ["Recording purchases and imports", "Managing multiple warehouses", "Supplier settlement", "Wholesale sales and margin calculation"],
+        "processes": [
+          "Recording purchases and imports",
+          "Managing multiple warehouses",
+          "Supplier settlement",
+          "Wholesale sales and margin calculation"
+        ],
         "solution": "RAVAND keeps purchasing, inventory, and sales in one system so shipment status and per-deal margin stay traceable, not just visible at period-end.",
         "advantage": "Pricing and the next purchase decision are made on live data, not last week's report."
       },
       "retail": {
         "problem": "Across a branch network, per-branch stock and customer behavior are usually seen separately; pricing and loyalty programs get decided without one unified view of sales.",
-        "processes": ["Point-of-sale in each branch", "Live inventory updates", "Pricing and discounts", "Customer loyalty program"],
+        "processes": [
+          "Point-of-sale in each branch",
+          "Live inventory updates",
+          "Pricing and discounts",
+          "Customer loyalty program"
+        ],
         "solution": "RAVAND shows branch sales, inventory, and customer behavior in one view, so pricing and restocking decisions run on real data.",
         "advantage": "Each branch's stock is visible live, not from an end-of-day report."
       },
       "services": {
         "problem": "In service businesses, it's often unclear exactly how much time a project took, what it cost, and when it's billable — because that information is scattered across separate tools (a calendar, a spreadsheet, a messaging app).",
-        "processes": ["Contract and project setup", "Logging team time against a project", "Project cost and profitability", "Issuing invoices"],
+        "processes": [
+          "Contract and project setup",
+          "Logging team time against a project",
+          "Project cost and profitability",
+          "Issuing invoices"
+        ],
         "solution": "RAVAND records contracts, team time, and billing on one path, so a project's cost and profitability are always known.",
         "advantage": "Invoices are issued from actual logged time, not an estimate."
       },
       "fitness": {
         "problem": "Managing members, renewals, and recurring payments at a gym is usually scattered; it's unclear which member is near the end of their membership or which payment is overdue.",
-        "processes": ["Sign-up and membership management", "Class booking and attendance", "Recurring payments and renewals", "Tracking the gym's finances"],
+        "processes": [
+          "Sign-up and membership management",
+          "Class booking and attendance",
+          "Recurring payments and renewals",
+          "Tracking the gym's finances"
+        ],
         "solution": "RAVAND records each member's membership, attendance, and payments in the same system that manages the gym's finances.",
         "advantage": "Every member's renewal and payment status is always visible, without manual follow-up."
       },
       "healthcare": {
         "problem": "At clinics, scheduling, patient records, and insurance settlement are often handled in separate systems; coordinating clinical staff and administration takes extra time.",
-        "processes": ["Scheduling and calendar management", "Patient record-keeping", "Issuing invoices", "Insurance settlement"],
+        "processes": [
+          "Scheduling and calendar management",
+          "Patient record-keeping",
+          "Issuing invoices",
+          "Insurance settlement"
+        ],
         "solution": "RAVAND keeps scheduling, patient records, and insurance settlement on shared data, so clinical staff and administration stay coordinated.",
         "advantage": "Each patient's insurance settlement status is visible in the same system, without separate follow-up."
       }
     }
   },
   "builder": {
-    "steps": ["Business type", "Modules", "Workflow", "Summary", "Contact"],
+    "steps": [
+      "Business type",
+      "Modules",
+      "Workflow",
+      "Summary",
+      "Contact"
+    ],
     "back": "Back",
     "next": "Continue",
     "finish": "Get this configuration",
@@ -848,10 +884,34 @@
       "recapNote": "This configuration is submitted with your details to the RAVAND team, and your private environment is created right away."
     },
     "workflowPresets": {
-      "manufacturing": ["Customer order", "Sales review", "Production planning", "Raw material sourcing", "Quality control", "Delivery & invoice"],
-      "trading": ["Customer request", "Stock check", "Purchase order", "Manager approval", "Delivery & invoice"],
-      "services": ["Customer request", "Review & estimate", "Team assignment", "Service delivery", "Approval & invoice"],
-      "retail": ["Sale recorded", "Stock check", "Invoice issued", "Loyalty program"]
+      "manufacturing": [
+        "Customer order",
+        "Sales review",
+        "Production planning",
+        "Raw material sourcing",
+        "Quality control",
+        "Delivery & invoice"
+      ],
+      "trading": [
+        "Customer request",
+        "Stock check",
+        "Purchase order",
+        "Manager approval",
+        "Delivery & invoice"
+      ],
+      "services": [
+        "Customer request",
+        "Review & estimate",
+        "Team assignment",
+        "Service delivery",
+        "Approval & invoice"
+      ],
+      "retail": [
+        "Sale recorded",
+        "Stock check",
+        "Invoice issued",
+        "Loyalty program"
+      ]
     }
   },
   "demoEnv": {
@@ -1022,35 +1082,35 @@
         "rows": [
           {
             "ref": "INV-2481",
-            "account": "Sample account 04",
+            "account": "Arya Trading Co.",
             "type": "Sales invoice",
             "amount": "84,200,000",
             "status": "paid"
           },
           {
             "ref": "PO-1043",
-            "account": "Sample account 11",
+            "account": "Negin Steel",
             "type": "Purchase order",
             "amount": "31,500,000",
             "status": "pending"
           },
           {
             "ref": "INV-2480",
-            "account": "Sample account 07",
+            "account": "Pars Plast Industries",
             "type": "Sales invoice",
             "amount": "126,900,000",
             "status": "paid"
           },
           {
             "ref": "GRN-0918",
-            "account": "Sample account 22",
+            "account": "Sepehr Logistics",
             "type": "Goods receipt",
             "amount": "58,400,000",
             "status": "processing"
           },
           {
             "ref": "INV-2477",
-            "account": "Sample account 09",
+            "account": "Alborz Distribution",
             "type": "Sales invoice",
             "amount": "42,100,000",
             "status": "overdue"
@@ -1068,7 +1128,7 @@
             "state": "Waiting on you"
           },
           {
-            "title": "Leave request — Sample account 17",
+            "title": "Leave request — Sara Mohammadi",
             "meta": "People · yesterday",
             "tone": "info",
             "state": "In progress"
@@ -1204,7 +1264,7 @@
         "rows": [
           {
             "date": "2026-09-12",
-            "desc": "Goods sold — Sample account 04",
+            "desc": "Goods sold — Arya Trading Co.",
             "account": "1103 · Trade receivable",
             "debit": "84,200,000",
             "credit": "—",
@@ -1360,45 +1420,724 @@
         "rows": [
           {
             "ref": "SO-4821",
-            "account": "Sample account 04",
+            "account": "Arya Trading Co.",
             "channel": "Direct",
             "amount": "84,200,000",
             "status": "confirmed"
           },
           {
             "ref": "SO-4820",
-            "account": "Sample account 19",
+            "account": "Rose Retail Group",
             "channel": "Reseller",
             "amount": "32,600,000",
             "status": "packing"
           },
           {
             "ref": "SO-4819",
-            "account": "Sample account 07",
+            "account": "Pars Plast Industries",
             "channel": "Direct",
             "amount": "126,900,000",
             "status": "shipped"
           },
           {
             "ref": "SO-4818",
-            "account": "Sample account 31",
+            "account": "Mahour Café",
             "channel": "Online",
             "amount": "11,400,000",
             "status": "shipped"
           },
           {
             "ref": "SO-4817",
-            "account": "Sample account 22",
+            "account": "Sepehr Logistics",
             "channel": "Reseller",
             "amount": "58,400,000",
             "status": "hold"
           },
           {
             "ref": "SO-4816",
-            "account": "Sample account 09",
+            "account": "Alborz Distribution",
             "channel": "Direct",
             "amount": "42,100,000",
             "status": "confirmed"
+          }
+        ]
+      }
+    },
+    "crm": {
+      "title": "Customers",
+      "meta": "October 2026 · all reps",
+      "stats": [
+        {
+          "label": "Active customers",
+          "value": "482",
+          "unit": "accounts",
+          "delta": "+26 this quarter",
+          "trend": "up"
+        },
+        {
+          "label": "Open opportunities",
+          "value": "64",
+          "unit": "deals",
+          "delta": "+9 this week",
+          "trend": "up"
+        },
+        {
+          "label": "Pipeline value",
+          "value": "3.8",
+          "unit": "billion IRT",
+          "delta": "+14%",
+          "trend": "up"
+        },
+        {
+          "label": "Retention rate",
+          "value": "91",
+          "unit": "%",
+          "delta": "−1% vs last quarter",
+          "trend": "down"
+        }
+      ],
+      "pipeline": {
+        "title": "Opportunities by stage",
+        "meta": "Value and count, 90 days",
+        "stages": [
+          {
+            "label": "Discovery",
+            "value": 100,
+            "caption": "22 deals · 1.4B"
+          },
+          {
+            "label": "Proposal",
+            "value": 68,
+            "caption": "18 deals · 980M"
+          },
+          {
+            "label": "Negotiation",
+            "value": 46,
+            "caption": "14 deals · 820M"
+          },
+          {
+            "label": "Contract",
+            "value": 24,
+            "caption": "10 deals · 600M"
+          }
+        ]
+      },
+      "tasks": {
+        "title": "Today's tasks",
+        "meta": "4 items",
+        "items": [
+          {
+            "title": "Follow-up call — Arya Trading Co.",
+            "meta": "Quote PF-318 · 10:30",
+            "tone": "warning",
+            "state": "Today"
+          },
+          {
+            "title": "Demo meeting — Negin Steel",
+            "meta": "On site · 14:00",
+            "tone": "info",
+            "state": "Scheduled"
+          },
+          {
+            "title": "Contract renewal — Alborz Distribution",
+            "meta": "Due in 3 days",
+            "tone": "warning",
+            "state": "Action needed"
+          },
+          {
+            "title": "Send catalogue — Mahour Café",
+            "meta": "Email · yesterday",
+            "tone": "success",
+            "state": "Done"
+          }
+        ]
+      },
+      "accounts": {
+        "title": "Key accounts",
+        "meta": "By annual value",
+        "action": "All customers",
+        "columns": [
+          "Customer",
+          "Owner",
+          "Last contact",
+          "Annual value",
+          "Status"
+        ],
+        "status": {
+          "active": "Active",
+          "risk": "At risk",
+          "new": "New"
+        },
+        "rows": [
+          {
+            "name": "Arya Trading Co.",
+            "owner": "Reza Karimi",
+            "last": "2 days ago",
+            "value": "1,240,000,000",
+            "status": "active"
+          },
+          {
+            "name": "Pars Plast Industries",
+            "owner": "Maryam Ahmadi",
+            "last": "Today",
+            "value": "980,000,000",
+            "status": "active"
+          },
+          {
+            "name": "Alborz Distribution",
+            "owner": "Reza Karimi",
+            "last": "18 days ago",
+            "value": "710,000,000",
+            "status": "risk"
+          },
+          {
+            "name": "Negin Steel",
+            "owner": "Ali Rostami",
+            "last": "Yesterday",
+            "value": "540,000,000",
+            "status": "new"
+          },
+          {
+            "name": "Sepehr Logistics",
+            "owner": "Maryam Ahmadi",
+            "last": "5 days ago",
+            "value": "380,000,000",
+            "status": "active"
+          }
+        ]
+      }
+    },
+    "inventory": {
+      "title": "Inventory",
+      "meta": "3 warehouses · live",
+      "stats": [
+        {
+          "label": "Stock value",
+          "value": "2.6",
+          "unit": "billion IRT",
+          "delta": "+3.2%",
+          "trend": "up"
+        },
+        {
+          "label": "Active SKUs",
+          "value": "1,348",
+          "unit": "items",
+          "delta": "+41 new items",
+          "trend": "flat"
+        },
+        {
+          "label": "Below reorder point",
+          "value": "17",
+          "unit": "items",
+          "delta": "+5 vs last week",
+          "trend": "down"
+        },
+        {
+          "label": "Count accuracy",
+          "value": "98.4",
+          "unit": "%",
+          "delta": "+0.6 pts",
+          "trend": "up"
+        }
+      ],
+      "movement": {
+        "title": "Stock movement",
+        "meta": "Net outbound, 12 weeks",
+        "labels": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ],
+        "data": [
+          44,
+          51,
+          47,
+          58,
+          55,
+          49,
+          62,
+          66,
+          59,
+          71,
+          68,
+          76
+        ]
+      },
+      "warehouses": {
+        "title": "Warehouse capacity",
+        "meta": "Occupancy",
+        "items": [
+          {
+            "label": "Central — Tehran",
+            "value": 82,
+            "caption": "82%"
+          },
+          {
+            "label": "Raw materials — Karaj",
+            "value": 67,
+            "caption": "67%"
+          },
+          {
+            "label": "Distribution — Isfahan",
+            "value": 41,
+            "caption": "41%"
+          }
+        ]
+      },
+      "stock": {
+        "title": "Stock status",
+        "meta": "Items needing attention first",
+        "action": "Full stock card",
+        "columns": [
+          "SKU",
+          "Item",
+          "Warehouse",
+          "On hand",
+          "Reorder point",
+          "Status"
+        ],
+        "status": {
+          "ok": "In stock",
+          "low": "Running low",
+          "out": "Out of stock"
+        },
+        "rows": [
+          {
+            "sku": "RM-1042",
+            "name": "Polyethylene granules",
+            "warehouse": "Karaj",
+            "qty": "0",
+            "reorder": "200 kg",
+            "status": "out"
+          },
+          {
+            "sku": "PK-0310",
+            "name": "Shipping carton, size 3",
+            "warehouse": "Tehran",
+            "qty": "140",
+            "reorder": "500 pcs",
+            "status": "low"
+          },
+          {
+            "sku": "FG-2201",
+            "name": "Disposable container 500cc",
+            "warehouse": "Tehran",
+            "qty": "8,400",
+            "reorder": "2,000 pcs",
+            "status": "ok"
+          },
+          {
+            "sku": "RM-1057",
+            "name": "White masterbatch",
+            "warehouse": "Karaj",
+            "qty": "35",
+            "reorder": "60 kg",
+            "status": "low"
+          },
+          {
+            "sku": "FG-2214",
+            "name": "Clear container lid",
+            "warehouse": "Isfahan",
+            "qty": "12,100",
+            "reorder": "3,000 pcs",
+            "status": "ok"
+          }
+        ]
+      }
+    },
+    "workflow": {
+      "title": "Workflow",
+      "meta": "Your process · live",
+      "stats": [
+        {
+          "label": "Cases in progress",
+          "value": "57",
+          "unit": "cases",
+          "delta": "+6 today",
+          "trend": "up"
+        },
+        {
+          "label": "Avg. cycle time",
+          "value": "3.4",
+          "unit": "days",
+          "delta": "0.5 days faster",
+          "trend": "up"
+        },
+        {
+          "label": "Overdue",
+          "value": "4",
+          "unit": "cases",
+          "delta": "−2 vs last week",
+          "trend": "up"
+        },
+        {
+          "label": "Completed this month",
+          "value": "218",
+          "unit": "cases",
+          "delta": "+11%",
+          "trend": "up"
+        }
+      ],
+      "board": {
+        "title": "Process board",
+        "meta": "Built from the stages you defined",
+        "count": "{count} cases",
+        "overdue": "Overdue"
+      },
+      "cards": [
+        {
+          "title": "Arya Trading Co.",
+          "meta": "Reza Karimi · 2h"
+        },
+        {
+          "title": "Pars Plast Industries",
+          "meta": "Maryam Ahmadi · today"
+        },
+        {
+          "title": "Alborz Distribution",
+          "meta": "Ali Rostami · yesterday"
+        },
+        {
+          "title": "Negin Steel",
+          "meta": "Reza Karimi · 2d"
+        },
+        {
+          "title": "Sepehr Logistics",
+          "meta": "Maryam Ahmadi · 3d"
+        },
+        {
+          "title": "Rose Retail Group",
+          "meta": "Ali Rostami · 4d"
+        }
+      ],
+      "sla": {
+        "title": "On-time performance",
+        "meta": "Share of cases on time, per stage"
+      },
+      "activity": {
+        "title": "Latest events",
+        "meta": "Today",
+        "items": [
+          {
+            "title": "WF-1204 moved to the next stage",
+            "meta": "Reza Karimi · 10 min ago",
+            "tone": "success",
+            "state": "Done"
+          },
+          {
+            "title": "WF-1190 exceeded its time limit",
+            "meta": "Automatic alert · 1h ago",
+            "tone": "error",
+            "state": "Overdue"
+          },
+          {
+            "title": "WF-1203 awaiting manager approval",
+            "meta": "Maryam Ahmadi · 2h ago",
+            "tone": "warning",
+            "state": "Waiting on you"
+          }
+        ]
+      }
+    },
+    "hr": {
+      "title": "People",
+      "meta": "October 2026 · all departments",
+      "stats": [
+        {
+          "label": "Headcount",
+          "value": "126",
+          "unit": "people",
+          "delta": "+4 this month",
+          "trend": "up"
+        },
+        {
+          "label": "Present today",
+          "value": "94",
+          "unit": "%",
+          "delta": "118 people",
+          "trend": "flat"
+        },
+        {
+          "label": "Leave in progress",
+          "value": "9",
+          "unit": "requests",
+          "delta": "3 awaiting approval",
+          "trend": "flat"
+        },
+        {
+          "label": "Overtime this month",
+          "value": "480",
+          "unit": "hours",
+          "delta": "−6% vs September",
+          "trend": "up"
+        }
+      ],
+      "attendance": {
+        "title": "Weekly attendance",
+        "meta": "Attendance %, 6 working days",
+        "labels": [
+          "Sat",
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu"
+        ],
+        "data": [
+          96,
+          95,
+          93,
+          94,
+          91,
+          88
+        ]
+      },
+      "departments": {
+        "title": "Headcount mix",
+        "meta": "By department",
+        "center": "126",
+        "centerLabel": "people",
+        "segments": [
+          {
+            "label": "Production & ops",
+            "value": 44
+          },
+          {
+            "label": "Sales & marketing",
+            "value": 21
+          },
+          {
+            "label": "Finance & admin",
+            "value": 14
+          },
+          {
+            "label": "Warehouse & logistics",
+            "value": 13
+          },
+          {
+            "label": "Technical & support",
+            "value": 8
+          }
+        ]
+      },
+      "requests": {
+        "title": "Staff requests",
+        "meta": "Most recent",
+        "action": "All requests",
+        "columns": [
+          "Name",
+          "Department",
+          "Request",
+          "Date",
+          "Status"
+        ],
+        "status": {
+          "approved": "Approved",
+          "pending": "Pending",
+          "rejected": "Rejected"
+        },
+        "rows": [
+          {
+            "name": "Sara Mohammadi",
+            "dept": "Finance & admin",
+            "type": "3-day annual leave",
+            "date": "2026-09-27",
+            "status": "pending"
+          },
+          {
+            "name": "Hossein Jafari",
+            "dept": "Production & ops",
+            "type": "12h overtime",
+            "date": "2026-09-26",
+            "status": "approved"
+          },
+          {
+            "name": "Negar Salehi",
+            "dept": "Sales & marketing",
+            "type": "Business trip, Isfahan",
+            "date": "2026-09-25",
+            "status": "approved"
+          },
+          {
+            "name": "Amir Nouri",
+            "dept": "Warehouse & logistics",
+            "type": "Salary advance",
+            "date": "2026-09-24",
+            "status": "pending"
+          },
+          {
+            "name": "Mehdi Ghasemi",
+            "dept": "Technical & support",
+            "type": "Hourly leave",
+            "date": "2026-09-23",
+            "status": "rejected"
+          }
+        ]
+      }
+    },
+    "analytics": {
+      "title": "Analytics",
+      "meta": "Management dashboard · last 12 months",
+      "stats": [
+        {
+          "label": "Annual revenue",
+          "value": "14.2",
+          "unit": "billion IRT",
+          "delta": "+18% YoY",
+          "trend": "up"
+        },
+        {
+          "label": "Operating margin",
+          "value": "21.4",
+          "unit": "%",
+          "delta": "+2.3 pts",
+          "trend": "up"
+        },
+        {
+          "label": "Sales target met",
+          "value": "87",
+          "unit": "%",
+          "delta": "3 months to year end",
+          "trend": "flat"
+        },
+        {
+          "label": "Days sales outstanding",
+          "value": "42",
+          "unit": "days",
+          "delta": "5 days longer",
+          "trend": "down"
+        }
+      ],
+      "revenue": {
+        "title": "Revenue vs target",
+        "meta": "Last 12 months",
+        "series": "Actual",
+        "compare": "Target",
+        "months": [
+          "Oct",
+          "Jan",
+          "Apr",
+          "Jul"
+        ]
+      },
+      "channels": {
+        "title": "Revenue by channel",
+        "meta": "Share of total",
+        "center": "14.2",
+        "centerLabel": "billion",
+        "segments": [
+          {
+            "label": "Direct sales",
+            "value": 41
+          },
+          {
+            "label": "Resellers",
+            "value": 29
+          },
+          {
+            "label": "Online",
+            "value": 17
+          },
+          {
+            "label": "Enterprise contracts",
+            "value": 13
+          }
+        ]
+      },
+      "kpis": {
+        "title": "Key performance indicators",
+        "meta": "Against target",
+        "columns": [
+          "KPI",
+          "Trend",
+          "Current",
+          "Target",
+          "Status"
+        ],
+        "status": {
+          "onTrack": "On track",
+          "atRisk": "Needs attention",
+          "behind": "Behind target"
+        },
+        "rows": [
+          {
+            "name": "Gross margin",
+            "trend": [
+              30,
+              31,
+              33,
+              32,
+              34,
+              35
+            ],
+            "current": "34.6%",
+            "target": "35%",
+            "status": "onTrack"
+          },
+          {
+            "name": "Lead conversion",
+            "trend": [
+              19,
+              20,
+              22,
+              21,
+              23,
+              24
+            ],
+            "current": "23.5%",
+            "target": "25%",
+            "status": "onTrack"
+          },
+          {
+            "name": "On-time delivery",
+            "trend": [
+              98,
+              97,
+              97,
+              96,
+              96,
+              95
+            ],
+            "current": "96%",
+            "target": "98%",
+            "status": "atRisk"
+          },
+          {
+            "name": "Days sales outstanding",
+            "trend": [
+              36,
+              37,
+              39,
+              40,
+              41,
+              42
+            ],
+            "current": "42 days",
+            "target": "35 days",
+            "status": "behind"
+          },
+          {
+            "name": "Customer satisfaction",
+            "trend": [
+              82,
+              84,
+              83,
+              86,
+              87,
+              88
+            ],
+            "current": "88 / 100",
+            "target": "85",
+            "status": "onTrack"
           }
         ]
       }
