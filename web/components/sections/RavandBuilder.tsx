@@ -194,9 +194,9 @@ export function RavandBuilder() {
 
             <div
               key={activeModules.join(",")}
-              className="mt-8 animate-[panel-in_280ms_var(--ease-flow)_both] overflow-x-auto"
+              className="mt-8 animate-[panel-in_280ms_var(--ease-flow)_both] md:overflow-x-auto"
             >
-              <Dashboard modules={activeModules} active={activeNav} className="min-w-[720px]" />
+              <Dashboard modules={activeModules} active={activeNav} className="md:min-w-[720px]" />
             </div>
 
             <StepNav
