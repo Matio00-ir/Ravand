@@ -122,7 +122,7 @@ export function DemoLeadForm({
       <div className="sm:col-span-2">
         {state.status === "error" ? (
           <p role="alert" className="t-small mb-3 text-error">
-            {te("generic")}
+            {te(state.errors.form ?? "generic")}
           </p>
         ) : null}
         <Button type="submit" size="lg" disabled={pending}>

@@ -132,7 +132,7 @@ export async function createDemoLead(
     // A missing DATABASE_URL or unreachable Postgres must surface as a
     // form error, not crash the whole page with a server error screen.
     console.error("[createDemoLead] persisting lead failed", err);
-    return { status: "error", errors: {} };
+    return { status: "error", errors: { form: "server" } };
   }
   const { token, lead, isNew } = created;
 

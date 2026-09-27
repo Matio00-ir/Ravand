@@ -30,7 +30,8 @@
       "phone": "Enter a valid phone number.",
       "tooLong": "This is too long.",
       "invalid": "This value isn't valid.",
-      "generic": "Please fix the fields marked below."
+      "generic": "Please fix the fields marked below.",
+      "server": "We could not create your demo right now. Please try again shortly."
     }
   },
   "hero": {
