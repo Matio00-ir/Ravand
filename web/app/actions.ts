@@ -117,15 +117,24 @@ export async function createDemoLead(
     return { status: "error", errors };
   }
 
-  const { token, lead, isNew } = await upsertDemoLead({
-    name: values.name,
-    company: values.company,
-    mobile: values.mobile,
-    businessType,
-    userCount: Math.round(userCount),
-    modules,
-    workflow,
-  });
+  let created: Awaited<ReturnType<typeof upsertDemoLead>>;
+  try {
+    created = await upsertDemoLead({
+      name: values.name,
+      company: values.company,
+      mobile: values.mobile,
+      businessType,
+      userCount: Math.round(userCount),
+      modules,
+      workflow,
+    });
+  } catch (err) {
+    // A missing DATABASE_URL or unreachable Postgres must surface as a
+    // form error, not crash the whole page with a server error screen.
+    console.error("[createDemoLead] persisting lead failed", err);
+    return { status: "error", errors: {} };
+  }
+  const { token, lead, isNew } = created;
 
   const locale = await getLocale();
   const demoPath = locale === "en" ? `/en/demo/${token}` : `/demo/${token}`;
