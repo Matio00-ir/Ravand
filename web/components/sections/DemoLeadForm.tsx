@@ -46,7 +46,7 @@ export function DemoLeadForm({
     <form action={formAction} className="grid gap-5 sm:grid-cols-2" noValidate>
       {/* Honeypot: real visitors never see or reach this field; a filled
           value tells the server action to silently drop the submission. */}
-      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+      <div aria-hidden="true" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clipPath: "inset(50%)", whiteSpace: "nowrap" }}>
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
