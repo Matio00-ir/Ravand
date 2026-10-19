@@ -155,3 +155,19 @@ export const demoLeadSchema: Record<string, Rule> = {
   company: { required: true, maxLength: 150 },
   mobile: { required: true, maxLength: 20, kind: "iranMobile" },
 };
+
+/**
+ * Layer 3, the expert-session request. Company size, industry, date and
+ * slot are checked against their fixed vocabularies in the action.
+ */
+export const expertRequestSchema: Record<string, Rule> = {
+  name: { required: true, maxLength: 100 },
+  company: { required: true, maxLength: 150 },
+  mobile: { required: true, maxLength: 20, kind: "iranMobile" },
+  role: { maxLength: 80 },
+  companySize: { required: true, maxLength: 10 },
+  industry: { required: true, maxLength: 20 },
+  needs: { maxLength: 1000 },
+  preferredDate: { required: true, maxLength: 10 },
+  preferredSlot: { required: true, maxLength: 12 },
+};

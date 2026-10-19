@@ -47,14 +47,14 @@ export async function OverviewContent({ locale }: { locale: string }) {
 
   return (
     <div className="min-w-0 space-y-6">
-      <StatRow>
+      <StatRow tour="stats">
         {stats.map((s) => (
           <StatTile key={s.label} label={s.label} value={s.value} unit={s.unit} delta={s.delta} trend={s.trend} />
         ))}
       </StatRow>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <Panel>
+        <Panel tour="chart">
           <PanelHead
             title={o("revenue.title")}
             meta={o("revenue.meta")}
@@ -76,7 +76,7 @@ export async function OverviewContent({ locale }: { locale: string }) {
           </div>
         </Panel>
 
-        <Panel>
+        <Panel tour="side">
           <PanelHead title={o("composition.title")} meta={o("composition.meta")} />
           <div className="mt-6 text-silver">
             <Donut segments={segments} centerValue={o("composition.center")} centerLabel={o("composition.centerLabel")} />
@@ -85,7 +85,7 @@ export async function OverviewContent({ locale }: { locale: string }) {
       </div>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <Panel flush>
+        <Panel tour="table" flush>
           <PanelHead
             className="p-5"
             title={o("documents.title")}
@@ -120,7 +120,7 @@ export async function OverviewContent({ locale }: { locale: string }) {
           </Table>
         </Panel>
 
-        <Panel flush>
+        <Panel tour="extra" flush>
           <PanelHead className="p-5" title={o("approvals.title")} meta={o("approvals.meta")} />
           <ul className="border-t border-line-dark">
             {approvals.map((item) => (

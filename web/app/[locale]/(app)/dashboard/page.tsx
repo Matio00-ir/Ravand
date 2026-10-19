@@ -23,7 +23,7 @@ export default async function OverviewPage({
   const o = await getTranslations({ locale, namespace: "dash.overview" });
 
   return (
-    <DashboardShell title={o("title")} meta={o("meta")}>
+    <DashboardShell title={o("title")} meta={o("meta")} tour="overview">
       <OverviewContent locale={locale} />
     </DashboardShell>
   );

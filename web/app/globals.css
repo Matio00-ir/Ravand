@@ -494,3 +494,16 @@ html[lang="fa"] .btn--sm {
     animation: none;
   }
 }
+
+/* ---------------- guided tour ---------------- */
+
+/* The public tour spotlights one area at a time: an accent outline plus a
+   page-wide dim around it (see components/dashboard/TourGuide.tsx). */
+[data-tour-active] {
+  position: relative;
+  z-index: 35;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 100vmax rgba(5, 6, 8, 0.55);
+  transition: box-shadow var(--t-base) var(--ease-flow);
+}

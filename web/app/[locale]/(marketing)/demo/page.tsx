@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { RavandBuilder } from "@/components/sections/RavandBuilder";
+import { DemoPaths } from "@/components/sections/DemoPaths";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { getPathname } from "@/i18n/navigation";
 import { localizedAlternates } from "@/lib/metadata";
@@ -40,7 +41,9 @@ export default async function DemoPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
+      <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("description")}>
+        <DemoPaths locale={locale} />
+      </PageHeader>
       <RavandBuilder />
     </>
   );

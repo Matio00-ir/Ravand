@@ -39,21 +39,21 @@ export async function SalesContent({ locale }: { locale: string }) {
 
   return (
     <div className="min-w-0 space-y-6">
-      <StatRow>
+      <StatRow tour="stats">
         {stats.map((x) => (
           <StatTile key={x.label} label={x.label} value={x.value} unit={x.unit} delta={x.delta} trend={x.trend} />
         ))}
       </StatRow>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <Panel>
+        <Panel tour="chart">
           <PanelHead title={s("funnel.title")} meta={s("funnel.meta")} />
           <div className="mt-6">
             <Funnel stages={stages} />
           </div>
         </Panel>
 
-        <Panel>
+        <Panel tour="side">
           <PanelHead title={s("top.title")} meta={s("top.meta")} />
           <ul className="mt-6 space-y-4">
             {top.map((item, i) => (
@@ -63,7 +63,7 @@ export async function SalesContent({ locale }: { locale: string }) {
         </Panel>
       </div>
 
-      <Panel flush>
+      <Panel tour="table" flush>
         <PanelHead
           className="p-5"
           title={s("orders.title")}

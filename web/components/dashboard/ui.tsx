@@ -15,13 +15,17 @@ export function Panel({
   children,
   className,
   flush = false,
+  tour,
 }: {
   children: ReactNode;
   className?: string;
   flush?: boolean;
+  /** Anchor for the public guided tour (see components/dashboard/TourGuide). */
+  tour?: string;
 }) {
   return (
     <section
+      data-tour={tour}
       className={cn(
         "min-w-0 rounded-[var(--radius-md)] border border-line-dark bg-deep-raised",
         !flush && "p-5",
@@ -96,14 +100,17 @@ export function StatRow({
   children,
   className,
   cols = 4,
+  tour,
 }: {
   children: ReactNode;
   className?: string;
   cols?: 2 | 3 | 4;
+  tour?: string;
 }) {
   const grid = { 2: "sm:grid-cols-2", 3: "sm:grid-cols-3", 4: "sm:grid-cols-2 lg:grid-cols-4" };
   return (
     <div
+      data-tour={tour}
       className={cn(
         "grid min-w-0 grid-cols-1 divide-y divide-line-dark rounded-[var(--radius-md)] border border-line-dark bg-deep-raised sm:divide-x sm:divide-y-0 rtl:sm:divide-x-reverse",
         grid[cols],

@@ -36,6 +36,7 @@ export const routing = defineRouting({
     "/company/about": { fa: "/درباره-ما", en: "/company/about" },
     "/company/contact": { fa: "/تماس-با-ما", en: "/company/contact" },
     "/demo": { fa: "/درخواست-دمو", en: "/demo" },
+    "/demo/expert": { fa: "/درخواست-دمو/جلسه-با-کارشناس", en: "/demo/expert" },
     "/privacy": { fa: "/حریم-خصوصی", en: "/privacy" },
     "/terms": { fa: "/شرایط-استفاده", en: "/terms" },
     // Product area. Same slug in both locales, and noindex everywhere —

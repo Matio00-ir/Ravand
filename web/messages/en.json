@@ -938,7 +938,8 @@
       "title": "This link isn't valid",
       "body": "This demo address wasn't found or has been disabled. Build your RAVAND again to get a working link.",
       "cta": "Build my RAVAND"
-    }
+    },
+    "bookExpert": "Book a session with a RAVAND expert"
   },
   "production": {
     "eyebrow": "Example calculation",
@@ -975,7 +976,9 @@
       "hr": "People",
       "analytics": "Analytics",
       "erp": "Resources",
-      "production": "Production"
+      "production": "Production",
+      "sample": "Sample",
+      "sampleHint": "This screen shows sample data"
     },
     "workspace": {
       "label": "Workspace",
@@ -2140,6 +2143,695 @@
             "status": "onTrack"
           }
         ]
+      }
+    }
+  },
+  "sandbox": {
+    "units": {
+      "million": "million Toman",
+      "toman": "Toman"
+    },
+    "fieldErrors": {
+      "required": "This field is required.",
+      "invalid": "Enter a valid value."
+    },
+    "errors": {
+      "fields": "Please fix the highlighted fields.",
+      "server": "That didn't save. Please try again.",
+      "expired": "This demo environment has expired.",
+      "limit": "You've reached the record limit for this demo environment.",
+      "notFound": "That item wasn't found — it may have been deleted.",
+      "customerHasInvoices": "This customer has invoices and can't be deleted.",
+      "productHasInvoices": "This product is used on invoices and can't be deleted.",
+      "duplicateSku": "Another product already uses this code.",
+      "notStocked": "Stock isn't tracked for this service item.",
+      "negativeStock": "This adjustment would take stock below zero.",
+      "insufficientStock": "Not enough “{detail}” in stock for this invoice.",
+      "notPayable": "This invoice is already settled or cancelled.",
+      "overpay": "The amount is more than the invoice's balance.",
+      "hasPayments": "An invoice with payments recorded can't be cancelled."
+    },
+    "sampleScreen": {
+      "notice": "This screen still shows sample data. Sales, Customers, Inventory and Finance are real in this environment and work with your own data."
+    },
+    "overview": {
+      "title": "Overview",
+      "meta": "From the data recorded in this environment",
+      "intro": "This environment really works: issue invoices, record payments and receive stock. Every figure on this page is calculated from that data.",
+      "vsPrevious": "{pct} vs. previous 30 days",
+      "tryIt": {
+        "invoice": {
+          "title": "Issue a sales invoice",
+          "body": "Pick a customer and products — stock is deducted automatically."
+        },
+        "payment": {
+          "title": "Record a payment",
+          "body": "Full or partial; receivables and the invoice status update."
+        },
+        "stock": {
+          "title": "Receive stock",
+          "body": "Post a goods receipt for items below their reorder point."
+        }
+      },
+      "stats": {
+        "sales": "Sales, last 30 days",
+        "receivables": "Open receivables",
+        "overdueCount": "{count} invoices overdue",
+        "collected": "Collected, last 30 days",
+        "lowStock": "Items below reorder point",
+        "items": "items",
+        "needsOrder": "Needs reordering",
+        "allGood": "Stock is sufficient"
+      },
+      "salesChart": {
+        "title": "Sales trend",
+        "meta": "Invoiced amount, last six months"
+      },
+      "mix": {
+        "title": "Sales by customer",
+        "meta": "Across all invoices",
+        "others": "Other customers"
+      },
+      "recent": {
+        "title": "Latest invoices",
+        "meta": "By issue date",
+        "all": "All invoices"
+      },
+      "lowStock": {
+        "title": "Stock alerts",
+        "meta": "Items at or below their reorder point",
+        "empty": "Every item has enough stock.",
+        "reorderAt": "Reorder at {qty} {unit}"
+      },
+      "reset": {
+        "title": "Start over",
+        "body": "Clears every change you've made and rebuilds the original sample data.",
+        "cta": "Reset data",
+        "confirm": "All data in this environment will return to its starting state. Continue?"
+      },
+      "footnote": "The starting data here is sample data; anything you change is saved only in your private environment. Amounts are in Toman."
+    },
+    "invoices": {
+      "title": "Sales invoices",
+      "meta": "Issue, collect and follow up receivables",
+      "new": "New invoice",
+      "backToList": "← Back to invoices",
+      "empty": "No invoices with this status.",
+      "footnote": "Issuing an invoice deducts stock; cancelling it returns the stock. Amounts are in Toman.",
+      "stats": {
+        "sales": "Sales, last 30 days",
+        "count": "Invoices, last 30 days",
+        "countUnit": "invoices",
+        "average": "Average invoice",
+        "open": "Open invoices",
+        "overdue": "{count} overdue"
+      },
+      "register": {
+        "title": "Invoice register",
+        "meta": "{count} invoices"
+      },
+      "filters": {
+        "all": "All",
+        "open": "Open",
+        "overdue": "Overdue",
+        "paid": "Paid",
+        "cancelled": "Cancelled"
+      },
+      "columns": {
+        "number": "No.",
+        "customer": "Customer",
+        "date": "Date",
+        "due": "Due",
+        "total": "Total",
+        "balance": "Balance",
+        "status": "Status"
+      },
+      "status": {
+        "issued": "Issued",
+        "partial": "Part-paid",
+        "paid": "Paid",
+        "cancelled": "Cancelled",
+        "overdue": "Overdue"
+      },
+      "form": {
+        "title": "New sales invoice",
+        "meta": "Automatic numbering, VAT and stock deduction",
+        "customer": "Customer",
+        "chooseCustomer": "Choose a customer",
+        "terms": "Payment terms",
+        "termsCash": "Cash",
+        "termsDays": "{days} days",
+        "product": "Product or service",
+        "qty": "Qty",
+        "unitPrice": "Unit price (Toman)",
+        "lineTotal": "Amount",
+        "chooseProduct": "Choose a product",
+        "inStock": "{qty} {unit} in stock",
+        "shortStock": "Only {qty} {unit} in stock",
+        "removeLine": "Remove line",
+        "addLine": "Add line",
+        "linesInvalid": "At least one complete line with a valid quantity and price is required.",
+        "note": "Notes",
+        "vat": "Apply value-added tax (10%)",
+        "subtotal": "Subtotal",
+        "tax": "VAT",
+        "total": "Amount due",
+        "currency": "Toman",
+        "submit": "Issue invoice"
+      },
+      "detail": {
+        "title": "Invoice #{number}",
+        "customer": "Customer",
+        "issued": "Issued",
+        "due": "Due",
+        "paid": "Received",
+        "remaining": "Balance"
+      },
+      "payment": {
+        "title": "Record a payment",
+        "meta": "Full or partial",
+        "amount": "Amount (Toman)",
+        "method": "Method",
+        "methods": {
+          "cash": "Cash",
+          "card": "Card",
+          "transfer": "Bank transfer",
+          "cheque": "Cheque"
+        },
+        "submit": "Record payment",
+        "done": "Payment recorded."
+      },
+      "payments": {
+        "title": "Payments on this invoice",
+        "meta": "By date",
+        "empty": "No payments received yet."
+      },
+      "cancel": {
+        "title": "Cancel invoice",
+        "meta": "Items return to stock",
+        "cta": "Cancel this invoice",
+        "confirm": "This invoice will be cancelled and its items returned to stock. Continue?"
+      }
+    },
+    "customers": {
+      "title": "Customers",
+      "meta": "Customer accounts and balances",
+      "backToList": "← Back to customers",
+      "empty": "No customers yet.",
+      "stats": {
+        "count": "Customers",
+        "unit": "customers",
+        "owing": "Customers owing",
+        "receivables": "Total receivables"
+      },
+      "add": {
+        "title": "Add a customer",
+        "meta": "Available on invoices immediately"
+      },
+      "list": {
+        "title": "Customer list",
+        "meta": "Sorted by balance owed"
+      },
+      "columns": {
+        "name": "Name",
+        "city": "City",
+        "invoices": "Invoices",
+        "last": "Last purchase",
+        "sales": "Total sales",
+        "balance": "Balance"
+      },
+      "form": {
+        "name": "Customer name",
+        "phone": "Phone",
+        "city": "City",
+        "create": "Add",
+        "save": "Save changes",
+        "created": "Customer added.",
+        "saved": "Changes saved."
+      },
+      "detail": {
+        "meta": "Customer statement",
+        "statement": "This customer's invoices",
+        "statementMeta": "By issue date",
+        "noInvoices": "No invoices for this customer yet.",
+        "edit": "Edit details"
+      },
+      "delete": {
+        "title": "Delete customer",
+        "body": "Only a customer with no invoices can be deleted.",
+        "cta": "Delete customer",
+        "confirm": "Delete “{name}”?"
+      }
+    },
+    "products": {
+      "title": "Products & stock",
+      "meta": "Live stock and movements",
+      "backToList": "← Back to products",
+      "empty": "No products yet.",
+      "stats": {
+        "items": "Products",
+        "itemsUnit": "items",
+        "value": "Stock value",
+        "low": "Below reorder point",
+        "lowHint": "Needs reordering"
+      },
+      "list": {
+        "title": "Product list",
+        "meta": "Stock updates with every invoice and receipt"
+      },
+      "columns": {
+        "sku": "Code",
+        "name": "Product",
+        "price": "Price",
+        "stock": "In stock",
+        "reorder": "Reorder at",
+        "status": "Status"
+      },
+      "status": {
+        "service": "Service",
+        "out": "Out",
+        "low": "Low",
+        "ok": "OK"
+      },
+      "add": {
+        "title": "Add a product",
+        "meta": "With opening stock"
+      },
+      "moves": {
+        "title": "Latest stock movements",
+        "meta": "Goods in and out",
+        "columns": {
+          "date": "Date",
+          "product": "Product",
+          "kind": "Type",
+          "qty": "Qty"
+        },
+        "kinds": {
+          "opening": "Opening stock",
+          "sale": "Sale",
+          "receipt": "Goods receipt",
+          "adjust": "Count adjustment",
+          "cancel": "Return from cancellation"
+        }
+      },
+      "form": {
+        "sku": "Product code",
+        "name": "Product name",
+        "unit": "Unit",
+        "unitPlaceholder": "unit, carton, kg…",
+        "price": "Price (Toman)",
+        "priceHint": "Can be changed on the invoice",
+        "reorderPoint": "Reorder point",
+        "reorderHint": "Stock alert at this level",
+        "openingStock": "Opening stock",
+        "trackStock": "Track stock for this item",
+        "create": "Add product",
+        "save": "Save changes",
+        "created": "Product added.",
+        "saved": "Changes saved."
+      },
+      "move": {
+        "title": "Post a receipt or adjustment",
+        "meta": "Goods received, or a correction after a count",
+        "kind": "Document type",
+        "receipt": "Receipt",
+        "adjust": "Adjustment",
+        "qty": "Quantity ({unit})",
+        "adjustHint": "Enter a negative number to reduce",
+        "ref": "Reference",
+        "refPlaceholder": "e.g. waybill 452",
+        "submit": "Post",
+        "done": "Stock document posted."
+      },
+      "card": {
+        "title": "Stock card",
+        "meta": "Every movement of this product",
+        "empty": "No movements yet."
+      },
+      "edit": {
+        "title": "Edit product",
+        "meta": "Price and reorder point"
+      },
+      "delete": {
+        "title": "Delete product",
+        "body": "Only a product that isn't on any invoice can be deleted.",
+        "cta": "Delete product",
+        "confirm": "Delete “{name}”?"
+      }
+    },
+    "finance": {
+      "title": "Finance",
+      "meta": "Receivables, collections and VAT",
+      "stats": {
+        "receivables": "Open receivables",
+        "overdue": "Overdue receivables",
+        "overdueCount": "{count} invoices",
+        "collected": "Collected, last 30 days",
+        "vat": "Value-added tax",
+        "vatHint": "Invoices, last 30 days"
+      },
+      "cash": {
+        "title": "Cash collected",
+        "meta": "Payments received, last six months"
+      },
+      "aging": {
+        "title": "Receivables aging",
+        "meta": "By days past due",
+        "buckets": {
+          "current": "Not yet due",
+          "d30": "1–30 days",
+          "d60": "31–60 days",
+          "d60plus": "Over 60 days"
+        }
+      },
+      "payments": {
+        "title": "Latest payments",
+        "meta": "Across all invoices",
+        "empty": "No payments recorded yet.",
+        "columns": {
+          "date": "Date",
+          "customer": "Customer",
+          "invoice": "Invoice",
+          "method": "Method",
+          "amount": "Amount"
+        }
+      },
+      "debtors": {
+        "title": "Largest balances",
+        "meta": "Open balance per customer",
+        "empty": "No customer has an open balance."
+      }
+    }
+  },
+  "tour": {
+    "banner": {
+      "text": "Guided tour with sample data — no sign-up.",
+      "working": "Build a working demo with your own data",
+      "expert": "Book an expert session",
+      "resume": "Resume tour"
+    },
+    "progress": "Step {current} of {total}",
+    "close": "Close tour",
+    "back": "Back",
+    "next": "Next",
+    "finishCta": "Finish tour",
+    "goTo": "Go to {screen}",
+    "screens": {
+      "overview": "Overview",
+      "sales": "Sales",
+      "crm": "Customers",
+      "inventory": "Inventory",
+      "finance": "Finance"
+    },
+    "finish": {
+      "eyebrow": "End of tour",
+      "title": "Now try it with your own data",
+      "body": "In a working demo you issue invoices, record payments and watch stock change — in your own private environment, for 14 days. Or book an online session with a RAVAND expert.",
+      "working": "Build a working demo (2 min)",
+      "expert": "Book an expert session"
+    },
+    "pages": {
+      "overview": [
+        {
+          "target": "stats",
+          "title": "Key figures at a glance",
+          "body": "Revenue, open orders, stock turnover and on-time delivery — every morning, with no manual reporting."
+        },
+        {
+          "target": "chart",
+          "title": "Revenue against the previous period",
+          "body": "Managers see which way the business is heading, not just today's number."
+        },
+        {
+          "target": "table",
+          "title": "Recent documents and their status",
+          "body": "Every invoice and document with its payment status; overdue items flag themselves."
+        },
+        {
+          "target": "extra",
+          "title": "Waiting for approval",
+          "body": "Approvals in one queue — nothing gets lost in a chat thread."
+        }
+      ],
+      "sales": [
+        {
+          "target": "stats",
+          "title": "Sales performance",
+          "body": "Sales, order count and average order value, always current."
+        },
+        {
+          "target": "chart",
+          "title": "Sales funnel",
+          "body": "From quote to delivery — you can see where sales get stuck."
+        },
+        {
+          "target": "table",
+          "title": "Orders and shipping status",
+          "body": "In a working demo you issue invoices right here, and stock is deducted automatically."
+        }
+      ],
+      "crm": [
+        {
+          "target": "chart",
+          "title": "Opportunities by stage",
+          "body": "Where every prospect stands, and who owns the follow-up."
+        },
+        {
+          "target": "side",
+          "title": "Today's sales tasks",
+          "body": "Calls and follow-ups happen on time, not when someone remembers."
+        },
+        {
+          "target": "table",
+          "title": "Key accounts",
+          "body": "In a working demo, each customer's balance is calculated from invoices and payments."
+        }
+      ],
+      "inventory": [
+        {
+          "target": "stats",
+          "title": "Live stock",
+          "body": "Stock value, low and out-of-stock items at a glance."
+        },
+        {
+          "target": "side",
+          "title": "Warehouses",
+          "body": "Capacity per warehouse — ready for multi-site operations."
+        },
+        {
+          "target": "table",
+          "title": "Every item's status",
+          "body": "A reorder point per item, so you're warned before you run out."
+        }
+      ],
+      "finance": [
+        {
+          "target": "chart",
+          "title": "Cash flow",
+          "body": "Money in and out, month by month, without a spreadsheet."
+        },
+        {
+          "target": "side",
+          "title": "Receivables aging",
+          "body": "How much is overdue, and which customers need a follow-up."
+        },
+        {
+          "target": "table",
+          "title": "General ledger",
+          "body": "Every accounting entry with its posting status — ready for the auditor."
+        }
+      ]
+    }
+  },
+  "demoPaths": {
+    "eyebrow": "Three ways to see RAVAND",
+    "title": "Start however suits you",
+    "tour": {
+      "label": "Guided tour",
+      "title": "Right now, no sign-up",
+      "body": "A guided walk through the dashboard with sample data. About 3 minutes.",
+      "cta": "Start the tour"
+    },
+    "working": {
+      "label": "Working demo",
+      "title": "Work with your own data",
+      "body": "A private environment that really works: invoices, payments, stock and reports. Free for 14 days.",
+      "cta": "Build my demo"
+    },
+    "expert": {
+      "label": "Expert session",
+      "title": "A demo built around your organization",
+      "body": "An online session with a RAVAND expert, shaped around your industry and processes. Best for larger teams.",
+      "cta": "Book a session"
+    }
+  },
+  "expert": {
+    "eyebrow": "Tailored demo",
+    "title": "Book a session with a RAVAND expert",
+    "description": "In an online session of about 45 minutes, our expert walks through RAVAND around your industry and your processes, and answers your questions.",
+    "pointsTitle": "What happens in the session?",
+    "points": [
+      {
+        "title": "Understanding your needs",
+        "body": "We call before the session to confirm the time and learn your key processes."
+      },
+      {
+        "title": "A demo shaped around you",
+        "body": "Your real business scenarios — not a generic presentation."
+      },
+      {
+        "title": "Rollout plan and pricing",
+        "body": "Afterwards, we send an implementation plan and a cost estimate."
+      }
+    ],
+    "form": {
+      "name": "Full name",
+      "role": "Role",
+      "rolePlaceholder": "e.g. Finance manager",
+      "company": "Organization",
+      "mobile": "Mobile number",
+      "companySize": "Team size",
+      "industry": "Industry",
+      "choose": "Choose",
+      "sizes": {
+        "1-10": "1–10 people",
+        "11-50": "11–50 people",
+        "51-200": "51–200 people",
+        "200+": "Over 200 people"
+      },
+      "industries": {
+        "manufacturing": "Manufacturing",
+        "trading": "Trading & distribution",
+        "retail": "Retail",
+        "services": "Services",
+        "healthcare": "Healthcare",
+        "fitness": "Fitness",
+        "other": "Other"
+      },
+      "needs": "Your main challenge or need",
+      "needsPlaceholder": "e.g. connecting inventory and accounting, or chasing receivables",
+      "date": "Preferred day",
+      "slot": "Time window",
+      "slots": {
+        "morning": "Morning (9–12)",
+        "midday": "Midday (12–15)",
+        "afternoon": "Afternoon (15–18)"
+      },
+      "slotNote": "Our expert confirms the exact time with you by phone.",
+      "submit": "Request a session",
+      "success": {
+        "eyebrow": "Request received",
+        "title": "We'll be in touch shortly",
+        "body": "A RAVAND expert will call within the next working hour to confirm your session. Meanwhile, you can take the guided dashboard tour.",
+        "tour": "Take the guided tour"
+      }
+    }
+  },
+  "team": {
+    "title": "Sales team panel",
+    "logout": "Sign out",
+    "backToSite": "Back to site",
+    "footnote": "This page is for the RAVAND team only.",
+    "login": {
+      "title": "RAVAND team sign-in",
+      "body": "Enter the team panel password.",
+      "password": "Password",
+      "submit": "Sign in",
+      "errors": {
+        "disabled": "The team panel is disabled (TEAM_PANEL_PASSWORD is not set).",
+        "wrong": "That password isn't right."
+      }
+    },
+    "stats": {
+      "leads": "All demos",
+      "active": "Active demos",
+      "engaged": "Demos in use",
+      "engagedHint": "Did at least one thing in the sandbox",
+      "requests": "Open session requests",
+      "requestsHint": "New or being followed up"
+    },
+    "tabs": {
+      "leads": "Demos",
+      "requests": "Session requests"
+    },
+    "business": {
+      "manufacturing": "Manufacturing",
+      "trading": "Trading",
+      "services": "Services",
+      "retail": "Retail"
+    },
+    "industries": {
+      "manufacturing": "Manufacturing",
+      "trading": "Trading & distribution",
+      "retail": "Retail",
+      "services": "Services",
+      "healthcare": "Healthcare",
+      "fitness": "Fitness",
+      "other": "Other"
+    },
+    "leads": {
+      "columns": {
+        "lead": "Customer",
+        "business": "Business type",
+        "trial": "Trial",
+        "usage": "Usage",
+        "actions": "Actions"
+      },
+      "empty": "No demos created yet.",
+      "users": "{count} users",
+      "state": {
+        "active": "Active",
+        "expired": "Expired",
+        "disabled": "Disabled"
+      },
+      "daysLeft": "{days} days left",
+      "created": "Created {date}",
+      "visits": "{count} visits",
+      "actionsCount": "{count} actions · {invoices} invoices",
+      "lastSeen": "Last seen {date}",
+      "neverOpened": "Not opened yet",
+      "extend": "Extend 7 days",
+      "enable": "Enable",
+      "disable": "Disable",
+      "note": "Note",
+      "notePlaceholder": "Team note…",
+      "save": "Save",
+      "errors": {
+        "session": "Session expired — sign in again.",
+        "invalid": "Invalid request."
+      }
+    },
+    "requests": {
+      "columns": {
+        "who": "Requested by",
+        "org": "Organization",
+        "when": "Preferred time",
+        "needs": "Need",
+        "followUp": "Follow-up"
+      },
+      "empty": "No requests yet.",
+      "hasDemo": "Has an active demo",
+      "staff": "{size} people",
+      "statuses": {
+        "new": "New",
+        "contacted": "Contacted",
+        "scheduled": "Scheduled",
+        "done": "Held",
+        "cancelled": "Cancelled"
+      },
+      "slots": {
+        "morning": "Morning (9–12)",
+        "midday": "Midday (12–15)",
+        "afternoon": "Afternoon (15–18)"
+      },
+      "status": "Status",
+      "note": "Note",
+      "notePlaceholder": "Team note…",
+      "save": "Save",
+      "saved": "Saved.",
+      "errors": {
+        "session": "Session expired — sign in again.",
+        "invalid": "Invalid request."
       }
     }
   }
