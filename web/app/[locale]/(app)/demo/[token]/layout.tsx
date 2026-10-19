@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getLeadByToken, isExpired, isBlocked, touchAccess } from "@/lib/demo-leads";
+import { loadLead } from "@/lib/sandbox/context";
 
 /**
  * Server-side gate for every /demo/[token]/* route: this is a private,
@@ -38,6 +39,9 @@ export default async function DemoTokenLayout({
   }
 
   await touchAccess(lead.id);
+  // First visit fills the sandbox with a starting dataset for this
+  // business type, in the language the customer is browsing in.
+  await loadLead(token, locale);
 
   return <>{children}</>;
 }

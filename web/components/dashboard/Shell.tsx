@@ -8,11 +8,12 @@ import { Logo, LogoMark } from "@/components/ui/Logo";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { cn } from "@/lib/utils";
+import { TourBanner, TourGuide, useTourState, type TourPage } from "@/components/dashboard/TourGuide";
 
-type NavItem = { key: ModuleKey | "overview"; path: string; live: boolean };
+type NavItem = { key: ModuleKey | "overview"; path: string; live: boolean; sample?: boolean };
 
 /**
- * The default rail: the generic internal preview at /dashboard. A
+ * The default rail: the public guided tour at /dashboard. A
  * per-customer demo (see app/[locale]/(app)/demo/[token]) passes its own
  * `nav`/`basePath` to show only the modules that customer picked, plus
  * the production module — everything else about the shell (banner,
@@ -22,11 +23,11 @@ const DEFAULT_NAV: NavItem[] = [
   { key: "overview", path: "", live: true },
   { key: "finance", path: "/finance", live: true },
   { key: "sales", path: "/sales", live: true },
-  { key: "crm", path: "", live: false },
-  { key: "inventory", path: "", live: false },
-  { key: "workflow", path: "", live: false },
-  { key: "hr", path: "", live: false },
-  { key: "analytics", path: "", live: false },
+  { key: "crm", path: "/crm", live: true },
+  { key: "inventory", path: "/inventory", live: true },
+  { key: "workflow", path: "/workflow", live: true },
+  { key: "hr", path: "/hr", live: true },
+  { key: "analytics", path: "/analytics", live: true },
 ];
 
 /**
@@ -50,6 +51,7 @@ export function DashboardShell({
   userName,
   userRole,
   userInitials,
+  tour,
 }: {
   children: ReactNode;
   title: string;
@@ -64,11 +66,14 @@ export function DashboardShell({
   userName?: string;
   userRole?: string;
   userInitials?: string;
+  /** Marks this as a screen of the public guided tour (layer 1). */
+  tour?: TourPage;
 }) {
   const t = useTranslations("dash");
   const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const tourState = useTourState();
   const items = navOverride ?? DEFAULT_NAV;
   // basePath is a runtime-composed path (may embed a demo token), not a
   // literal registered in next-intl's typed `pathnames` map — so this
@@ -80,7 +85,11 @@ export function DashboardShell({
     <nav className="flex flex-col gap-0.5 px-2" aria-label={t("nav.aria")}>
       {items.map((item) => {
         const unprefixedHref = `${basePath}${item.path}`;
-        const active = item.live && pathname === unprefixedHref;
+        // Nested screens (an invoice under /sales, a customer under /crm)
+        // keep their module highlighted; the overview only matches itself.
+        const active =
+          item.live &&
+          (pathname === unprefixedHref || (item.path !== "" && pathname.startsWith(`${unprefixedHref}/`)));
         const label = t(`nav.${item.key}`);
 
         if (!item.live) {
@@ -130,6 +139,11 @@ export function DashboardShell({
               />
             )}
             <span className="truncate">{label}</span>
+            {item.sample ? (
+              <span className="t-label ms-auto shrink-0 text-steel/60" title={t("nav.sampleHint")}>
+                {t("nav.sample")}
+              </span>
+            ) : null}
           </NextLink>
         );
       })}
@@ -185,7 +199,9 @@ export function DashboardShell({
               customer's. Existing tokens only; the row below (title, nav
               toggle, search, language switcher) is untouched. */}
           <div className="border-b border-line-dark bg-black/40 px-5 py-1.5 md:px-8">
-            <p className="t-small text-steel">{banner ?? t("banner")}</p>
+            <div className="t-small text-steel">
+              {tour ? <TourBanner closed={tourState.closed} onResume={tourState.resume} /> : (banner ?? t("banner"))}
+            </div>
           </div>
           <div className="flex h-16 items-center gap-4 px-5 md:px-8">
             <button
@@ -248,6 +264,7 @@ export function DashboardShell({
         </div>
 
         <main className="px-5 py-6 md:px-8 md:py-8">{children}</main>
+        {tour && !tourState.closed ? <TourGuide page={tour} onClose={tourState.close} /> : null}
       </div>
     </div>
   );

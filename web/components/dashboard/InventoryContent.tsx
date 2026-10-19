@@ -38,21 +38,21 @@ export async function InventoryContent({ locale }: { locale: string }) {
 
   return (
     <div className="min-w-0 space-y-6">
-      <StatRow>
+      <StatRow tour="stats">
         {stats.map((s) => (
           <StatTile key={s.label} label={s.label} value={s.value} unit={s.unit} delta={s.delta} trend={s.trend} />
         ))}
       </StatRow>
 
       <div className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <Panel>
+        <Panel tour="chart">
           <PanelHead title={inv("movement.title")} meta={inv("movement.meta")} />
           <div className="mt-6 h-56">
             <ColumnChart data={data} labels={labels} />
           </div>
         </Panel>
 
-        <Panel>
+        <Panel tour="side">
           <PanelHead title={inv("warehouses.title")} meta={inv("warehouses.meta")} />
           <ul className="mt-6 space-y-5">
             {warehouses.map((w) => (
@@ -62,7 +62,7 @@ export async function InventoryContent({ locale }: { locale: string }) {
         </Panel>
       </div>
 
-      <Panel flush>
+      <Panel tour="table" flush>
         <PanelHead
           className="p-5"
           title={inv("stock.title")}

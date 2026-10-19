@@ -23,7 +23,7 @@ export default async function FinancePage({
   const f = await getTranslations({ locale, namespace: "dash.finance" });
 
   return (
-    <DashboardShell title={f("title")} meta={f("meta")}>
+    <DashboardShell title={f("title")} meta={f("meta")} tour="finance">
       <FinanceContent locale={locale} />
     </DashboardShell>
   );

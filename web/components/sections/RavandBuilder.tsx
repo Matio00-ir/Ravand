@@ -96,7 +96,7 @@ export function RavandBuilder() {
 
   return (
     <Zone tone="light">
-      <div ref={containerRef} className="shell zone" style={{ scrollMarginTop: "5rem" }}>
+      <div ref={containerRef} id="builder" className="shell zone" style={{ scrollMarginTop: "5rem" }}>
         {/* stepper */}
         <ol className="flex flex-wrap items-center gap-x-2 gap-y-3 border-b border-line pb-8">
           {stepLabels.map((label, i) => {

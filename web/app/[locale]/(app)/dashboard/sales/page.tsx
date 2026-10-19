@@ -23,7 +23,7 @@ export default async function SalesPage({
   const s = await getTranslations({ locale, namespace: "dash.sales" });
 
   return (
-    <DashboardShell title={s("title")} meta={s("meta")}>
+    <DashboardShell title={s("title")} meta={s("meta")} tour="sales">
       <SalesContent locale={locale} />
     </DashboardShell>
   );

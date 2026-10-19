@@ -38,7 +38,7 @@ function formatMessage(lead: LeadNotification): string {
  * exists so a different provider can be swapped in later by adding a
  * branch here without touching any call site.
  */
-async function sendSms(lead: LeadNotification): Promise<NotifyResult> {
+async function sendSms(message: string): Promise<NotifyResult> {
   const provider = process.env.SMS_PROVIDER;
   if (!provider || provider === "none") return "skipped";
 
@@ -53,7 +53,7 @@ async function sendSms(lead: LeadNotification): Promise<NotifyResult> {
       const body = new URLSearchParams({
         receptor: recipient,
         sender,
-        message: formatMessage(lead),
+        message,
       });
       const res = await fetch(url, {
         method: "POST",
@@ -76,7 +76,7 @@ async function sendSms(lead: LeadNotification): Promise<NotifyResult> {
 }
 
 /** SMTP fallback, only for the team's inbox — never the customer's. */
-async function sendEmail(lead: LeadNotification): Promise<NotifyResult> {
+async function sendEmail(subject: string, message: string): Promise<NotifyResult> {
   const host = process.env.SMTP_HOST;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
@@ -95,8 +95,8 @@ async function sendEmail(lead: LeadNotification): Promise<NotifyResult> {
     await transport.sendMail({
       from,
       to,
-      subject: `RAVAND lead — ${lead.company}`,
-      text: formatMessage(lead),
+      subject,
+      text: message,
     });
     return "sent";
   } catch (err) {
@@ -113,7 +113,15 @@ async function sendEmail(lead: LeadNotification): Promise<NotifyResult> {
 export async function notifyTeam(
   lead: LeadNotification
 ): Promise<{ sms: NotifyResult; email: NotifyResult }> {
-  const sms = await sendSms(lead);
-  const email = sms === "sent" ? "skipped" : await sendEmail(lead);
+  return notifyTeamMessage(`RAVAND lead — ${lead.company}`, formatMessage(lead));
+}
+
+/** Same SMS-then-email delivery, for any team alert (e.g. an expert-session request). */
+export async function notifyTeamMessage(
+  subject: string,
+  message: string
+): Promise<{ sms: NotifyResult; email: NotifyResult }> {
+  const sms = await sendSms(message);
+  const email = sms === "sent" ? "skipped" : await sendEmail(subject, message);
   return { sms, email };
 }

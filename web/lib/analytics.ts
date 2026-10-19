@@ -28,7 +28,8 @@ export type AnalyticsEvent =
   | "workflow_configured"
   | "demo_completed"
   | "lead_submitted"
-  | "contact_clicked";
+  | "contact_clicked"
+  | "expert_requested";
 
 type AnalyticsProps = Record<string, string | number | boolean>;
 
