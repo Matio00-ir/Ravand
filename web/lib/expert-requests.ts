@@ -81,14 +81,16 @@ export function isBookableDate(iso: string, now = new Date()): boolean {
   return diff >= 1 && diff <= 28 && weekday !== 4 && weekday !== 5;
 }
 
-export type ExpertRequestInput = Omit<ExpertRequest, "id" | "status" | "teamNote" | "createdAt">;
+export type ExpertRequestInput = Omit<ExpertRequest, "id" | "status" | "teamNote" | "createdAt"> & {
+  utm?: Record<string, string> | null;
+};
 
 export async function createExpertRequest(input: ExpertRequestInput): Promise<ExpertRequest> {
   await ensureSchema();
   const res = await getPool().query<Row>(
     `INSERT INTO expert_requests
-      (id, name, company, mobile, role, company_size, industry, needs, preferred_date, preferred_slot)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+      (id, name, company, mobile, role, company_size, industry, needs, preferred_date, preferred_slot, utm)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
      RETURNING id, name, company, mobile, role, company_size, industry, needs,
                to_char(preferred_date, 'YYYY-MM-DD') AS preferred_date, preferred_slot, status, team_note, created_at`,
     [
@@ -102,6 +104,7 @@ export async function createExpertRequest(input: ExpertRequestInput): Promise<Ex
       input.needs,
       input.preferredDate,
       input.preferredSlot,
+      input.utm ? JSON.stringify(input.utm) : null,
     ]
   );
   return fromRow(res.rows[0]);

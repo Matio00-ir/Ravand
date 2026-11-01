@@ -168,7 +168,7 @@ export function Table({
   className?: string;
 }) {
   return (
-    <div className={cn("overflow-x-auto no-scrollbar", className)}>
+    <div className={cn("relative overflow-x-auto no-scrollbar", className)}>
       <table className="w-full min-w-[460px] border-collapse">
         <thead>
           <tr className="border-b border-line-dark">

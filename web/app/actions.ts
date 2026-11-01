@@ -1,5 +1,6 @@
 "use server";
 
+import { randomUUID } from "node:crypto";
 import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import {
@@ -7,11 +8,13 @@ import {
   demoLeadSchema,
   expertRequestSchema,
   looksLikeAbuse,
+  parseAttribution,
   payloadTooLarge,
   validateFields,
   type FieldErrors,
 } from "@/lib/validation";
 import { upsertDemoLead, recordNotificationResult } from "@/lib/demo-leads";
+import { ensureSchema, getPool } from "@/lib/db";
 import { notifyTeam, notifyTeamMessage } from "@/lib/notifications";
 import {
   COMPANY_SIZES,
@@ -32,9 +35,10 @@ export type FormState = {
 const initialAbuseResponse: FormState = { status: "success", errors: {} };
 
 /**
- * The Contact form: real server-side validation, a honeypot + timing
- * check, and a payload-size cap. Not wired to a delivery system — see
- * pages.contact.form.note, which says so honestly in the UI.
+ * The Contact form: server-side validation, a honeypot + timing check
+ * and a payload-size cap, then the message is saved to the admin panel's
+ * inbox (/admin/inbox) and the team is paged — saved first, so a failed
+ * notification never loses a message.
  */
 export async function submitContactForm(
   _prev: FormState,
@@ -44,9 +48,39 @@ export async function submitContactForm(
     return initialAbuseResponse;
   }
 
-  const { errors } = validateFields(formData, contactSchema);
+  const { values, errors } = validateFields(formData, contactSchema);
   if (Object.keys(errors).length > 0) {
     return { status: "error", errors };
+  }
+
+  try {
+    await ensureSchema();
+    await getPool().query(
+      `INSERT INTO contact_messages (id, name, company, email, phone, message, utm) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [
+        randomUUID(),
+        values.name,
+        values.company || null,
+        values.email,
+        values.phone || null,
+        values.message,
+        JSON.stringify(parseAttribution(formData)),
+      ]
+    );
+  } catch (err) {
+    console.error("[submitContactForm] persisting message failed", err);
+    return { status: "error", errors: { form: "server" } };
+  }
+
+  try {
+    await notifyTeamMessage(
+      `RAVAND contact — ${values.company || values.name}`,
+      [`RAVAND contact form`, `Name: ${values.name}`, values.company ? `Company: ${values.company}` : "", `Email: ${values.email}`, values.phone ? `Phone: ${values.phone}` : "", `Inbox: ${SITE_URL}/admin/inbox`]
+        .filter(Boolean)
+        .join("\n")
+    );
+  } catch (err) {
+    console.error("[submitContactForm] notification failed", err);
   }
 
   return { status: "success", errors: {} };
@@ -136,6 +170,7 @@ export async function createDemoLead(
       userCount: Math.round(userCount),
       modules,
       workflow,
+      utm: parseAttribution(formData),
     });
   } catch (err) {
     // A missing DATABASE_URL or unreachable Postgres must surface as a
@@ -208,6 +243,7 @@ export async function requestExpertDemo(_prev: FormState, formData: FormData): P
       needs: values.needs || null,
       preferredDate: values.preferredDate,
       preferredSlot: values.preferredSlot,
+      utm: parseAttribution(formData),
     });
   } catch (err) {
     console.error("[requestExpertDemo] persisting request failed", err);
@@ -222,7 +258,7 @@ export async function requestExpertDemo(_prev: FormState, formData: FormData): P
       `Mobile: ${request.mobile}`,
       `Preferred: ${request.preferredDate} ${request.preferredSlot}`,
       request.needs ? `Needs: ${request.needs}` : "",
-      `Panel: ${SITE_URL}/team`,
+      `Panel: ${SITE_URL}/admin/deals`,
     ]
       .filter(Boolean)
       .join("\n");

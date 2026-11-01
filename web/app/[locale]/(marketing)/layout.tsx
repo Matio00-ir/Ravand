@@ -1,6 +1,8 @@
 import { setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
+import { AttributionCapture } from "@/components/system/Attribution";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/structured-data";
 
 /**
@@ -34,6 +36,8 @@ export default async function MarketingLayout({
       >
         Skip to content
       </a>
+      <AttributionCapture />
+      <AnnouncementBar />
       <Navbar />
       <main id="main-content" className="flex-1">
         {children}

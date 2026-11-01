@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { requestExpertDemo, type FormState } from "@/app/actions";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+import { AttributionField } from "@/components/system/Attribution";
 
 const fieldClass =
   "w-full rounded-[var(--radius-sm)] border border-hair-strong bg-raised px-3.5 py-3 text-[15px] text-ink transition-colors duration-[var(--t-base)] focus:border-ink focus:outline-none";
@@ -127,6 +128,7 @@ export function ExpertRequestForm() {
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="startedAt" value={startedAt} />
+      <AttributionField />
 
       <FieldWrap id="name" label={t("name")} error={err.name}>
         <input id="name" name="name" required maxLength={100} className={fieldClass} aria-invalid={Boolean(err.name)} />

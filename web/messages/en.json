@@ -681,7 +681,7 @@
         "phone": "Phone number",
         "message": "What do you need?",
         "submit": "Send request",
-        "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report)."
+        "note": "Your message goes straight to the RAVAND team; we reply within the next working hour."
       }
     },
     "demo": {
@@ -2146,6 +2146,43 @@
       }
     }
   },
+  "heroMotion": {
+    "toast": "New invoice posted — inventory and finance updated",
+    "newRow": {
+      "ref": "INV-2482",
+      "account": "Kaveh Holding",
+      "amount": "84,000,000",
+      "status": "paid"
+    },
+    "label": "Live RAVAND dashboard: a new invoice is posted and revenue and records update automatically"
+  },
+  "platformMotion": {
+    "label": "Live view: how one sales order is recorded across every module",
+    "caption": "One event, entered once — every department updates at the same moment.",
+    "waiting": "Waiting for event",
+    "steps": [
+      {
+        "key": "sales",
+        "event": "Sales order created",
+        "meta": "Customer: Alborz Distribution"
+      },
+      {
+        "key": "inventory",
+        "event": "24 cases left the warehouse",
+        "meta": "New stock: 316 cases"
+      },
+      {
+        "key": "finance",
+        "event": "Invoice and journal posted",
+        "meta": "84M Toman"
+      },
+      {
+        "key": "analytics",
+        "event": "Dashboard updated",
+        "meta": "Today’s sales: 1,332M Toman"
+      }
+    ]
+  },
   "sandbox": {
     "units": {
       "million": "million Toman",
@@ -2724,114 +2761,6 @@
         "title": "We'll be in touch shortly",
         "body": "A RAVAND expert will call within the next working hour to confirm your session. Meanwhile, you can take the guided dashboard tour.",
         "tour": "Take the guided tour"
-      }
-    }
-  },
-  "team": {
-    "title": "Sales team panel",
-    "logout": "Sign out",
-    "backToSite": "Back to site",
-    "footnote": "This page is for the RAVAND team only.",
-    "login": {
-      "title": "RAVAND team sign-in",
-      "body": "Enter the team panel password.",
-      "password": "Password",
-      "submit": "Sign in",
-      "errors": {
-        "disabled": "The team panel is disabled (TEAM_PANEL_PASSWORD is not set).",
-        "wrong": "That password isn't right."
-      }
-    },
-    "stats": {
-      "leads": "All demos",
-      "active": "Active demos",
-      "engaged": "Demos in use",
-      "engagedHint": "Did at least one thing in the sandbox",
-      "requests": "Open session requests",
-      "requestsHint": "New or being followed up"
-    },
-    "tabs": {
-      "leads": "Demos",
-      "requests": "Session requests"
-    },
-    "business": {
-      "manufacturing": "Manufacturing",
-      "trading": "Trading",
-      "services": "Services",
-      "retail": "Retail"
-    },
-    "industries": {
-      "manufacturing": "Manufacturing",
-      "trading": "Trading & distribution",
-      "retail": "Retail",
-      "services": "Services",
-      "healthcare": "Healthcare",
-      "fitness": "Fitness",
-      "other": "Other"
-    },
-    "leads": {
-      "columns": {
-        "lead": "Customer",
-        "business": "Business type",
-        "trial": "Trial",
-        "usage": "Usage",
-        "actions": "Actions"
-      },
-      "empty": "No demos created yet.",
-      "users": "{count} users",
-      "state": {
-        "active": "Active",
-        "expired": "Expired",
-        "disabled": "Disabled"
-      },
-      "daysLeft": "{days} days left",
-      "created": "Created {date}",
-      "visits": "{count} visits",
-      "actionsCount": "{count} actions · {invoices} invoices",
-      "lastSeen": "Last seen {date}",
-      "neverOpened": "Not opened yet",
-      "extend": "Extend 7 days",
-      "enable": "Enable",
-      "disable": "Disable",
-      "note": "Note",
-      "notePlaceholder": "Team note…",
-      "save": "Save",
-      "errors": {
-        "session": "Session expired — sign in again.",
-        "invalid": "Invalid request."
-      }
-    },
-    "requests": {
-      "columns": {
-        "who": "Requested by",
-        "org": "Organization",
-        "when": "Preferred time",
-        "needs": "Need",
-        "followUp": "Follow-up"
-      },
-      "empty": "No requests yet.",
-      "hasDemo": "Has an active demo",
-      "staff": "{size} people",
-      "statuses": {
-        "new": "New",
-        "contacted": "Contacted",
-        "scheduled": "Scheduled",
-        "done": "Held",
-        "cancelled": "Cancelled"
-      },
-      "slots": {
-        "morning": "Morning (9–12)",
-        "midday": "Midday (12–15)",
-        "afternoon": "Afternoon (15–18)"
-      },
-      "status": "Status",
-      "note": "Note",
-      "notePlaceholder": "Team note…",
-      "save": "Save",
-      "saved": "Saved.",
-      "errors": {
-        "session": "Session expired — sign in again.",
-        "invalid": "Invalid request."
       }
     }
   }

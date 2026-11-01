@@ -1,6 +1,7 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { Zone } from "@/components/system/Zone";
-import { Dashboard } from "@/components/product/Dashboard";
+import { HeroMotionPlayer } from "@/components/product/HeroMotionPlayer";
+import { heroMotionProps } from "@/remotion/props";
 import { Link } from "@/i18n/navigation";
 import { WordmarkFa } from "@/components/ui/Logo";
 
@@ -11,6 +12,9 @@ import { WordmarkFa } from "@/components/ui/Logo";
  */
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale() === "en" ? "en" : "fa";
+  const messages = useMessages();
+  const label = (messages.heroMotion as { label: string }).label;
 
   return (
     <Zone tone="deep" grid className="overflow-hidden">
@@ -43,9 +47,12 @@ export function Hero() {
             <p className="t-small mt-6 text-steel">{t("note")}</p>
           </div>
 
-          {/* The product — complete, inside its column. */}
+          {/* The product — complete, inside its column, and live. */}
           <div className="min-w-0">
-            <Dashboard compact />
+            <HeroMotionPlayer
+              label={label}
+              {...heroMotionProps(locale, messages)}
+            />
           </div>
         </div>
       </div>

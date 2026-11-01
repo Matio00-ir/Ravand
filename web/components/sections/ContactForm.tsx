@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { submitContactForm, type FormState } from "@/app/actions";
 import { track } from "@/lib/analytics";
+import { AttributionField } from "@/components/system/Attribution";
 
 const fieldClass =
   "w-full rounded-[var(--radius-sm)] border border-hair-strong bg-raised px-3.5 py-3 text-[15px] text-ink transition-colors duration-[var(--t-base)] focus:border-ink focus:outline-none";
@@ -43,6 +44,7 @@ export function ContactForm() {
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="startedAt" value={startedAt} />
+      <AttributionField />
 
       <div>
         <label className={labelClass} htmlFor="name">

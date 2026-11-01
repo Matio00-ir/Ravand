@@ -507,3 +507,15 @@ html[lang="fa"] .btn--sm {
   box-shadow: 0 0 0 100vmax rgba(5, 6, 8, 0.55);
   transition: box-shadow var(--t-base) var(--ease-flow);
 }
+
+/* ---------------- admin print ---------------- */
+
+/* Printing a quote or invoice from /admin prints only the document. */
+@media print {
+  body:has(.doc-sheet) {
+    background: #fff !important;
+  }
+  body:has(.doc-sheet) main > *:not(:has(.doc-sheet)):not(.doc-sheet) {
+    display: none !important;
+  }
+}

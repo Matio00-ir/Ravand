@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { createDemoLead, type FormState } from "@/app/actions";
 import { track } from "@/lib/analytics";
 import { type ModuleKey } from "@/components/system/ModuleIcon";
+import { AttributionField } from "@/components/system/Attribution";
 
 const fieldClass =
   "w-full rounded-[var(--radius-sm)] border border-hair-strong bg-raised px-3.5 py-3 text-[15px] text-ink transition-colors duration-[var(--t-base)] focus:border-ink focus:outline-none";
@@ -51,6 +52,7 @@ export function DemoLeadForm({
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="startedAt" value={startedAt} />
+      <AttributionField />
       <input type="hidden" name="businessType" value={businessType} />
       <input type="hidden" name="modules" value={JSON.stringify(modules)} />
       <input type="hidden" name="workflow" value={JSON.stringify(workflow)} />

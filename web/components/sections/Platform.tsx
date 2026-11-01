@@ -1,8 +1,10 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
 import { Reveal } from "@/components/system/Reveal";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
 import { cn } from "@/lib/utils";
+import { PlatformMotionPlayer } from "@/components/product/PlatformMotionPlayer";
+import { platformMotionProps } from "@/remotion/props";
 
 type Module = { key: ModuleKey; code: string; name: string; description: string };
 
@@ -13,13 +15,25 @@ type Module = { key: ModuleKey; code: string; name: string; description: string 
 export function Platform() {
   const t = useTranslations("platform");
   const modules = t.raw("modules") as Module[];
+  const locale = useLocale() === "en" ? "en" : "fa";
+  const messages = useMessages();
+  const motionLabel = (messages.platformMotion as { label: string }).label;
 
   return (
     <Zone tone="light" id="platform">
       <div className="shell zone">
         <SectionHead label={t("label")} title={t("title")} lead={t("lead")} />
 
+        {/* one order, flowing through the modules it touches */}
         <Reveal className="mt-14 md:mt-16">
+          <PlatformMotionPlayer
+            label={motionLabel}
+            wide={platformMotionProps(locale, "wide", messages)}
+            tall={platformMotionProps(locale, "tall", messages)}
+          />
+        </Reveal>
+
+        <Reveal className="mt-12 md:mt-14">
           <div className="grid border-s border-t border-line sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((m) => (
               <div

@@ -1,4 +1,10 @@
-import { Pool } from "pg";
+import { Pool, types } from "pg";
+
+// BIGINT (money, counts) as plain numbers — every amount here is whole
+// Toman, far below 2^53 — and DATE as its "YYYY-MM-DD" text, never a
+// timezone-shifted Date. Set once, process-wide.
+types.setTypeParser(20, (v) => Number(v));
+types.setTypeParser(1082, (v) => v);
 
 /**
  * Single shared Postgres pool for the whole app.
@@ -185,6 +191,23 @@ export function ensureSchema(): Promise<void> {
           notify_status TEXT
         );
         CREATE INDEX IF NOT EXISTS expert_requests_status_idx ON expert_requests (status);
+
+        -- The public contact form (it used to validate and drop the message).
+        CREATE TABLE IF NOT EXISTS contact_messages (
+          id UUID PRIMARY KEY,
+          name TEXT NOT NULL,
+          company TEXT,
+          email TEXT NOT NULL,
+          phone TEXT,
+          message TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'new',
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        );
+
+        -- Where each inbound lead came from, for the marketing report.
+        ALTER TABLE demo_leads ADD COLUMN IF NOT EXISTS utm JSONB;
+        ALTER TABLE expert_requests ADD COLUMN IF NOT EXISTS utm JSONB;
+        ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS utm JSONB;
         `
       )
       .then(() => undefined)

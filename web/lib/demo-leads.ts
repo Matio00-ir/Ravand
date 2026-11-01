@@ -63,6 +63,8 @@ export type CreateLeadInput = {
   userCount: number;
   modules: ModuleKey[];
   workflow: string[];
+  /** Campaign tags from the landing URL, for the admin marketing report. */
+  utm?: Record<string, string> | null;
 };
 
 /**
@@ -102,8 +104,8 @@ export async function upsertDemoLead(
 
   const inserted = await pool.query<Row>(
     `INSERT INTO demo_leads
-      (id, token_hash, name, company, mobile, business_type, user_count, modules, workflow, config, status, created_at, expires_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'active', $11, $12)
+      (id, token_hash, name, company, mobile, business_type, user_count, modules, workflow, config, status, created_at, expires_at, utm)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'active', $11, $12, $13)
      RETURNING *`,
     [
       id,
@@ -118,6 +120,7 @@ export async function upsertDemoLead(
       JSON.stringify({ businessType: input.businessType, modules: input.modules, workflow: input.workflow }),
       createdAt.toISOString(),
       expiresAt.toISOString(),
+      input.utm ? JSON.stringify(input.utm) : null,
     ]
   );
 

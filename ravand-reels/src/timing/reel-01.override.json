@@ -1,0 +1,5 @@
+{
+ "_doc": "Manual timing fixes, applied on top of the generated <reel>.json at render time. shift: {segmentId: seconds}. words: {\"segmentId/wordIndex\": {\"s\": sec, \"e\": sec}} with 0-based word index and times in voiceover-file seconds. audio: override the audio path (relative to public/).",
+ "shift": {},
+ "words": {}
+}

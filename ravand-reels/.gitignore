@@ -1,0 +1,6 @@
+node_modules/
+out/
+whisper.cpp/
+.env
+.env.*
+scripts/__pycache__/

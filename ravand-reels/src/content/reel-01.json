@@ -1,0 +1,188 @@
+{
+  "id": "reel-01",
+  "title": "سفارش‌هایی که توی واتس‌اپ گم میشن",
+  "ctaKeyword": "فرایند",
+  "tagline": "Business, in flow.",
+  "audio": {
+    "voiceStartsAt": 1.2,
+    "tail": 1.8,
+    "musicVolume": 0.22,
+    "musicDuckedVolume": 0.06
+  },
+  "tts": {
+    "voice": "fa-IR-FaridNeural",
+    "rate": "+6%"
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "vo": "یه سفارش، بین سیصد تا پیام گم شد. هیچ‌کس هم نفهمید.",
+      "pauseAfter": 0.45,
+      "captions": false
+    },
+    {
+      "id": "relay",
+      "vo": "ویزیتور سفارش رو فرستاده، انبار ندیده، حسابداری خبر نداره. آشناست؟",
+      "pauseAfter": 0.5
+    },
+    {
+      "id": "wait",
+      "vo": "مشتری دو روز منتظر می‌مونه، زنگ می‌زنه، و تازه معلوم میشه سفارشی ثبت نشده.",
+      "pauseAfter": 0.55
+    },
+    {
+      "id": "rehook",
+      "vo": "ولی گم‌شدن سفارش بدترین قسمتش نیست...",
+      "pauseAfter": 0.6,
+      "captions": false
+    },
+    {
+      "id": "loss",
+      "vo": "بدترین قسمتش اینه که مشتری دیگه چیزی نمیگه؛ فقط دفعه‌ی بعد از یکی دیگه می‌خره. و شما اصلاً نمی‌فهمید چند تا مشتری این‌طوری رفتن.",
+      "pauseAfter": 0.55
+    },
+    {
+      "id": "product",
+      "vo": "توی روند، هر سفارش یه مسیر مشخص داره: از ثبت، تا انبار، تا ارسال. همه می‌بینن کجاست و هیچ سفارشی بین پیام‌ها گم نمیشه.",
+      "pauseAfter": 0.5
+    },
+    {
+      "id": "cta",
+      "vo": "اگه سفارش‌هات هنوز توی واتس‌اپه، کلمه‌ی فرایند رو دایرکت کن. سی دقیقه رایگان فرایندت رو بررسی می‌کنیم.",
+      "pauseAfter": 0
+    }
+  ],
+  "scenes": [
+    {
+      "id": "s1-s2-hook",
+      "component": "ChatHook",
+      "segment": "hook",
+      "startsAtZero": true,
+      "props": {
+        "headline": [
+          "یه سفارش، بین ۳۰۰ تا پیام گم شد.",
+          "هیچ‌کس هم نفهمید."
+        ],
+        "threadTitle": "گروه فروش و انبار",
+        "lostMessage": "سفارش جدید: ۲۰ کارتن، ارسال تا پنجشنبه",
+        "messages": [
+          "بچه‌ها کسی جواب مشتری رو داد؟",
+          "فاکتور دیروز رو بفرستید",
+          "باشه",
+          "موجودی رو چک کنید لطفاً",
+          "ماشین ساعت چند میاد؟",
+          "عکس بار رو فرستادم",
+          "اوکی",
+          "این کدوم مشتریه؟",
+          "فردا صبح پیگیری می‌کنم",
+          "قیمت جدید اومد؟",
+          "تماس گرفتن، گفتم بعداً",
+          "حسابداری کجاست؟",
+          "ارسال شد؟",
+          "نه هنوز",
+          "لیست رو آپدیت کنید"
+        ],
+        "beats": {
+          "line2": "هیچ‌کس"
+        }
+      }
+    },
+    {
+      "id": "s3-relay",
+      "component": "BrokenRelay",
+      "segment": "relay",
+      "props": {
+        "roles": [
+          "ویزیتور",
+          "انبار",
+          "حسابداری"
+        ],
+        "breakAfterRole": 0,
+        "beats": {
+          "seen": "انبار",
+          "noNews": "حسابداری",
+          "familiar": "آشناست؟"
+        },
+        "statusLines": [
+          "فرستاد",
+          "ندید",
+          "خبر نداره"
+        ]
+      }
+    },
+    {
+      "id": "s4-wait",
+      "component": "WaitingClock",
+      "segment": "wait",
+      "props": {
+        "days": 2,
+        "dayLabel": "روز",
+        "customerLabel": "مشتری",
+        "statusWaiting": "در انتظار تماس",
+        "statusMissing": "سفارشی ثبت نشده",
+        "beats": {
+          "call": "زنگ",
+          "reveal": "معلوم"
+        }
+      }
+    },
+    {
+      "id": "s5-rehook",
+      "component": "FreezeZoom",
+      "segment": "rehook",
+      "props": {
+        "of": "WaitingClock",
+        "headlineFromVoice": true
+      }
+    },
+    {
+      "id": "s6-loss",
+      "component": "LostCustomer",
+      "segment": "loss",
+      "props": {
+        "customerLabel": "مشتری",
+        "storeA": "فروشگاه شما",
+        "storeB": "یه فروشگاه دیگه",
+        "counterLabel": "مشتری‌هایی که بی‌صدا رفتن",
+        "counterMax": 7,
+        "beats": {
+          "turn": "دفعه‌ی",
+          "counter": "شما"
+        }
+      }
+    },
+    {
+      "id": "s7-product",
+      "component": "ProductFootage",
+      "segment": "product",
+      "props": {
+        "footage": "footage/order-flow.mp4",
+        "windowTitle": "روند · فروش",
+        "stages": [
+          "ثبت",
+          "انبار",
+          "ارسال"
+        ],
+        "beats": {
+          "stage0": "ثبت",
+          "stage1": "انبار",
+          "stage2": "ارسال"
+        },
+        "railLabel": "مسیر هر سفارش"
+      }
+    },
+    {
+      "id": "s8-cta",
+      "component": "CtaKeyword",
+      "segment": "cta",
+      "props": {
+        "headline": "کلمه‌ی «فرایند» رو دایرکت کن",
+        "note": "۳۰ دقیقه بررسی رایگان فرایند",
+        "beats": {
+          "keyword": "فرایند",
+          "free": "سی"
+        }
+      }
+    }
+  ]
+}
