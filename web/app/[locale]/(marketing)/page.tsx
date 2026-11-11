@@ -6,6 +6,7 @@ import { Platform } from "@/components/sections/Platform";
 import { ProductZone } from "@/components/sections/ProductZone";
 import { WhatYouGet } from "@/components/sections/WhatYouGet";
 import { Industries } from "@/components/sections/Industries";
+import { Customers } from "@/components/sections/Customers";
 import { Closing } from "@/components/sections/Closing";
 import { softwareApplicationJsonLd } from "@/lib/structured-data";
 
@@ -56,6 +57,8 @@ export default async function HomePage({
       <Platform />
       <ProductZone />
       <Industries />
+      {/* Hidden until lib/company.ts lists real customers. */}
+      <Customers />
       <WhatYouGet />
       <Closing />
     </>

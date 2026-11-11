@@ -448,6 +448,10 @@
         "answer": "The same team that builds the system also develops and supports it — no separate sales layer in between. Changes and new requests are coordinated directly with that technical team."
       },
       {
+        "question": "How is RAVAND priced?",
+        "answer": "RAVAND is priced by the modules your business needs; you don't pay for parts you don't use. An exact estimate is given in a short phone call with a RAVAND specialist."
+      },
+      {
         "question": "How is the system deployed?",
         "answer": "Deployment is planned around each business's processes and infrastructure; it starts with a conversation, via the demo request form or the contact form."
       }
@@ -459,6 +463,30 @@
     "ctaPrimary": "Start your free demo",
     "ctaSecondary": "Talk to an expert",
     "note": "No payment. No commitment."
+  },
+  "contactInfo": {
+    "title": "Talk to us directly",
+    "lead": "Rather talk now? Call or send a message.",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "hours": "Hours",
+    "address": "Office"
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "RAVAND's price depends on the modules you choose",
+    "body": "Each business pays only for the parts it actually needs. You get an exact cost estimate in a short phone call with a RAVAND specialist.",
+    "cta": "Request a cost estimate"
+  },
+  "customers": {
+    "label": "RAVAND customers",
+    "title": "Businesses that run on RAVAND"
+  },
+  "team": {
+    "label": "The RAVAND team",
+    "title": "The people who build and support RAVAND",
+    "storyLabel": "How RAVAND started"
   },
   "product": {
     "workspace": "Demo workspace",

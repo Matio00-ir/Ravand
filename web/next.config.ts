@@ -30,7 +30,9 @@ const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  // trustseal.enamad.ir: the eNamad seal image in the footer
+  // (components/system/Enamad.tsx), shown once lib/company.ts has its id.
+  "img-src 'self' data: https://trustseal.enamad.ir",
   "font-src 'self' data:",
   `connect-src 'self'${isDev ? " ws://localhost:* http://localhost:*" : ""}`,
   "object-src 'none'",

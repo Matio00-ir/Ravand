@@ -3,6 +3,8 @@ import { Link, getPathname } from "@/i18n/navigation";
 import type { Pathname } from "@/i18n/routing";
 import { Logo } from "@/components/ui/Logo";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ContactDetails } from "@/components/sections/ContactDetails";
+import { Enamad } from "@/components/system/Enamad";
 
 /**
  * One destination per footer item, in the same order as the item labels
@@ -63,6 +65,8 @@ export function Footer() {
           <p className="t-body mt-6 max-w-xs text-ink-inverse-muted">
             {t("description")}
           </p>
+          <ContactDetails variant="compact" />
+          <Enamad className="mt-6" />
         </div>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:col-span-7 lg:col-start-6">
