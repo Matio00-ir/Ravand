@@ -42,13 +42,12 @@ export function Platform() {
                   "group border-b border-e border-line bg-raised p-6 transition-colors duration-[var(--t-base)] hover:bg-page"
                 )}
               >
-                <div className="flex items-center justify-between">
-                  <ModuleIcon
-                    name={m.key}
-                    className="h-[18px] w-[18px] text-steel transition-colors duration-[var(--t-base)] group-hover:text-ink"
-                  />
-                  <span className="t-code text-steel">{m.code}</span>
-                </div>
+                {/* No module code (ERP, FIN…) on the card: it means nothing
+                    to a Persian-speaking owner and reads as jargon. */}
+                <ModuleIcon
+                  name={m.key}
+                  className="h-[18px] w-[18px] text-steel transition-colors duration-[var(--t-base)] group-hover:text-ink"
+                />
                 <h3 className="t-h4 mt-5 text-ink">{m.name}</h3>
                 <p className="t-body mt-2 text-ink-muted">{m.description}</p>
               </div>

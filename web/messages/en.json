@@ -3,7 +3,8 @@
     "name": "RAVAND",
     "nameFa": "روند",
     "tagline": "Business, in flow.",
-    "description": "RAVAND is a business management platform — finance, customers, sales, inventory, and workflows, as configurable modules on one system."
+    "description": "RAVAND is business management software for manufacturers, traders and service companies: sales and invoicing, inventory, production costing and customer accounts in one system. Try it free for 14 days.",
+    "title": "Sales, inventory, production and finance software"
   },
   "nav": {
     "home": "Home",
@@ -13,7 +14,7 @@
     "company": "Company",
     "about": "About",
     "contact": "Contact",
-    "demo": "Build my RAVAND",
+    "demo": "Free demo",
     "menu": "Menu",
     "close": "Close"
   },
@@ -35,26 +36,57 @@
     }
   },
   "hero": {
-    "title": "Business, in flow.",
-    "description": "RAVAND is a business management platform: finance, customers, sales, inventory, and workflows, as configurable modules on one system.",
-    "ctaPrimary": "Build my RAVAND",
-    "ctaSecondary": "See the product",
-    "note": "14 days of free access to the demo environment",
-    "eyebrow": "Business management systems"
+    "title": "Get your business out of notebooks and spreadsheets.",
+    "description": "RAVAND is built for manufacturers, traders and service companies. Orders, invoices, stock, production and customer accounts live in one place, so you always know where your business stands.",
+    "ctaPrimary": "Start your free demo",
+    "ctaSecondary": "Take the 3-minute tour",
+    "note": "14 days free · Nothing to install · No payment",
+    "eyebrow": "Sales, inventory, production and finance software"
   },
-  "fragment": {
-    "index": "01",
-    "label": "Where most companies are",
-    "title": "The business is one thing. Its systems aren't.",
-    "body": "Most organizations run on separate tools: accounting in one application, sales in spreadsheets, stock in a ledger, and reporting somewhere in between. Every part holds its own data, and none of them show the whole picture.",
-    "conclusion": "RAVAND puts those layers on one structure — without forcing the business to change how it works.",
-    "caption": "Scattered, into structure"
+  "pains": {
+    "label": "Sound familiar?",
+    "title": "If this sounds familiar, RAVAND was built for you",
+    "lead": "Most manufacturers and traders wrestle with the same problems. Here is how RAVAND handles each one.",
+    "fixLabel": "With RAVAND",
+    "cta": "See how it works in practice",
+    "items": [
+      {
+        "icon": "sales",
+        "problem": "Orders get lost between the notebook and chat messages.",
+        "fix": "Every order is recorded once, and stock and the customer's account update the moment it is."
+      },
+      {
+        "icon": "inventory",
+        "problem": "You don't know exactly how much stock and raw material is left.",
+        "fix": "Stock moves automatically with every purchase and sale, and anything that hits its reorder point is flagged."
+      },
+      {
+        "icon": "production",
+        "problem": "Product cost comes from a calculator and a guess.",
+        "fix": "Unit cost is built from materials, packaging, labour and overhead, with your selling price and margin beside it."
+      },
+      {
+        "icon": "finance",
+        "problem": "Receivables slip away and nobody knows who owes what.",
+        "fix": "The balance on every invoice, and every overdue one, is in one view."
+      },
+      {
+        "icon": "workflow",
+        "problem": "Everyone runs work their own way and nobody knows where things are stuck.",
+        "fix": "You define the steps the way your company actually works, and every job's status is visible."
+      },
+      {
+        "icon": "analytics",
+        "problem": "Seeing this month's sales and profit means waiting for the accountant.",
+        "fix": "The management dashboard shows sales, receivables and stock right now, not at month end."
+      }
+    ]
   },
   "platform": {
     "index": "02",
     "label": "Platform",
     "title": "One platform, and the modules you choose",
-    "lead": "Each module covers a defined area of the business and works on data shared with the rest. Your system only contains what you actually need.",
+    "lead": "Every part of the business has a module, and all of them share one set of data. Switch on only what you need, and add the rest as the business grows.",
     "columns": [
       "Module",
       "Coverage",
@@ -65,7 +97,7 @@
         "key": "erp",
         "code": "ERP",
         "name": "Resource Planning",
-        "description": "The backbone: finance, procurement, warehousing, and production connected on one data structure.",
+        "description": "Purchasing, stock, production and finance connected: everything is entered once and correct everywhere.",
         "capabilities": [
           "Org structure",
           "Access levels",
@@ -76,7 +108,7 @@
         "key": "finance",
         "code": "FIN",
         "name": "Finance",
-        "description": "Accounting, treasury, budgeting, and reporting built on the documents operations actually produce.",
+        "description": "Invoices, receipts and payments, receivables and payables, and profit and loss — no re-keying into spreadsheets.",
         "capabilities": [
           "General ledger",
           "Treasury",
@@ -87,7 +119,7 @@
         "key": "crm",
         "code": "CRM",
         "name": "Customers",
-        "description": "Customer records, interaction history, and the state of every opportunity across the sales cycle.",
+        "description": "Each customer's purchases, conversations and account balance on one page.",
         "capabilities": [
           "Customer records",
           "Opportunity tracking",
@@ -98,7 +130,7 @@
         "key": "sales",
         "code": "SLS",
         "name": "Sales",
-        "description": "Orders, pricing, invoicing, and team performance — connected to inventory and finance.",
+        "description": "Quotes, orders and invoices in seconds; stock and customer accounts update on their own.",
         "capabilities": [
           "Orders & invoices",
           "Pricing",
@@ -109,7 +141,7 @@
         "key": "inventory",
         "code": "INV",
         "name": "Inventory",
-        "description": "Warehouse control, stock tracking, and coordination across branches and multiple warehouses.",
+        "description": "Live stock for every item in every warehouse, with a warning before it runs out.",
         "capabilities": [
           "Multi-warehouse",
           "Stock tracking",
@@ -120,7 +152,7 @@
         "key": "workflow",
         "code": "WFL",
         "name": "Workflow",
-        "description": "Approvals, business rules, and process definitions that match how work really moves through the company.",
+        "description": "Define steps and approvals the way your company works, and see where every job is.",
         "capabilities": [
           "Approval chains",
           "Business rules",
@@ -131,7 +163,7 @@
         "key": "hr",
         "code": "HR",
         "name": "People",
-        "description": "Personnel structure, attendance, and the records that payroll and management depend on.",
+        "description": "Personnel records, attendance and what you need for payroll.",
         "capabilities": [
           "Personnel records",
           "Attendance",
@@ -142,7 +174,7 @@
         "key": "analytics",
         "code": "ANL",
         "name": "Analytics",
-        "description": "Reports and performance indicators, computed on live data from every active module.",
+        "description": "See sales, profit, receivables and stock right now — not at month end.",
         "capabilities": [
           "Indicators",
           "Report builder",
@@ -422,11 +454,11 @@
     ]
   },
   "closing": {
-    "title": "See the system in the demo environment",
-    "description": "14 days of access with sample data, so you can judge the system in practice before any decision.",
-    "ctaPrimary": "Build my RAVAND",
-    "ctaSecondary": "Talk to the team",
-    "note": "No credit card. No commitment."
+    "title": "Try RAVAND on your own business for 14 days",
+    "description": "A private workspace that really works: issue invoices, record stock and pull reports. Setting it up takes a few minutes.",
+    "ctaPrimary": "Start your free demo",
+    "ctaSecondary": "Talk to an expert",
+    "note": "No payment. No commitment."
   },
   "product": {
     "workspace": "Demo workspace",

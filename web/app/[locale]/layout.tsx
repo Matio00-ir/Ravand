@@ -24,10 +24,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "site" });
+  const fullTitle = `${locale === "fa" ? t("nameFa") : t("name")} | ${t("title")}`;
   return {
     metadataBase: SITE_ORIGIN,
     title: {
-      default: `${t("name")} — ${t("tagline")}`,
+      default: fullTitle,
       template: `%s — RAVAND`,
     },
     description: t("description"),
@@ -38,7 +39,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       siteName: "RAVAND",
-      title: `${t("name")} — ${t("tagline")}`,
+      title: fullTitle,
       description: t("description"),
       locale: locale === "fa" ? "fa_IR" : "en_US",
       url: locale === routing.defaultLocale ? "/" : `/${locale}`,
@@ -56,7 +57,7 @@ export async function generateMetadata({
     // conventions, which is where the real marks live.
     twitter: {
       card: "summary_large_image",
-      title: `${t("name")} — ${t("tagline")}`,
+      title: fullTitle,
       description: t("description"),
       images: ["/og.png"],
     },
