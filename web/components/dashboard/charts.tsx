@@ -1,6 +1,6 @@
 import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
-import { formatPercent } from "@/lib/format";
+import { formatNumber, formatPercent } from "@/lib/format";
 
 /**
  * Dashboard data marks. Same rules as the marketing charts: graphite and
@@ -147,6 +147,7 @@ export function Funnel({
   stages: { label: string; value: number; caption: string }[];
   className?: string;
 }) {
+  const locale = useLocale();
   const max = Math.max(...stages.map((s) => s.value)) || 1;
 
   return (
@@ -169,7 +170,7 @@ export function Funnel({
                 className="t-num text-[11.5px] font-semibold"
                 style={{ color: i < 3 ? "#0B0D10" : "#E3E8EE" }}
               >
-                {stage.value}
+                {formatNumber(stage.value, locale)}
               </span>
             </div>
           </div>

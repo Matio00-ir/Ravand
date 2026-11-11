@@ -12,7 +12,7 @@ type Module = { key: ModuleKey; code: string; name: string; description: string 
  * The module set as an even matrix — one hairline lattice, four columns,
  * identical cells. Ordered by construction rather than composed by eye.
  */
-export function Platform() {
+export function Platform({ cards = true }: { cards?: boolean }) {
   const t = useTranslations("platform");
   const modules = t.raw("modules") as Module[];
   const locale = useLocale() === "en" ? "en" : "fa";
@@ -33,6 +33,9 @@ export function Platform() {
           />
         </Reveal>
 
+        {/* The module register: kept on /products (footer links land on
+            its cards); the home page shows real screens instead. */}
+        {cards ? (
         <Reveal className="mt-12 md:mt-14">
           <div className="grid border-s border-t border-line sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((m) => (
@@ -55,6 +58,7 @@ export function Platform() {
             ))}
           </div>
         </Reveal>
+        ) : null}
       </div>
     </Zone>
   );

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { Pains } from "@/components/sections/Pains";
 import { Platform } from "@/components/sections/Platform";
+import { ProductGallery } from "@/components/sections/ProductGallery";
 import { ProductZone } from "@/components/sections/ProductZone";
 import { WhatYouGet } from "@/components/sections/WhatYouGet";
 import { Industries } from "@/components/sections/Industries";
@@ -54,7 +55,10 @@ export default async function HomePage({
           The process register lives on /company/about and /solutions. */}
       <Hero />
       <Pains />
-      <Platform />
+      {/* Real screens first, then the "one order, every module" animation
+          without the module card grid (that lives on /products). */}
+      <ProductGallery />
+      <Platform cards={false} />
       <ProductZone />
       <Industries />
       {/* Hidden until lib/company.ts lists real customers. */}

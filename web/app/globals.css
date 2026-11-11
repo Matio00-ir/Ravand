@@ -418,6 +418,17 @@ html[lang="fa"] .btn--sm {
   background: var(--deep-raised);
 }
 
+/* Secondary grey on dark surfaces. #69727d is fine on the light page but
+   only 3.5–4.0:1 on the deep greys — under WCAG AA (4.5:1) for the small
+   labels, units and table headers that use it. #838c97 reaches 5.0–5.7:1
+   on every dark surface while staying well below --silver, so the
+   hierarchy is unchanged. Works because @theme is inline: utilities read
+   var(--steel) where they are used. */
+[class*="bg-deep"],
+.panel--dark {
+  --steel: #838c97;
+}
+
 /* ---------------- motion ---------------- */
 
 .reveal {

@@ -183,6 +183,55 @@
       }
     ]
   },
+  "gallery": {
+    "label": "Inside RAVAND",
+    "title": "The screens you would work in every day",
+    "lead": "These are taken from the same demo you can explore yourself right now, with no sign-up.",
+    "cta": "Take the 3-minute tour",
+    "alt": "The {tab} screen in RAVAND",
+    "tabs": [
+      {
+        "id": "overview",
+        "label": "Overview",
+        "title": "The whole business on one page",
+        "points": [
+          "Revenue, open orders and stock turnover, right now",
+          "Documents waiting for your approval",
+          "A 12-month trend beside the previous period"
+        ]
+      },
+      {
+        "id": "sales",
+        "label": "Sales",
+        "title": "From first contact to a confirmed order",
+        "points": [
+          "Sales funnel: which stage each customer is at",
+          "Best-selling products and services",
+          "Recent orders with the status of each"
+        ]
+      },
+      {
+        "id": "inventory",
+        "label": "Inventory",
+        "title": "Real stock, in every warehouse",
+        "points": [
+          "Items below reorder point, flagged",
+          "Stock movement over the last 12 weeks",
+          "Capacity used in each warehouse"
+        ]
+      },
+      {
+        "id": "finance",
+        "label": "Finance",
+        "title": "Cash and receivables, without spreadsheets",
+        "points": [
+          "Cash, receivables and payables",
+          "Receivables aging: who has owed what, for how long",
+          "General ledger with the latest transactions"
+        ]
+      }
+    ]
+  },
   "configure": {
     "index": "03",
     "label": "Configuration",
@@ -1445,25 +1494,25 @@
         ]
       },
       "composition": {
-        "title": "Revenue composition",
+        "title": "Revenue by sales channel",
         "meta": "September 2026",
-        "center": "1248",
-        "centerLabel": "Million",
+        "center": "1,248",
+        "centerLabel": "M Toman",
         "segments": [
           {
-            "label": "Sales",
+            "label": "Wholesale",
             "value": 32
           },
           {
-            "label": "Operations",
+            "label": "Dealers and stores",
             "value": 24
           },
           {
-            "label": "Marketing",
+            "label": "Direct sales",
             "value": 18
           },
           {
-            "label": "Finance",
+            "label": "Online",
             "value": 14
           },
           {
