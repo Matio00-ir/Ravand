@@ -620,7 +620,353 @@
         }
       ]
     },
-    "sampleNote": "Figures shown are sample data."
+    "sampleNote": "Figures shown are sample data.",
+    "variants": {
+      "manufacturing": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "2,840",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Orders in production",
+            "value": "42",
+            "unit": "orders"
+          },
+          {
+            "label": "Production scrap",
+            "value": "2.8",
+            "unit": "%"
+          },
+          {
+            "label": "On-time delivery",
+            "value": "94",
+            "unit": "%"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by product group",
+          "items": [
+            {
+              "label": "Disposable tableware",
+              "value": 36
+            },
+            {
+              "label": "Industrial packaging",
+              "value": 27
+            },
+            {
+              "label": "Pipes and fittings",
+              "value": 19
+            },
+            {
+              "label": "Custom orders",
+              "value": 11
+            },
+            {
+              "label": "Other",
+              "value": 7
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-3108",
+            "account": "Alborz Distribution",
+            "type": "Sales invoice",
+            "amount": "184,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PRD-0412",
+            "account": "Line 2 — disposable tableware",
+            "type": "Production order",
+            "amount": "96,500,000",
+            "status": "processing"
+          },
+          {
+            "ref": "PO-1187",
+            "account": "Arya Polymer",
+            "type": "Raw material purchase",
+            "amount": "212,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "INV-3104",
+            "account": "Nikan Stores",
+            "type": "Sales invoice",
+            "amount": "67,800,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "GRN-0952",
+            "account": "Raw materials warehouse",
+            "type": "Goods receipt",
+            "amount": "148,000,000",
+            "status": "paid"
+          }
+        ]
+      },
+      "trading": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "4,120",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Shipments in transit",
+            "value": "7",
+            "unit": "shipments"
+          },
+          {
+            "label": "Gross margin",
+            "value": "18.4",
+            "unit": "%"
+          },
+          {
+            "label": "Overdue receivables",
+            "value": "318",
+            "unit": "M Toman"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by product category",
+          "items": [
+            {
+              "label": "Home appliances",
+              "value": 31
+            },
+            {
+              "label": "Spare parts",
+              "value": 26
+            },
+            {
+              "label": "Tools",
+              "value": 21
+            },
+            {
+              "label": "Electrical goods",
+              "value": 14
+            },
+            {
+              "label": "Other",
+              "value": 8
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-5521",
+            "account": "Arya Tejarat Trading",
+            "type": "Wholesale invoice",
+            "amount": "420,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PO-2210",
+            "account": "Setareh Shargh",
+            "type": "Purchase order (import)",
+            "amount": "860,000,000",
+            "status": "processing"
+          },
+          {
+            "ref": "INV-5517",
+            "account": "Sepahan Distribution",
+            "type": "Wholesale invoice",
+            "amount": "235,500,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "GRN-1204",
+            "account": "Central warehouse",
+            "type": "Goods receipt",
+            "amount": "512,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "INV-5519",
+            "account": "Mehr Tools",
+            "type": "Sales invoice",
+            "amount": "98,200,000",
+            "status": "pending"
+          }
+        ]
+      },
+      "services": {
+        "kpis": [
+          {
+            "label": "Revenue this month",
+            "value": "960",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Active projects",
+            "value": "23",
+            "unit": "projects"
+          },
+          {
+            "label": "Billable hours",
+            "value": "1,420",
+            "unit": "hours"
+          },
+          {
+            "label": "Contract renewals",
+            "value": "88",
+            "unit": "%"
+          }
+        ],
+        "distribution": {
+          "title": "Revenue by service type",
+          "items": [
+            {
+              "label": "Support contracts",
+              "value": 38
+            },
+            {
+              "label": "Projects",
+              "value": 29
+            },
+            {
+              "label": "Consulting",
+              "value": 17
+            },
+            {
+              "label": "Training",
+              "value": 10
+            },
+            {
+              "label": "Other",
+              "value": 6
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-0874",
+            "account": "Novin Pharma",
+            "type": "Monthly support invoice",
+            "amount": "64,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PRJ-0231",
+            "account": "Kaveh Holding",
+            "type": "Rollout project",
+            "amount": "218,000,000",
+            "status": "processing"
+          },
+          {
+            "ref": "INV-0871",
+            "account": "Arman Clinic",
+            "type": "Consulting invoice",
+            "amount": "38,500,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "QT-0145",
+            "account": "Sepehr Industrial Group",
+            "type": "Quote",
+            "amount": "126,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "INV-0869",
+            "account": "Rahvar Logistics",
+            "type": "Project invoice",
+            "amount": "92,000,000",
+            "status": "paid"
+          }
+        ]
+      },
+      "retail": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "3,260",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Receipts",
+            "value": "11,840",
+            "unit": "receipts"
+          },
+          {
+            "label": "Average basket",
+            "value": "275",
+            "unit": "K Toman"
+          },
+          {
+            "label": "Items below reorder",
+            "value": "38",
+            "unit": "items"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by branch",
+          "items": [
+            {
+              "label": "Central branch",
+              "value": 34
+            },
+            {
+              "label": "Chaharbagh branch",
+              "value": 24
+            },
+            {
+              "label": "Nazar branch",
+              "value": 19
+            },
+            {
+              "label": "Online",
+              "value": 15
+            },
+            {
+              "label": "Other",
+              "value": 8
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "POS-48211",
+            "account": "Central branch — till 3",
+            "type": "Daily till close",
+            "amount": "84,200,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PO-3302",
+            "account": "Alborz Distribution",
+            "type": "Purchase order",
+            "amount": "146,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "TRF-0417",
+            "account": "Central warehouse → Nazar branch",
+            "type": "Branch transfer",
+            "amount": "32,600,000",
+            "status": "processing"
+          },
+          {
+            "ref": "POS-48207",
+            "account": "Chaharbagh branch — till 1",
+            "type": "Daily till close",
+            "amount": "61,900,000",
+            "status": "paid"
+          },
+          {
+            "ref": "INV-2290",
+            "account": "Rahpouyan (corporate customer)",
+            "type": "Credit sales invoice",
+            "amount": "28,400,000",
+            "status": "overdue"
+          }
+        ]
+      }
+    }
   },
   "footer": {
     "description": "RAVAND is a business management platform; its modules are configured around how each organization actually operates.",
@@ -2239,7 +2585,7 @@
       {
         "key": "analytics",
         "event": "Dashboard updated",
-        "meta": "Today’s sales: 1,332M Toman"
+        "meta": "Today’s sales: 396M Toman"
       }
     ]
   },

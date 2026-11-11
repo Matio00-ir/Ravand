@@ -180,9 +180,10 @@ const ModuleCard: React.FC<{
         flexDirection: "column",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      {/* Icon only: the module code (ANL, FIN…) means nothing to a
+          Persian-speaking owner — same rule as the module cards. */}
+      <div style={{ display: "flex", alignItems: "center" }}>
         <ModuleIcon name={step.key} style={{ width: 26, height: 26, color: iconColor }} />
-        <span style={{ fontFamily: "ui-monospace, monospace", fontSize: 15, letterSpacing: 1, color: C.muted }}>{step.code}</span>
       </div>
       <div style={{ marginTop: wide ? 18 : 12, fontSize: 26, fontWeight: 700 }}>{step.name}</div>
 

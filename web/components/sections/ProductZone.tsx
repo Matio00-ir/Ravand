@@ -69,7 +69,9 @@ export function ProductZone() {
           key={current.id}
           className="mt-8 animate-[panel-in_280ms_var(--ease-flow)_both]"
         >
-          <Dashboard modules={current.modules} active={current.modules[0]} />
+          {/* Each business model brings its own figures, not just its own
+              module list — see product.variants in messages. */}
+          <Dashboard modules={current.modules} active={current.modules[0]} variant={current.id} />
         </div>
 
         <div className="mt-8 flex flex-col gap-4 border-t border-line-dark pt-8 sm:flex-row sm:items-center sm:justify-between">
