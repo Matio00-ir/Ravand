@@ -1,8 +1,9 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
 import { LogoMark } from "@/components/ui/Logo";
 import { AreaChart } from "@/components/product/Chart";
 import { cn } from "@/lib/utils";
+import { formatPercent } from "@/lib/format";
 
 /**
  * The RAVAND product surface, in the brand's own system.
@@ -55,6 +56,7 @@ export function Dashboard({
   className?: string;
 }) {
   const t = useTranslations("product");
+  const locale = useLocale();
   const kpis = t.raw("kpis") as Kpi[];
   const rows = t.raw("table.rows") as Row[];
   const dist = t.raw("distribution.items") as Dist[];
@@ -180,7 +182,7 @@ export function Dashboard({
                       <div className="flex items-baseline justify-between gap-3">
                         <span className="text-[12.5px] text-silver">{item.label}</span>
                         <span className="t-num text-[12.5px] text-steel">
-                          {item.value}%
+                          {formatPercent(item.value, locale)}
                         </span>
                       </div>
                       <div className="mt-1.5 h-1 w-full bg-white/[0.06]">

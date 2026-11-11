@@ -38,8 +38,9 @@ export function Platform() {
             {modules.map((m) => (
               <div
                 key={m.key}
+                id={`module-${m.key}`}
                 className={cn(
-                  "group border-b border-e border-line bg-raised p-6 transition-colors duration-[var(--t-base)] hover:bg-page"
+                  "group scroll-mt-24 border-b border-e border-line bg-raised p-6 transition-colors duration-[var(--t-base)] hover:bg-page"
                 )}
               >
                 {/* No module code (ERP, FIN…) on the card: it means nothing

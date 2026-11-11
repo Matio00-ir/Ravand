@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { Platform } from "@/components/sections/Platform";
+import { Tiers } from "@/components/sections/Tiers";
 import { ProductZone } from "@/components/sections/ProductZone";
 import { Process } from "@/components/sections/Process";
 import { Closing } from "@/components/sections/Closing";
@@ -44,7 +44,9 @@ export default async function SolutionsPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("description")} />
-      <Platform />
+      {/* The three paths the header promises. The module grid is not
+          repeated here; it lives on the home and products pages. */}
+      <Tiers />
       <ProductZone />
       <Process />
       <Closing />

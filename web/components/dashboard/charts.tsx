@@ -1,4 +1,6 @@
+import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { formatPercent } from "@/lib/format";
 
 /**
  * Dashboard data marks. Same rules as the marketing charts: graphite and
@@ -68,6 +70,7 @@ export function Donut({
   centerLabel: string;
   className?: string;
 }) {
+  const locale = useLocale();
   const total = segments.reduce((s, x) => s + x.value, 0) || 1;
   const r = 54;
   const c = 2 * Math.PI * r;
@@ -125,7 +128,9 @@ export function Donut({
             <span className="min-w-0 flex-1 truncate text-[12.5px] text-silver">
               {seg.label}
             </span>
-            <span className="t-num shrink-0 text-[12.5px] text-steel">{seg.value}%</span>
+            <span className="t-num shrink-0 text-[12.5px] text-steel">
+              {formatPercent(seg.value, locale)}
+            </span>
           </li>
         ))}
       </ul>

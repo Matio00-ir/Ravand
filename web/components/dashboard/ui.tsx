@@ -1,5 +1,7 @@
 import { type ReactNode } from "react";
+import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
+import { formatPercent } from "@/lib/format";
 
 /**
  * RAVAND product UI kit.
@@ -274,12 +276,13 @@ export function ShareBar({
   caption?: string;
   opacity?: number;
 }) {
+  const locale = useLocale();
   return (
     <li>
       <div className="flex items-baseline justify-between gap-3">
         <span className="truncate text-[12.5px] text-silver">{label}</span>
         <span className="t-num shrink-0 text-[12.5px] text-steel">
-          {caption ?? `${value}%`}
+          {caption ?? formatPercent(value, locale)}
         </span>
       </div>
       <div className="mt-2 h-1 w-full bg-white/[0.06]">

@@ -515,22 +515,22 @@
       ]
     },
     "distribution": {
-      "title": "Revenue composition",
+      "title": "Sales by channel",
       "items": [
         {
-          "label": "Sales",
+          "label": "Wholesale",
           "value": 32
         },
         {
-          "label": "Operations",
+          "label": "Dealers and stores",
           "value": 24
         },
         {
-          "label": "Marketing",
+          "label": "Direct sales",
           "value": 18
         },
         {
-          "label": "Finance",
+          "label": "Online",
           "value": 14
         },
         {
@@ -731,35 +731,35 @@
       "eyebrow": "Privacy",
       "title": "Privacy Policy",
       "lead": "This explains exactly what data RAVAND collects today, why, and what happens to it — no claims beyond what the system actually does.",
-      "updated": "Last updated: 2026-09-15",
+      "updated": "Last updated: November 12, 2026",
       "sections": [
         {
           "title": "What data is collected",
-          "body": "The only data this site collects is what you type into the Contact form or the Build my RAVAND form: name, company name, mobile number (in place of email), and, on the Contact form, your message. There is no sign-up or login anywhere on the site, and nothing beyond these fields is requested."
+          "body": "This site only collects what you type into one of three forms. The “Build my RAVAND” free-demo form: name, company, mobile number, business model, chosen modules and workflow steps, and number of users. The contact form: name, company, email, phone number and your message. The expert-session form: name, role, company, company size and industry, mobile number, your needs and a preferred meeting time. Each form also carries how you arrived at the site (see “Cookies and browser storage”). There is no visitor sign-in or account."
         },
         {
           "title": "Why it's collected",
-          "body": "To create your private demo environment, respond to your request, and notify the RAVAND team. It is not used for marketing lists or sold to anyone."
+          "body": "To create your private demo workspace, reply to your message, arrange an expert session, and understand which channels and campaigns bring visitors to the site. Your information is never sold or rented to anyone."
         },
         {
           "title": "Where it's stored",
-          "body": "Build my RAVAND submissions (name, company, mobile number, business model, and chosen configuration) are stored in RAVAND's database so your private demo can be created and stay available for the trial period. The access link to that environment is a random token; only its hash is stored, never the token itself. After the trial ends, your request record (not access to the environment) is kept by the RAVAND team for follow-up."
+          "body": "Submissions from all three forms are stored in RAVAND's database and are accessible only to the RAVAND team. The link to your private demo is a random secret of which only a hash is stored, never the secret itself."
         },
         {
-          "title": "Third-party services & analytics",
-          "body": "No third-party analytics, tracking, or advertising service is active on this site today. The code includes a scaffold for event tracking, but it sends no data anywhere until it's wired to a specific, named provider."
+          "title": "Third-party services",
+          "body": "So the team hears about a demo request right away, your name, company and mobile number may be sent to the team through an SMS provider (Kavenegar) or by email. Apart from that, no third-party analytics, tracking or advertising service is active on this site."
         },
         {
-          "title": "Cookies",
-          "body": "This site sets exactly one, strictly necessary cookie: NEXT_LOCALE, which remembers your chosen language (Persian/English) for future visits. No tracking, advertising, or analytics cookie is set."
+          "title": "Cookies and browser storage",
+          "body": "The site sets one essential cookie, NEXT_LOCALE, which only remembers your language. If you arrive through a campaign link or from another site, that source (campaign name, referring site and the first page you saw) is kept in your own browser's storage for up to 30 days and is sent only along with a form you submit. It does not identify you. The dashboard tour also remembers that you closed it until the end of your browser session. No tracking or advertising cookies are set."
         },
         {
           "title": "Retention & deletion requests",
-          "body": "Your demo request stays on file with the RAVAND team as a contact record after the trial ends, but access to the demo environment itself is disabled. To request deletion or ask a question about it, use the Contact form."
+          "body": "Form submissions are kept by the RAVAND team as a record of contact. Access to a private demo workspace ends when the trial period ends, but the request record remains. To have your information deleted, or to ask anything about it, use the contact form."
         },
         {
           "title": "Changes to this policy",
-          "body": "This page will be updated whenever what's described here actually changes — for example, once a form is connected to a real delivery service, or analytics is switched on."
+          "body": "Whenever the way data is collected or used actually changes (for example, if a visitor analytics tool is switched on), this page is updated along with the date at the top."
         }
       ]
     },
