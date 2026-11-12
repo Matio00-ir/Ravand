@@ -7,6 +7,24 @@
       "runtimeArgs": ["--prefix", "web", "run", "dev"],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "ravand-web-webpack",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd web && npx next dev --webpack -p 3100"],
+      "port": 3100
+    },
+    {
+      "name": "ravand-web-prod",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd web && npx next start -p 3300"],
+      "port": 3300
+    },
+    {
+      "name": "ravand-reels-studio",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "cd ravand-reels && npx remotion studio --port 3200 --no-open"],
+      "port": 3200
     }
   ]
 }

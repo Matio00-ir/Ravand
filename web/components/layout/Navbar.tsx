@@ -63,21 +63,35 @@ export function Navbar() {
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label={open ? t("close") : t("menu")}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-xs)] border border-line-dark-strong text-silver lg:hidden"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            {open ? (
-              <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.5" />
-            ) : (
-              <path d="M1 4h14M1 8h14M1 12h14" stroke="currentColor" strokeWidth="1.5" />
-            )}
-          </svg>
-        </button>
+        {/* Mobile: the demo button stays visible next to the menu, so the
+            main action is never hidden behind the hamburger. */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Link
+            href="/demo"
+            onClick={() => {
+              setOpen(false);
+              track("demo_open", { cta: "nav_mobile_bar" });
+            }}
+            className="btn btn--sm btn--light"
+          >
+            {t("demo")}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? t("close") : t("menu")}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-xs)] border border-line-dark-strong text-silver"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              {open ? (
+                <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.5" />
+              ) : (
+                <path d="M1 4h14M1 8h14M1 12h14" stroke="currentColor" strokeWidth="1.5" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div

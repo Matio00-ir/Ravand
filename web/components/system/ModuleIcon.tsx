@@ -99,16 +99,19 @@ const paths: Record<ModuleKey, React.ReactNode> = {
 export function ModuleIcon({
   name,
   className,
+  style,
   strokeWidth = 1.5,
 }: {
   name: ModuleKey;
   className?: string;
+  style?: React.CSSProperties;
   strokeWidth?: number;
 }) {
   return (
     <svg
       viewBox="0 0 20 20"
       className={cn("h-5 w-5", className)}
+      style={style}
       fill="none"
       stroke="currentColor"
       strokeWidth={strokeWidth}

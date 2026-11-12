@@ -198,7 +198,9 @@ export function DashboardShell({
               it's never possible to mistake the sample data for a real
               customer's. Existing tokens only; the row below (title, nav
               toggle, search, language switcher) is untouched. */}
-          <div className="border-b border-line-dark bg-black/40 px-5 py-1.5 md:px-8">
+          {/* data-demo-banner: scripts/capture-product-shots.mjs hides this
+              strip, which belongs to the tour, not to the product. */}
+          <div data-demo-banner="" className="border-b border-line-dark bg-black/40 px-5 py-1.5 md:px-8">
             <div className="t-small text-steel">
               {tour ? <TourBanner closed={tourState.closed} onResume={tourState.resume} /> : (banner ?? t("banner"))}
             </div>

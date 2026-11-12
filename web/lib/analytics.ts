@@ -29,7 +29,8 @@ export type AnalyticsEvent =
   | "demo_completed"
   | "lead_submitted"
   | "contact_clicked"
-  | "expert_requested";
+  | "expert_requested"
+  | "gallery_tab";
 
 type AnalyticsProps = Record<string, string | number | boolean>;
 

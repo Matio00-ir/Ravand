@@ -1,6 +1,7 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { Zone } from "@/components/system/Zone";
-import { Dashboard } from "@/components/product/Dashboard";
+import { HeroMotionPlayer } from "@/components/product/HeroMotionPlayer";
+import { heroMotionProps } from "@/remotion/props";
 import { Link } from "@/i18n/navigation";
 import { WordmarkFa } from "@/components/ui/Logo";
 
@@ -11,6 +12,9 @@ import { WordmarkFa } from "@/components/ui/Logo";
  */
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale() === "en" ? "en" : "fa";
+  const messages = useMessages();
+  const label = (messages.heroMotion as { label: string }).label;
 
   return (
     <Zone tone="deep" grid className="overflow-hidden">
@@ -23,7 +27,7 @@ export function Hero() {
               <WordmarkFa tone="inverse" className="h-3 opacity-60" />
             </span>
 
-            <h1 className="t-display mt-8 max-w-[15ch] text-offwhite">
+            <h1 className="t-display mt-8 text-balance text-offwhite">
               {t("title")}
             </h1>
 
@@ -31,11 +35,13 @@ export function Hero() {
               {t("description")}
             </p>
 
+            {/* Two levels of commitment: a private working demo, or a
+                no-signup guided tour for visitors not ready to give details. */}
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link href="/demo" className="btn btn--light">
                 {t("ctaPrimary")}
               </Link>
-              <Link href="/products" className="btn btn--ghost-dark">
+              <Link href="/dashboard" className="btn btn--ghost-dark">
                 {t("ctaSecondary")}
               </Link>
             </div>
@@ -43,9 +49,12 @@ export function Hero() {
             <p className="t-small mt-6 text-steel">{t("note")}</p>
           </div>
 
-          {/* The product — complete, inside its column. */}
+          {/* The product — complete, inside its column, and live. */}
           <div className="min-w-0">
-            <Dashboard compact />
+            <HeroMotionPlayer
+              label={label}
+              {...heroMotionProps(locale, messages)}
+            />
           </div>
         </div>
       </div>

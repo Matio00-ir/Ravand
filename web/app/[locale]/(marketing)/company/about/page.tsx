@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Trust } from "@/components/sections/Trust";
+import { Team } from "@/components/sections/Team";
 import { Process } from "@/components/sections/Process";
 import { Closing } from "@/components/sections/Closing";
 import { Zone } from "@/components/system/Zone";
@@ -57,6 +58,8 @@ export default async function AboutPage({
           </div>
         </Shell>
       </Zone>
+      {/* Story and team: hidden until filled in lib/company.ts. */}
+      <Team />
       <Trust />
       <Process />
       <Closing />

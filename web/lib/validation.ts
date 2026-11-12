@@ -171,3 +171,24 @@ export const expertRequestSchema: Record<string, Rule> = {
   preferredDate: { required: true, maxLength: 10 },
   preferredSlot: { required: true, maxLength: 12 },
 };
+
+/**
+ * The hidden `utm` field (components/system/Attribution.tsx): campaign
+ * tags from the landing URL. Untrusted like any input — only known keys,
+ * short strings, or nothing.
+ */
+export function parseAttribution(formData: FormData): Record<string, string> | null {
+  const raw = formData.get("utm");
+  if (typeof raw !== "string" || !raw || raw.length > 1000) return null;
+  try {
+    const obj = JSON.parse(raw) as Record<string, unknown>;
+    const out: Record<string, string> = {};
+    for (const key of ["source", "medium", "campaign", "referrer", "landing"]) {
+      const val = obj[key];
+      if (typeof val === "string" && val.trim()) out[key] = val.trim().slice(0, 120);
+    }
+    return Object.keys(out).length ? out : null;
+  } catch {
+    return null;
+  }
+}

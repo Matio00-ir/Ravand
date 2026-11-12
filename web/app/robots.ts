@@ -8,9 +8,12 @@ export default function robots(): MetadataRoute.Robots {
       // The English expert-session page sits under /en/demo/ next to the
       // private per-customer demos, so it's allowed back in explicitly.
       allow: ["/", "/en/demo/expert"],
+      // Never disallow /_next/: it serves the CSS, JS and optimized images
+      // (/_next/image) that Google needs to render and rank the pages.
       disallow: [
         "/api/",
-        "/_next/",
+        "/admin",
+        "/en/admin",
         "/dashboard",
         "/dashboard/",
         "/en/dashboard",

@@ -1,0 +1,19 @@
+{
+  "name": "ravand-reel",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Reel-A out/ravand-reel-A.mp4",
+    "film": "remotion studio src/index.ts",
+    "film:render": "remotion render RavandFilm out/ravand-film.mp4",
+    "film:stills": "node film-stills.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "",
+    "@remotion/google-fonts": "",
+    "remotion": "",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": { "@types/react": "^18.2.0", "typescript": "^5.3.0" }
+}

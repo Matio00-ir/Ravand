@@ -3,7 +3,8 @@
     "name": "RAVAND",
     "nameFa": "روند",
     "tagline": "Business, in flow.",
-    "description": "RAVAND is a business management platform — finance, customers, sales, inventory, and workflows, as configurable modules on one system."
+    "description": "RAVAND is business management software for manufacturers, traders and service companies: sales and invoicing, inventory, production costing and customer accounts in one system. Try it free for 14 days.",
+    "title": "Sales, inventory, production and finance software"
   },
   "nav": {
     "home": "Home",
@@ -13,7 +14,7 @@
     "company": "Company",
     "about": "About",
     "contact": "Contact",
-    "demo": "Build my RAVAND",
+    "demo": "Free demo",
     "menu": "Menu",
     "close": "Close"
   },
@@ -35,26 +36,57 @@
     }
   },
   "hero": {
-    "title": "Business, in flow.",
-    "description": "RAVAND is a business management platform: finance, customers, sales, inventory, and workflows, as configurable modules on one system.",
-    "ctaPrimary": "Build my RAVAND",
-    "ctaSecondary": "See the product",
-    "note": "14 days of free access to the demo environment",
-    "eyebrow": "Business management systems"
+    "title": "Get your business out of notebooks and spreadsheets.",
+    "description": "RAVAND is built for manufacturers, traders and service companies. Orders, invoices, stock, production and customer accounts live in one place, so you always know where your business stands.",
+    "ctaPrimary": "Start your free demo",
+    "ctaSecondary": "Take the 3-minute tour",
+    "note": "14 days free · Nothing to install · No payment",
+    "eyebrow": "Sales, inventory, production and finance software"
   },
-  "fragment": {
-    "index": "01",
-    "label": "Where most companies are",
-    "title": "The business is one thing. Its systems aren't.",
-    "body": "Most organizations run on separate tools: accounting in one application, sales in spreadsheets, stock in a ledger, and reporting somewhere in between. Every part holds its own data, and none of them show the whole picture.",
-    "conclusion": "RAVAND puts those layers on one structure — without forcing the business to change how it works.",
-    "caption": "Scattered, into structure"
+  "pains": {
+    "label": "Sound familiar?",
+    "title": "If this sounds familiar, RAVAND was built for you",
+    "lead": "Most manufacturers and traders wrestle with the same problems. Here is how RAVAND handles each one.",
+    "fixLabel": "With RAVAND",
+    "cta": "See how it works in practice",
+    "items": [
+      {
+        "icon": "sales",
+        "problem": "Orders get lost between the notebook and chat messages.",
+        "fix": "Every order is recorded once, and stock and the customer's account update the moment it is."
+      },
+      {
+        "icon": "inventory",
+        "problem": "You don't know exactly how much stock and raw material is left.",
+        "fix": "Stock moves automatically with every purchase and sale, and anything that hits its reorder point is flagged."
+      },
+      {
+        "icon": "production",
+        "problem": "Product cost comes from a calculator and a guess.",
+        "fix": "Unit cost is built from materials, packaging, labour and overhead, with your selling price and margin beside it."
+      },
+      {
+        "icon": "finance",
+        "problem": "Receivables slip away and nobody knows who owes what.",
+        "fix": "The balance on every invoice, and every overdue one, is in one view."
+      },
+      {
+        "icon": "workflow",
+        "problem": "Everyone runs work their own way and nobody knows where things are stuck.",
+        "fix": "You define the steps the way your company actually works, and every job's status is visible."
+      },
+      {
+        "icon": "analytics",
+        "problem": "Seeing this month's sales and profit means waiting for the accountant.",
+        "fix": "The management dashboard shows sales, receivables and stock right now, not at month end."
+      }
+    ]
   },
   "platform": {
     "index": "02",
     "label": "Platform",
     "title": "One platform, and the modules you choose",
-    "lead": "Each module covers a defined area of the business and works on data shared with the rest. Your system only contains what you actually need.",
+    "lead": "Every part of the business has a module, and all of them share one set of data. Switch on only what you need, and add the rest as the business grows.",
     "columns": [
       "Module",
       "Coverage",
@@ -65,7 +97,7 @@
         "key": "erp",
         "code": "ERP",
         "name": "Resource Planning",
-        "description": "The backbone: finance, procurement, warehousing, and production connected on one data structure.",
+        "description": "Purchasing, stock, production and finance connected: everything is entered once and correct everywhere.",
         "capabilities": [
           "Org structure",
           "Access levels",
@@ -76,7 +108,7 @@
         "key": "finance",
         "code": "FIN",
         "name": "Finance",
-        "description": "Accounting, treasury, budgeting, and reporting built on the documents operations actually produce.",
+        "description": "Invoices, receipts and payments, receivables and payables, and profit and loss — no re-keying into spreadsheets.",
         "capabilities": [
           "General ledger",
           "Treasury",
@@ -87,7 +119,7 @@
         "key": "crm",
         "code": "CRM",
         "name": "Customers",
-        "description": "Customer records, interaction history, and the state of every opportunity across the sales cycle.",
+        "description": "Each customer's purchases, conversations and account balance on one page.",
         "capabilities": [
           "Customer records",
           "Opportunity tracking",
@@ -98,7 +130,7 @@
         "key": "sales",
         "code": "SLS",
         "name": "Sales",
-        "description": "Orders, pricing, invoicing, and team performance — connected to inventory and finance.",
+        "description": "Quotes, orders and invoices in seconds; stock and customer accounts update on their own.",
         "capabilities": [
           "Orders & invoices",
           "Pricing",
@@ -109,7 +141,7 @@
         "key": "inventory",
         "code": "INV",
         "name": "Inventory",
-        "description": "Warehouse control, stock tracking, and coordination across branches and multiple warehouses.",
+        "description": "Live stock for every item in every warehouse, with a warning before it runs out.",
         "capabilities": [
           "Multi-warehouse",
           "Stock tracking",
@@ -120,7 +152,7 @@
         "key": "workflow",
         "code": "WFL",
         "name": "Workflow",
-        "description": "Approvals, business rules, and process definitions that match how work really moves through the company.",
+        "description": "Define steps and approvals the way your company works, and see where every job is.",
         "capabilities": [
           "Approval chains",
           "Business rules",
@@ -131,7 +163,7 @@
         "key": "hr",
         "code": "HR",
         "name": "People",
-        "description": "Personnel structure, attendance, and the records that payroll and management depend on.",
+        "description": "Personnel records, attendance and what you need for payroll.",
         "capabilities": [
           "Personnel records",
           "Attendance",
@@ -142,11 +174,60 @@
         "key": "analytics",
         "code": "ANL",
         "name": "Analytics",
-        "description": "Reports and performance indicators, computed on live data from every active module.",
+        "description": "See sales, profit, receivables and stock right now — not at month end.",
         "capabilities": [
           "Indicators",
           "Report builder",
           "Live data"
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "label": "Inside RAVAND",
+    "title": "The screens you would work in every day",
+    "lead": "These are taken from the same demo you can explore yourself right now, with no sign-up.",
+    "cta": "Take the 3-minute tour",
+    "alt": "The {tab} screen in RAVAND",
+    "tabs": [
+      {
+        "id": "overview",
+        "label": "Overview",
+        "title": "The whole business on one page",
+        "points": [
+          "Revenue, open orders and stock turnover, right now",
+          "Documents waiting for your approval",
+          "A 12-month trend beside the previous period"
+        ]
+      },
+      {
+        "id": "sales",
+        "label": "Sales",
+        "title": "From first contact to a confirmed order",
+        "points": [
+          "Sales funnel: which stage each customer is at",
+          "Best-selling products and services",
+          "Recent orders with the status of each"
+        ]
+      },
+      {
+        "id": "inventory",
+        "label": "Inventory",
+        "title": "Real stock, in every warehouse",
+        "points": [
+          "Items below reorder point, flagged",
+          "Stock movement over the last 12 weeks",
+          "Capacity used in each warehouse"
+        ]
+      },
+      {
+        "id": "finance",
+        "label": "Finance",
+        "title": "Cash and receivables, without spreadsheets",
+        "points": [
+          "Cash, receivables and payables",
+          "Receivables aging: who has owed what, for how long",
+          "General ledger with the latest transactions"
         ]
       }
     ]
@@ -416,17 +497,45 @@
         "answer": "The same team that builds the system also develops and supports it — no separate sales layer in between. Changes and new requests are coordinated directly with that technical team."
       },
       {
+        "question": "How is RAVAND priced?",
+        "answer": "RAVAND is priced by the modules your business needs; you don't pay for parts you don't use. An exact estimate is given in a short phone call with a RAVAND specialist."
+      },
+      {
         "question": "How is the system deployed?",
         "answer": "Deployment is planned around each business's processes and infrastructure; it starts with a conversation, via the demo request form or the contact form."
       }
     ]
   },
   "closing": {
-    "title": "See the system in the demo environment",
-    "description": "14 days of access with sample data, so you can judge the system in practice before any decision.",
-    "ctaPrimary": "Build my RAVAND",
-    "ctaSecondary": "Talk to the team",
-    "note": "No credit card. No commitment."
+    "title": "Try RAVAND on your own business for 14 days",
+    "description": "A private workspace that really works: issue invoices, record stock and pull reports. Setting it up takes a few minutes.",
+    "ctaPrimary": "Start your free demo",
+    "ctaSecondary": "Talk to an expert",
+    "note": "No payment. No commitment."
+  },
+  "contactInfo": {
+    "title": "Talk to us directly",
+    "lead": "Rather talk now? Call or send a message.",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "hours": "Hours",
+    "address": "Office"
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "RAVAND's price depends on the modules you choose",
+    "body": "Each business pays only for the parts it actually needs. You get an exact cost estimate in a short phone call with a RAVAND specialist.",
+    "cta": "Request a cost estimate"
+  },
+  "customers": {
+    "label": "RAVAND customers",
+    "title": "Businesses that run on RAVAND"
+  },
+  "team": {
+    "label": "The RAVAND team",
+    "title": "The people who build and support RAVAND",
+    "storyLabel": "How RAVAND started"
   },
   "product": {
     "workspace": "Demo workspace",
@@ -483,22 +592,22 @@
       ]
     },
     "distribution": {
-      "title": "Revenue composition",
+      "title": "Sales by channel",
       "items": [
         {
-          "label": "Sales",
+          "label": "Wholesale",
           "value": 32
         },
         {
-          "label": "Operations",
+          "label": "Dealers and stores",
           "value": 24
         },
         {
-          "label": "Marketing",
+          "label": "Direct sales",
           "value": 18
         },
         {
-          "label": "Finance",
+          "label": "Online",
           "value": 14
         },
         {
@@ -560,7 +669,353 @@
         }
       ]
     },
-    "sampleNote": "Figures shown are sample data."
+    "sampleNote": "Figures shown are sample data.",
+    "variants": {
+      "manufacturing": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "2,840",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Orders in production",
+            "value": "42",
+            "unit": "orders"
+          },
+          {
+            "label": "Production scrap",
+            "value": "2.8",
+            "unit": "%"
+          },
+          {
+            "label": "On-time delivery",
+            "value": "94",
+            "unit": "%"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by product group",
+          "items": [
+            {
+              "label": "Disposable tableware",
+              "value": 36
+            },
+            {
+              "label": "Industrial packaging",
+              "value": 27
+            },
+            {
+              "label": "Pipes and fittings",
+              "value": 19
+            },
+            {
+              "label": "Custom orders",
+              "value": 11
+            },
+            {
+              "label": "Other",
+              "value": 7
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-3108",
+            "account": "Alborz Distribution",
+            "type": "Sales invoice",
+            "amount": "184,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PRD-0412",
+            "account": "Line 2 — disposable tableware",
+            "type": "Production order",
+            "amount": "96,500,000",
+            "status": "processing"
+          },
+          {
+            "ref": "PO-1187",
+            "account": "Arya Polymer",
+            "type": "Raw material purchase",
+            "amount": "212,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "INV-3104",
+            "account": "Nikan Stores",
+            "type": "Sales invoice",
+            "amount": "67,800,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "GRN-0952",
+            "account": "Raw materials warehouse",
+            "type": "Goods receipt",
+            "amount": "148,000,000",
+            "status": "paid"
+          }
+        ]
+      },
+      "trading": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "4,120",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Shipments in transit",
+            "value": "7",
+            "unit": "shipments"
+          },
+          {
+            "label": "Gross margin",
+            "value": "18.4",
+            "unit": "%"
+          },
+          {
+            "label": "Overdue receivables",
+            "value": "318",
+            "unit": "M Toman"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by product category",
+          "items": [
+            {
+              "label": "Home appliances",
+              "value": 31
+            },
+            {
+              "label": "Spare parts",
+              "value": 26
+            },
+            {
+              "label": "Tools",
+              "value": 21
+            },
+            {
+              "label": "Electrical goods",
+              "value": 14
+            },
+            {
+              "label": "Other",
+              "value": 8
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-5521",
+            "account": "Arya Tejarat Trading",
+            "type": "Wholesale invoice",
+            "amount": "420,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PO-2210",
+            "account": "Setareh Shargh",
+            "type": "Purchase order (import)",
+            "amount": "860,000,000",
+            "status": "processing"
+          },
+          {
+            "ref": "INV-5517",
+            "account": "Sepahan Distribution",
+            "type": "Wholesale invoice",
+            "amount": "235,500,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "GRN-1204",
+            "account": "Central warehouse",
+            "type": "Goods receipt",
+            "amount": "512,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "INV-5519",
+            "account": "Mehr Tools",
+            "type": "Sales invoice",
+            "amount": "98,200,000",
+            "status": "pending"
+          }
+        ]
+      },
+      "services": {
+        "kpis": [
+          {
+            "label": "Revenue this month",
+            "value": "960",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Active projects",
+            "value": "23",
+            "unit": "projects"
+          },
+          {
+            "label": "Billable hours",
+            "value": "1,420",
+            "unit": "hours"
+          },
+          {
+            "label": "Contract renewals",
+            "value": "88",
+            "unit": "%"
+          }
+        ],
+        "distribution": {
+          "title": "Revenue by service type",
+          "items": [
+            {
+              "label": "Support contracts",
+              "value": 38
+            },
+            {
+              "label": "Projects",
+              "value": 29
+            },
+            {
+              "label": "Consulting",
+              "value": 17
+            },
+            {
+              "label": "Training",
+              "value": 10
+            },
+            {
+              "label": "Other",
+              "value": 6
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "INV-0874",
+            "account": "Novin Pharma",
+            "type": "Monthly support invoice",
+            "amount": "64,000,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PRJ-0231",
+            "account": "Kaveh Holding",
+            "type": "Rollout project",
+            "amount": "218,000,000",
+            "status": "processing"
+          },
+          {
+            "ref": "INV-0871",
+            "account": "Arman Clinic",
+            "type": "Consulting invoice",
+            "amount": "38,500,000",
+            "status": "overdue"
+          },
+          {
+            "ref": "QT-0145",
+            "account": "Sepehr Industrial Group",
+            "type": "Quote",
+            "amount": "126,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "INV-0869",
+            "account": "Rahvar Logistics",
+            "type": "Project invoice",
+            "amount": "92,000,000",
+            "status": "paid"
+          }
+        ]
+      },
+      "retail": {
+        "kpis": [
+          {
+            "label": "Sales this month",
+            "value": "3,260",
+            "unit": "M Toman"
+          },
+          {
+            "label": "Receipts",
+            "value": "11,840",
+            "unit": "receipts"
+          },
+          {
+            "label": "Average basket",
+            "value": "275",
+            "unit": "K Toman"
+          },
+          {
+            "label": "Items below reorder",
+            "value": "38",
+            "unit": "items"
+          }
+        ],
+        "distribution": {
+          "title": "Sales by branch",
+          "items": [
+            {
+              "label": "Central branch",
+              "value": 34
+            },
+            {
+              "label": "Chaharbagh branch",
+              "value": 24
+            },
+            {
+              "label": "Nazar branch",
+              "value": 19
+            },
+            {
+              "label": "Online",
+              "value": 15
+            },
+            {
+              "label": "Other",
+              "value": 8
+            }
+          ]
+        },
+        "rows": [
+          {
+            "ref": "POS-48211",
+            "account": "Central branch — till 3",
+            "type": "Daily till close",
+            "amount": "84,200,000",
+            "status": "paid"
+          },
+          {
+            "ref": "PO-3302",
+            "account": "Alborz Distribution",
+            "type": "Purchase order",
+            "amount": "146,000,000",
+            "status": "pending"
+          },
+          {
+            "ref": "TRF-0417",
+            "account": "Central warehouse → Nazar branch",
+            "type": "Branch transfer",
+            "amount": "32,600,000",
+            "status": "processing"
+          },
+          {
+            "ref": "POS-48207",
+            "account": "Chaharbagh branch — till 1",
+            "type": "Daily till close",
+            "amount": "61,900,000",
+            "status": "paid"
+          },
+          {
+            "ref": "INV-2290",
+            "account": "Rahpouyan (corporate customer)",
+            "type": "Credit sales invoice",
+            "amount": "28,400,000",
+            "status": "overdue"
+          }
+        ]
+      }
+    }
   },
   "footer": {
     "description": "RAVAND is a business management platform; its modules are configured around how each organization actually operates.",
@@ -681,7 +1136,7 @@
         "phone": "Phone number",
         "message": "What do you need?",
         "submit": "Send request",
-        "note": "This form isn't connected to a delivery service yet; it will be wired to a form service or CRM before launch (see the technical report)."
+        "note": "Your message goes straight to the RAVAND team; we reply within the next working hour."
       }
     },
     "demo": {
@@ -699,35 +1154,35 @@
       "eyebrow": "Privacy",
       "title": "Privacy Policy",
       "lead": "This explains exactly what data RAVAND collects today, why, and what happens to it — no claims beyond what the system actually does.",
-      "updated": "Last updated: 2026-09-15",
+      "updated": "Last updated: November 12, 2026",
       "sections": [
         {
           "title": "What data is collected",
-          "body": "The only data this site collects is what you type into the Contact form or the Build my RAVAND form: name, company name, mobile number (in place of email), and, on the Contact form, your message. There is no sign-up or login anywhere on the site, and nothing beyond these fields is requested."
+          "body": "This site only collects what you type into one of three forms. The “Build my RAVAND” free-demo form: name, company, mobile number, business model, chosen modules and workflow steps, and number of users. The contact form: name, company, email, phone number and your message. The expert-session form: name, role, company, company size and industry, mobile number, your needs and a preferred meeting time. Each form also carries how you arrived at the site (see “Cookies and browser storage”). There is no visitor sign-in or account."
         },
         {
           "title": "Why it's collected",
-          "body": "To create your private demo environment, respond to your request, and notify the RAVAND team. It is not used for marketing lists or sold to anyone."
+          "body": "To create your private demo workspace, reply to your message, arrange an expert session, and understand which channels and campaigns bring visitors to the site. Your information is never sold or rented to anyone."
         },
         {
           "title": "Where it's stored",
-          "body": "Build my RAVAND submissions (name, company, mobile number, business model, and chosen configuration) are stored in RAVAND's database so your private demo can be created and stay available for the trial period. The access link to that environment is a random token; only its hash is stored, never the token itself. After the trial ends, your request record (not access to the environment) is kept by the RAVAND team for follow-up."
+          "body": "Submissions from all three forms are stored in RAVAND's database and are accessible only to the RAVAND team. The link to your private demo is a random secret of which only a hash is stored, never the secret itself."
         },
         {
-          "title": "Third-party services & analytics",
-          "body": "No third-party analytics, tracking, or advertising service is active on this site today. The code includes a scaffold for event tracking, but it sends no data anywhere until it's wired to a specific, named provider."
+          "title": "Third-party services",
+          "body": "So the team hears about a demo request right away, your name, company and mobile number may be sent to the team through an SMS provider (Kavenegar) or by email. Apart from that, no third-party analytics, tracking or advertising service is active on this site."
         },
         {
-          "title": "Cookies",
-          "body": "This site sets exactly one, strictly necessary cookie: NEXT_LOCALE, which remembers your chosen language (Persian/English) for future visits. No tracking, advertising, or analytics cookie is set."
+          "title": "Cookies and browser storage",
+          "body": "The site sets one essential cookie, NEXT_LOCALE, which only remembers your language. If you arrive through a campaign link or from another site, that source (campaign name, referring site and the first page you saw) is kept in your own browser's storage for up to 30 days and is sent only along with a form you submit. It does not identify you. The dashboard tour also remembers that you closed it until the end of your browser session. No tracking or advertising cookies are set."
         },
         {
           "title": "Retention & deletion requests",
-          "body": "Your demo request stays on file with the RAVAND team as a contact record after the trial ends, but access to the demo environment itself is disabled. To request deletion or ask a question about it, use the Contact form."
+          "body": "Form submissions are kept by the RAVAND team as a record of contact. Access to a private demo workspace ends when the trial period ends, but the request record remains. To have your information deleted, or to ask anything about it, use the contact form."
         },
         {
           "title": "Changes to this policy",
-          "body": "This page will be updated whenever what's described here actually changes — for example, once a form is connected to a real delivery service, or analytics is switched on."
+          "body": "Whenever the way data is collected or used actually changes (for example, if a visitor analytics tool is switched on), this page is updated along with the date at the top."
         }
       ]
     },
@@ -1039,25 +1494,25 @@
         ]
       },
       "composition": {
-        "title": "Revenue composition",
+        "title": "Revenue by sales channel",
         "meta": "September 2026",
-        "center": "1248",
-        "centerLabel": "Million",
+        "center": "1,248",
+        "centerLabel": "M Toman",
         "segments": [
           {
-            "label": "Sales",
+            "label": "Wholesale",
             "value": 32
           },
           {
-            "label": "Operations",
+            "label": "Dealers and stores",
             "value": 24
           },
           {
-            "label": "Marketing",
+            "label": "Direct sales",
             "value": 18
           },
           {
-            "label": "Finance",
+            "label": "Online",
             "value": 14
           },
           {
@@ -2146,6 +2601,43 @@
       }
     }
   },
+  "heroMotion": {
+    "toast": "New invoice posted — inventory and finance updated",
+    "newRow": {
+      "ref": "INV-2482",
+      "account": "Kaveh Holding",
+      "amount": "84,000,000",
+      "status": "paid"
+    },
+    "label": "Live RAVAND dashboard: a new invoice is posted and revenue and records update automatically"
+  },
+  "platformMotion": {
+    "label": "Live view: how one sales order is recorded across every module",
+    "caption": "One event, entered once — every department updates at the same moment.",
+    "waiting": "Waiting for event",
+    "steps": [
+      {
+        "key": "sales",
+        "event": "Sales order created",
+        "meta": "Customer: Alborz Distribution"
+      },
+      {
+        "key": "inventory",
+        "event": "24 cases left the warehouse",
+        "meta": "New stock: 316 cases"
+      },
+      {
+        "key": "finance",
+        "event": "Invoice and journal posted",
+        "meta": "84M Toman"
+      },
+      {
+        "key": "analytics",
+        "event": "Dashboard updated",
+        "meta": "Today’s sales: 396M Toman"
+      }
+    ]
+  },
   "sandbox": {
     "units": {
       "million": "million Toman",
@@ -2724,114 +3216,6 @@
         "title": "We'll be in touch shortly",
         "body": "A RAVAND expert will call within the next working hour to confirm your session. Meanwhile, you can take the guided dashboard tour.",
         "tour": "Take the guided tour"
-      }
-    }
-  },
-  "team": {
-    "title": "Sales team panel",
-    "logout": "Sign out",
-    "backToSite": "Back to site",
-    "footnote": "This page is for the RAVAND team only.",
-    "login": {
-      "title": "RAVAND team sign-in",
-      "body": "Enter the team panel password.",
-      "password": "Password",
-      "submit": "Sign in",
-      "errors": {
-        "disabled": "The team panel is disabled (TEAM_PANEL_PASSWORD is not set).",
-        "wrong": "That password isn't right."
-      }
-    },
-    "stats": {
-      "leads": "All demos",
-      "active": "Active demos",
-      "engaged": "Demos in use",
-      "engagedHint": "Did at least one thing in the sandbox",
-      "requests": "Open session requests",
-      "requestsHint": "New or being followed up"
-    },
-    "tabs": {
-      "leads": "Demos",
-      "requests": "Session requests"
-    },
-    "business": {
-      "manufacturing": "Manufacturing",
-      "trading": "Trading",
-      "services": "Services",
-      "retail": "Retail"
-    },
-    "industries": {
-      "manufacturing": "Manufacturing",
-      "trading": "Trading & distribution",
-      "retail": "Retail",
-      "services": "Services",
-      "healthcare": "Healthcare",
-      "fitness": "Fitness",
-      "other": "Other"
-    },
-    "leads": {
-      "columns": {
-        "lead": "Customer",
-        "business": "Business type",
-        "trial": "Trial",
-        "usage": "Usage",
-        "actions": "Actions"
-      },
-      "empty": "No demos created yet.",
-      "users": "{count} users",
-      "state": {
-        "active": "Active",
-        "expired": "Expired",
-        "disabled": "Disabled"
-      },
-      "daysLeft": "{days} days left",
-      "created": "Created {date}",
-      "visits": "{count} visits",
-      "actionsCount": "{count} actions · {invoices} invoices",
-      "lastSeen": "Last seen {date}",
-      "neverOpened": "Not opened yet",
-      "extend": "Extend 7 days",
-      "enable": "Enable",
-      "disable": "Disable",
-      "note": "Note",
-      "notePlaceholder": "Team note…",
-      "save": "Save",
-      "errors": {
-        "session": "Session expired — sign in again.",
-        "invalid": "Invalid request."
-      }
-    },
-    "requests": {
-      "columns": {
-        "who": "Requested by",
-        "org": "Organization",
-        "when": "Preferred time",
-        "needs": "Need",
-        "followUp": "Follow-up"
-      },
-      "empty": "No requests yet.",
-      "hasDemo": "Has an active demo",
-      "staff": "{size} people",
-      "statuses": {
-        "new": "New",
-        "contacted": "Contacted",
-        "scheduled": "Scheduled",
-        "done": "Held",
-        "cancelled": "Cancelled"
-      },
-      "slots": {
-        "morning": "Morning (9–12)",
-        "midday": "Midday (12–15)",
-        "afternoon": "Afternoon (15–18)"
-      },
-      "status": "Status",
-      "note": "Note",
-      "notePlaceholder": "Team note…",
-      "save": "Save",
-      "saved": "Saved.",
-      "errors": {
-        "session": "Session expired — sign in again.",
-        "invalid": "Invalid request."
       }
     }
   }

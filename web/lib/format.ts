@@ -22,6 +22,14 @@ export function formatMillions(toman: number, locale: string): string {
   return new Intl.NumberFormat(locale === "fa" ? "fa-IR" : "en-US", { maximumFractionDigits: digits }).format(m);
 }
 
+/** Share of a whole, given as 0–100: 32 → "۳۲٪" in fa, "32%" in en. */
+export function formatPercent(value: number, locale: string): string {
+  return new Intl.NumberFormat(locale === "fa" ? "fa-IR" : "en-US", {
+    style: "percent",
+    maximumFractionDigits: 1,
+  }).format(value / 100);
+}
+
 /** Signed percent for deltas: 12.5 → "+۱۲٫۵٪". */
 export function formatPercentChange(pct: number, locale: string): string {
   const s = new Intl.NumberFormat(locale === "fa" ? "fa-IR" : "en-US", {

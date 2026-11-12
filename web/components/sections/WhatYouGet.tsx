@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
 import { Reveal } from "@/components/system/Reveal";
+import { PricingNote } from "@/components/sections/PricingNote";
 
 type Item = { title: string; description: string };
 
@@ -38,6 +39,9 @@ export function WhatYouGet() {
             ))}
           </div>
         </Reveal>
+
+        {/* The buyer's next question after "what do I get" is "how much". */}
+        <PricingNote action="contact" className="mt-14 max-w-2xl md:mt-16" />
       </div>
     </Zone>
   );

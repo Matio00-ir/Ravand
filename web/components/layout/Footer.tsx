@@ -1,25 +1,60 @@
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, getPathname } from "@/i18n/navigation";
+import type { Pathname } from "@/i18n/routing";
 import { Logo } from "@/components/ui/Logo";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { ContactDetails } from "@/components/sections/ContactDetails";
+import { Enamad } from "@/components/system/Enamad";
 
-const columnLinks: Record<string, readonly string[]> = {
-  products: ["/products", "/products", "/products", "/products", "/products", "/products"],
-  solutions: ["/solutions", "/solutions", "/solutions"],
-  industries: [
-    "/industries/manufacturing",
-    "/industries/trading",
-    "/industries/retail",
-    "/industries/services",
-    "/industries/fitness",
-    "/industries/healthcare",
+/**
+ * One destination per footer item, in the same order as the item labels
+ * in messages (footer.columns.*.items). `hash` jumps to that module card
+ * or tier on the page, so six product links don't all land on the same
+ * spot. Keep the two lists the same length — a missing entry used to
+ * fall back to the home page silently.
+ */
+type FooterLink = { href: Pathname; hash?: string };
+
+const columnLinks: Record<string, readonly FooterLink[]> = {
+  products: [
+    { href: "/products", hash: "module-erp" },
+    { href: "/products", hash: "module-finance" },
+    { href: "/products", hash: "module-crm" },
+    { href: "/products", hash: "module-sales" },
+    { href: "/products", hash: "module-inventory" },
+    { href: "/products", hash: "module-workflow" },
   ],
-  company: ["/company/about", "/company/contact", "/demo"],
+  solutions: [
+    { href: "/solutions", hash: "tier-1" },
+    { href: "/solutions", hash: "tier-2" },
+    { href: "/solutions", hash: "tier-3" },
+  ],
+  industries: [
+    { href: "/industries/manufacturing" },
+    { href: "/industries/trading" },
+    { href: "/industries/retail" },
+    { href: "/industries/services" },
+    { href: "/industries/fitness" },
+    { href: "/industries/healthcare" },
+  ],
+  company: [
+    { href: "/company/about" },
+    { href: "/company/contact" },
+    { href: "/demo" },
+    { href: "/dashboard" },
+  ],
 };
+
+const linkClass =
+  "text-[13px] text-ink-inverse-muted transition-colors duration-[var(--t-base)] hover:text-offwhite";
 
 export function Footer() {
   const t = useTranslations("footer");
-  const year = new Date().getFullYear();
+  const locale = useLocale();
+  // fa-IR formats in the Solar Hijri calendar with Persian digits (۱۴۰۵).
+  const year = new Intl.DateTimeFormat(locale === "fa" ? "fa-IR" : "en-US", {
+    year: "numeric",
+  }).format(new Date());
   const columns = ["products", "solutions", "industries", "company"] as const;
 
   return (
@@ -30,6 +65,8 @@ export function Footer() {
           <p className="t-body mt-6 max-w-xs text-ink-inverse-muted">
             {t("description")}
           </p>
+          <ContactDetails variant="compact" />
+          <Enamad className="mt-6" />
         </div>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:col-span-7 lg:col-start-6">
@@ -40,16 +77,28 @@ export function Footer() {
               <div key={col}>
                 <h3 className="t-label text-offwhite">{data.title}</h3>
                 <ul className="mt-5 space-y-3">
-                  {data.items.map((item, i) => (
-                    <li key={item}>
-                      <Link
-                        href={(hrefs[i] ?? "/") as never}
-                        className="text-[13px] text-ink-inverse-muted transition-colors duration-[var(--t-base)] hover:text-offwhite"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
+                  {data.items.map((item, i) => {
+                    const link = hrefs[i];
+                    if (!link) return null;
+                    return (
+                      <li key={item}>
+                        {link.hash ? (
+                          // next-intl's Link has no hash option, so build the
+                          // localized path and append the anchor ourselves.
+                          <a
+                            href={`${getPathname({ href: link.href, locale })}#${link.hash}`}
+                            className={linkClass}
+                          >
+                            {item}
+                          </a>
+                        ) : (
+                          <Link href={link.href as never} className={linkClass}>
+                            {item}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             );
@@ -60,7 +109,7 @@ export function Footer() {
       <div className="border-t border-line-dark">
         <div className="shell flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
           <p className="t-small text-steel">
-            © {year} RAVAND · {t("rights")}
+            © {year} {locale === "fa" ? "روند" : "RAVAND"} · {t("rights")}
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="t-small text-steel hover:text-silver">

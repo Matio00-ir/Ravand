@@ -1,0 +1,32 @@
+{
+  "name": "ravand-reels",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "tts": "python scripts/tts.py",
+    "align": "node scripts/align.mjs",
+    "sfx": "python scripts/sfx.py",
+    "footage": "node scripts/record-footage.mjs",
+    "srt": "node scripts/srt.mjs",
+    "stills": "node scripts/stills.mjs",
+    "render": "node scripts/render.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/google-fonts": "4.0.532",
+    "@remotion/install-whisper-cpp": "4.0.532",
+    "@remotion/media": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "playwright-core": "^1.55.0",
+    "typescript": "^5"
+  }
+}

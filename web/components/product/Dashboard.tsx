@@ -1,8 +1,9 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
 import { LogoMark } from "@/components/ui/Logo";
 import { AreaChart } from "@/components/product/Chart";
 import { cn } from "@/lib/utils";
+import { formatPercent } from "@/lib/format";
 
 /**
  * The RAVAND product surface, in the brand's own system.
@@ -26,6 +27,28 @@ export const ALL_MODULES: ModuleKey[] = [
 const SERIES = [42, 48, 45, 56, 52, 61, 58, 69, 66, 78, 74, 86];
 const COMPARE = [38, 41, 43, 44, 48, 49, 53, 55, 58, 60, 63, 66];
 
+/**
+ * 12-month curves (Farvardin → Esfand) per business model, so switching
+ * the model changes the shape, not just the labels: steady growth for a
+ * manufacturer, lumpy shipment-driven months for a trader, a flat recurring
+ * base for services, and the pre-Nowruz Esfand peak for retail.
+ */
+const CURVES: Record<string, { series: number[]; compare: number[] }> = {
+  manufacturing: { series: SERIES, compare: COMPARE },
+  trading: {
+    series: [30, 52, 38, 61, 44, 70, 49, 58, 77, 55, 82, 90],
+    compare: [28, 40, 35, 47, 40, 52, 44, 50, 58, 50, 63, 68],
+  },
+  services: {
+    series: [50, 53, 55, 54, 58, 60, 61, 63, 66, 67, 70, 72],
+    compare: [44, 46, 47, 48, 50, 51, 53, 54, 56, 57, 59, 60],
+  },
+  retail: {
+    series: [70, 52, 50, 55, 57, 54, 58, 60, 62, 66, 72, 95],
+    compare: [62, 47, 46, 49, 50, 49, 52, 54, 55, 58, 63, 82],
+  },
+};
+
 const statusColor: Record<string, string> = {
   paid: "bg-success",
   pending: "bg-warning",
@@ -33,7 +56,12 @@ const statusColor: Record<string, string> = {
   overdue: "bg-error",
 };
 
-type Kpi = { label: string; value: string; unit: string; delta: string };
+type Kpi = { label: string; value: string; unit: string; delta?: string };
+type Variant = {
+  kpis: Kpi[];
+  distribution: { title: string; items: Dist[] };
+  rows: Row[];
+};
 type Row = {
   ref: string;
   account: string;
@@ -46,18 +74,29 @@ type Dist = { label: string; value: number };
 export function Dashboard({
   modules = ALL_MODULES,
   active = "erp",
+  variant,
   compact = false,
   className,
 }: {
   modules?: ModuleKey[];
   active?: ModuleKey;
+  /** Business model id (manufacturing, trading, services, retail): its
+   *  own sample figures from product.variants. Omit for the general set. */
+  variant?: string;
   compact?: boolean;
   className?: string;
 }) {
   const t = useTranslations("product");
-  const kpis = t.raw("kpis") as Kpi[];
-  const rows = t.raw("table.rows") as Row[];
-  const dist = t.raw("distribution.items") as Dist[];
+  const locale = useLocale();
+  const v =
+    variant && t.has(`variants.${variant}`)
+      ? (t.raw(`variants.${variant}`) as Variant)
+      : null;
+  const kpis = v?.kpis ?? (t.raw("kpis") as Kpi[]);
+  const rows = v?.rows ?? (t.raw("table.rows") as Row[]);
+  const dist = v?.distribution.items ?? (t.raw("distribution.items") as Dist[]);
+  const distTitle = v?.distribution.title ?? t("distribution.title");
+  const curve = (variant && CURVES[variant]) || { series: SERIES, compare: COMPARE };
   const months = t.raw("chart.months") as string[];
 
   const shownRows = compact ? rows.slice(0, 3) : rows;
@@ -167,20 +206,20 @@ export function Dashboard({
                 </span>
               </div>
               <div className={cn("mt-3 text-silver", compact ? "h-36" : "h-44")}>
-                <AreaChart series={SERIES} compare={COMPARE} labels={months} />
+                <AreaChart series={curve.series} compare={curve.compare} labels={months} />
               </div>
             </div>
 
             {!compact ? (
               <div className="border-b border-line-dark px-4 py-4 lg:border-b-0">
-                <p className="t-label text-steel">{t("distribution.title")}</p>
+                <p className="t-label text-steel">{distTitle}</p>
                 <ul className="mt-4 space-y-3">
                   {dist.map((item, i) => (
                     <li key={item.label}>
                       <div className="flex items-baseline justify-between gap-3">
                         <span className="text-[12.5px] text-silver">{item.label}</span>
                         <span className="t-num text-[12.5px] text-steel">
-                          {item.value}%
+                          {formatPercent(item.value, locale)}
                         </span>
                       </div>
                       <div className="mt-1.5 h-1 w-full bg-white/[0.06]">

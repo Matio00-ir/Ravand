@@ -1,8 +1,10 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useMessages, useTranslations } from "next-intl";
 import { Zone, SectionHead } from "@/components/system/Zone";
 import { Reveal } from "@/components/system/Reveal";
 import { ModuleIcon, type ModuleKey } from "@/components/system/ModuleIcon";
 import { cn } from "@/lib/utils";
+import { PlatformMotionPlayer } from "@/components/product/PlatformMotionPlayer";
+import { platformMotionProps } from "@/remotion/props";
 
 type Module = { key: ModuleKey; code: string; name: string; description: string };
 
@@ -10,37 +12,53 @@ type Module = { key: ModuleKey; code: string; name: string; description: string 
  * The module set as an even matrix — one hairline lattice, four columns,
  * identical cells. Ordered by construction rather than composed by eye.
  */
-export function Platform() {
+export function Platform({ cards = true }: { cards?: boolean }) {
   const t = useTranslations("platform");
   const modules = t.raw("modules") as Module[];
+  const locale = useLocale() === "en" ? "en" : "fa";
+  const messages = useMessages();
+  const motionLabel = (messages.platformMotion as { label: string }).label;
 
   return (
     <Zone tone="light" id="platform">
       <div className="shell zone">
         <SectionHead label={t("label")} title={t("title")} lead={t("lead")} />
 
+        {/* one order, flowing through the modules it touches */}
         <Reveal className="mt-14 md:mt-16">
+          <PlatformMotionPlayer
+            label={motionLabel}
+            wide={platformMotionProps(locale, "wide", messages)}
+            tall={platformMotionProps(locale, "tall", messages)}
+          />
+        </Reveal>
+
+        {/* The module register: kept on /products (footer links land on
+            its cards); the home page shows real screens instead. */}
+        {cards ? (
+        <Reveal className="mt-12 md:mt-14">
           <div className="grid border-s border-t border-line sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((m) => (
               <div
                 key={m.key}
+                id={`module-${m.key}`}
                 className={cn(
-                  "group border-b border-e border-line bg-raised p-6 transition-colors duration-[var(--t-base)] hover:bg-page"
+                  "group scroll-mt-24 border-b border-e border-line bg-raised p-6 transition-colors duration-[var(--t-base)] hover:bg-page"
                 )}
               >
-                <div className="flex items-center justify-between">
-                  <ModuleIcon
-                    name={m.key}
-                    className="h-[18px] w-[18px] text-steel transition-colors duration-[var(--t-base)] group-hover:text-ink"
-                  />
-                  <span className="t-code text-steel">{m.code}</span>
-                </div>
+                {/* No module code (ERP, FIN…) on the card: it means nothing
+                    to a Persian-speaking owner and reads as jargon. */}
+                <ModuleIcon
+                  name={m.key}
+                  className="h-[18px] w-[18px] text-steel transition-colors duration-[var(--t-base)] group-hover:text-ink"
+                />
                 <h3 className="t-h4 mt-5 text-ink">{m.name}</h3>
                 <p className="t-body mt-2 text-ink-muted">{m.description}</p>
               </div>
             ))}
           </div>
         </Reveal>
+        ) : null}
       </div>
     </Zone>
   );
