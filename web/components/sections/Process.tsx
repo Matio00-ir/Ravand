@@ -27,10 +27,17 @@ export function Process() {
               <span className="t-index text-steel md:col-span-1">{step.index}</span>
               <h3 className="t-h4 text-ink md:col-span-3">{step.title}</h3>
               <p className="t-body text-ink-muted md:col-span-5">{step.description}</p>
-              <p className="t-small text-ink md:col-span-3 md:text-end">
-                <span className="t-label me-2 text-steel">{t("outputLabel")}</span>
-                {step.output}
-              </p>
+              {/* Label on its own line, value below — run together on one
+                  line they read as a single phrase ("خروجی پیکربندی پایه"). */}
+              <div className="md:col-span-3 md:text-end">
+                <p className="t-label text-steel">{t("outputLabel")}</p>
+                {/* font-semibold sits on the span: .t-small is unlayered CSS
+                    and sets font-weight itself, so it beats Tailwind's
+                    layered utilities on the same element. */}
+                <p className="t-small mt-1 text-ink">
+                  <span className="font-semibold">{step.output}</span>
+                </p>
+              </div>
             </Reveal>
           ))}
         </ol>
